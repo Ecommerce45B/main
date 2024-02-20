@@ -2,7 +2,6 @@ const express = require("express");
 const morgan = require("morgan");
 const server = express();
 const routes = require("./routes/index.js");
-const { createUserViews } = require("../src/views/allUsersView.js");
 
 require("./config/bd.js");
 
@@ -25,11 +24,6 @@ server.use((req, res, next) => {
 
 //ROUTES
 server.use("/", routes);
-
-//VIEWS tables
-createUserViews()
-.then(()=>{})
-.catch(error=>{console.log("Error while creating view: ", error);})
 
 // Error catching endware.
 server.use((err, req, res, next) => {

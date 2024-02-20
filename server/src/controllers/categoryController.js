@@ -1,77 +1,64 @@
-const { Category, Products } = require('../config/bd');
+const { Categorias } = require('../config/bd');
 
-// CREATE A CATEGORY
-const createCategory = async (name) => {
+// VER CATEGORIAS
+const viewCategory = async () => {
     try{
-        const newCategory = await Category.create({
-            name,
-            isActive: true,
-        })
+        const listCategory = await Categorias.findAll()
+        return [...listCategory]
+    } catch (error){
+        return error.message
+    }
+}
 
+// CREAR CATEGORIA
+const createCategory = async (nombre, descripcion) => {
+    try{
+        const newCategory = await Categorias.create({
+            nombre,
+            descripcion
+        })
         return newCategory
     } catch (error){
         return error.message
     }
 }
 
-
-// Get categories and view all products
-
-const viewCategories = async () => {
-    try{
-        const categories = await Category.findAll(({
-            include: [{
-              model: Products,
-              as: 'products',
-              attributes: ['id','name']
-            }],
-          }));
-        
-        const categoriesMap = categories.map((category) => {
-            return {
-                id: category.id,
-                name: category.name,
-                isActive: category.isActive,
-                products: category.products.map((product) => {
-                    return {
-                        id: product.id,
-                        name: product.name
-                    }
-                })
-            }
-        })
-
-        return categoriesMap
-    } catch (error) {
-        return error.message
-    }
-}
-
-
-
-// Delete category if this don't have movemenents, if it have it, put unavailable
-
-
-
-// Update category
-
-const updateCategory = async (categoryId, name) => {
+//ACTUALIZAR CATEGORIA
+const updateCategory = async (idCategoria, nombre, descripcion) => {
     try {
-        const existingCategory= await Category.findByPk(categoryId);
+        const existingCategory= await Categorias.findByPk(idCategoria);
 
         if(!existingCategory) {
-            throw new Error ('Category doesnt exist')
+            throw new Error ('Categoria inexistente')
         }
 
-        const newNameCategory= await existingCategory.update({name})
-        return newNameCategory
+        const upCategory = await Categorias.update({ nombre: nombre, descripcion: descripcion }, { where: { id: idCategoria } });
+        return upCategory
     } catch(error) {
         return error.message
     }
 }
 
+//BORRAR CATEGORIA
+const deleteCategory = async (id, sw) => {
+    //si sw es true se borra el registro de la tabla, si es false se desactiva el registro y no se elimina
+    const data = await Categorias.findAll({ where: { id: id } })
+    if (data.length === 0) {
+        throw new Error(`El ID de la Categoria no existe ${id}`);
+    }
+    else {
+        if (sw === 'true') {
+            const category = await Categorias.destroy({ where: { id: id } })
+        }
+        else {
+            const category = await Categorias.update({ estado: sw }, { where: { id: id } })
+        }
+    }
+}
+
 module.exports = {
+    viewCategory,
     createCategory,
-    viewCategories,
-    updateCategory
+    updateCategory,
+    deleteCategory
 }
