@@ -44,36 +44,24 @@ const {
   Usuarios,
   Roles,
   Pedidos,
-  modelPedidoProducto,
+  PedidoProducto,
 } = sequelize.models;
 
-//Category has many products.
-Category.hasMany(Products, { foreignKey: "idCategory", as: "products" });
-Products.belongsTo(Category, { foreignKey: "idCategory", as: "products" });
+//Categorias tienen muchos productos
+Categorias.hasMany(Productos, { foreignKey: "idCategoria", as: "productos" });
+Productos.belongsTo(Categorias, { foreignKey: "idCategoria", as: "productos" });
 
-// User has one car and that car belongs to one specific user
-User.hasOne(Car, { foreignKey: "idUser", as: "cars" });
-Car.belongsTo(User, { foreignKey: "idUser", as: "cars" });
+//Marcas tienen muchos productos
+Marcas.hasMany(Productos, { foreignKey: "idMarca", as: "productos" });
+Productos.belongsTo(Marcas, { foreignKey: "idMarca", as: "productos" });
 
-// User has a favorite list
-User.hasOne(Favorite, { foreignKey: "userId", as: "favorite_list" });
-Favorite.belongsTo(User, { foreignKey: "userId", as: "favorite_list" });
+//Fabricantes tienen muchos productos
+Fabricantes.hasMany(Productos, { foreignKey: "idFabricante", as: "productos" });
+Productos.belongsTo(Fabricantes, { foreignKey: "idFabricante", as: "productos" });
 
-// One favorite list can have many products and products can to be in many favorite list
-Favorite.belongsToMany(Products, { through: "favoriteProducts" });
-Products.belongsToMany(Favorite, { through: "favoriteProducts" });
-
-// Every car can have so much products and products can to be in every car created
-Car.belongsToMany(Products, { through: "CartProduct", as: "shoppingCar" });
-Products.belongsToMany(Car, { through: "CartProduct", as: "shoppingCar" });
-
-// User has many orders
-User.hasMany(Order, { foreignKey: "idUserOrder", as: "ordersList" });
-Order.belongsTo(User, { foreignKey: "idUserOrder", as: "ordersList" });
-
-//1:N -> User has many Location
-User.hasMany(Location, { foreignKey: "idUser", as: "locations" });
-Location.belongsTo(User, { foreignKey: "idUser", as: "locations" });
+//Productos tienen muchos imagenes
+Productos.hasMany(Imagenes, { foreignKey: "idProducto", as: "imagenes" });
+Imagenes.belongsTo(Productos, { foreignKey: "idProducto", as: "imagenes" });
 
 module.exports = {
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');
