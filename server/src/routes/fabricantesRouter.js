@@ -1,11 +1,11 @@
 const { Router } = require("express");
 const { getFabricantesHandler, newFabricanteHandler, updateFabricanteHandler, deleteFabricanteHandler } = require('../handlers/fabricantesHandler');
 
-const router = Router();
+const fabRouter = Router();
 
-router.use("/"      , getFabricantesHandler);
-router.use("/new"   , newFabricanteHandler);
-router.use("/change", updateFabricanteHandler);
-router.use("/delete", deleteFabricanteHandler);
+fabRouter.get("/"         , getFabricantesHandler);
+fabRouter.post("/new"     , newFabricanteHandler);
+fabRouter.put("/change"   , updateFabricanteHandler);
+fabRouter.delete("/delete", deleteFabricanteHandler);
 
-module.exports = router;
+module.exports = fabRouter;

@@ -57,7 +57,6 @@ module.exports = (sequelize) => {
   },
     IdRol: {
       type: DataTypes.INTEGER,
-      defaultValue: false,
     },
   });
 };

@@ -46,7 +46,7 @@ const deleteMarcaHandler= async (req, res) => {
     }
 }
 
-export default {
+module.exports = {
     getMarcasHandler,
     newMarcaHandler,
     updateMarcaHandler,

@@ -1,11 +1,11 @@
 const { Router } = require("express");
 const { getMarcasHandler, newMarcaHandler, updateMarcaHandler, deleteMarcaHandler } = require('../handlers/marcasHandler');
 
-const router = Router();
+const marcasRouter = Router();
 
-router.use("/"      , getMarcasHandler);
-router.use("/new"   , newMarcaHandler);
-router.use("/change", updateMarcaHandler);
-router.use("/delete", deleteMarcaHandler);
+marcasRouter.get("/"         , getMarcasHandler);
+marcasRouter.post("/new"     , newMarcaHandler);
+marcasRouter.put("/change"   , updateMarcaHandler);
+marcasRouter.delete("/delete", deleteMarcaHandler);
 
-module.exports = router;
+module.exports = marcasRouter;
