@@ -1,9 +1,8 @@
-const { viewCategory, createCategory, updateCategory, deleteCategory } = require('../controllers/categoryController');
+const { viewMarcas, createMarca, updateMarca, deleteMarca } = require('../controllers/marcasController');
 
-// GET
-const getCategoryHandler = async (req, res) => {
+const getMarcasHandler = async (req, res) => {
     try {
-        const response = await viewCategory()
+        const response = await viewMarcas()
         res.status(200).json(response)
     }
     catch (error) {
@@ -12,11 +11,11 @@ const getCategoryHandler = async (req, res) => {
 }
 
 // POST 
-const newCategoryHandler= async (req, res) => {
+const newMarcaHandler= async (req, res) => {
     const { nombre, descripcion } = req.body;
     try {
-        const newCategory = await createCategory(nombre, descripcion)
-        res.status(200).json(newCategory)
+        const newMarca = await createMarca(nombre, descripcion)
+        res.status(200).json(newMarca)
     } catch (error) {
         // console.log(error);
         res.status(400).send(`No se pudo crear el registro de la categoria ${nombre} ${descripcion}`)
@@ -24,11 +23,11 @@ const newCategoryHandler= async (req, res) => {
 }
 
 // UPDATE 
-const updateCategoryHandler= async (req, res) => {
+const updateMarcaHandler= async (req, res) => {
     const { id, nombre, descripcion, estado } = req.body;
     try {
-        const newCategory = await updateCategory(id, nombre, descripcion, estado)
-        res.status(200).json(newCategory)
+        const newMarca = await updateMarca(id, nombre, descripcion, estado)
+        res.status(200).json(newMarca)
     } catch (error) {
         // console.log(error);
         res.status(400).send(`No se pudo actualizar la categoria ${nombre} ${descripcion}`)
@@ -36,11 +35,11 @@ const updateCategoryHandler= async (req, res) => {
 }
 
 // DELETE 
-const deleteCategoryHandler= async (req, res) => {
+const deleteMarcaHandler= async (req, res) => {
     const { id, sw } = req.body;
     try {
-        const delCategory = await deleteCategory(id, sw)
-        res.status(200).json(delCategory)
+        const delMarca = await deleteMarca(id, sw)
+        res.status(200).json(delMarca)
     } catch (error) {
         // console.log(error);
         res.status(400).send(`No se pudo borrar la categoria con id ${id}`)
@@ -48,8 +47,8 @@ const deleteCategoryHandler= async (req, res) => {
 }
 
 module.exports = {
-    getCategoryHandler,
-    newCategoryHandler,
-    updateCategoryHandler,
-    deleteCategoryHandler
+    getMarcasHandler,
+    newMarcaHandler,
+    updateMarcaHandler,
+    deleteMarcaHandler
 }

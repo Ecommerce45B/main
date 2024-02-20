@@ -1,29 +1,20 @@
 const {
     getAllProducts,
     getProductsById,
-    getProductsByCodigo,
+    getProductsByName,
     postNewProducts,
     changeProducts,
     deleteProducts,
-    getProductsByName,
     changeProductStock
 } = require('../controllers/productsController');
 
 const getProductsHandler = async (req, res) => {
-    const { code } = req.query
-    // console.log('codigo--->', code)
     try {
-        if (code) {
-            const getProductByCodigo = await getProductsByCodigo(code)
-            res.status(200).json(getProductByCodigo)
-        }
-        else {
-            const response = await getAllProducts()
-            res.status(200).json(response)
-        }
+        const response = await getAllProducts()
+        res.status(200).json(response)
     }
     catch (error) {
-        res.status(400).send(`No se pudo recuperar información del producto ${codigo}`);
+        res.status(400).send(`No se pudo recuperar información de los productos`);
     }
 }
 const getProductsDetailHandler = async (req, res) => {
@@ -39,9 +30,33 @@ const getProductsDetailHandler = async (req, res) => {
 }
 
 const postNewProductHandler = async (req, res) => {
-    const { code, name, description, size, color, material, weight, image, cost, price, preference, state, stock, min, idCategory } = req.body;
+    const { nombre,
+        descripcion,
+        especificaciones,
+        nroserie,
+        nromac,
+        precio,
+        stock,
+        minimo,
+        preferencia,
+        estado,
+        idCategoria,
+        idMarca,
+        idFabricante } = req.body;
     try {
-        const newProduct = await postNewProducts(code, name, description, size, color, material, weight, image, cost, price, preference, state, stock, min, quantity = 1, idCategory)
+        const newProduct = await postNewProducts(nombre,
+            descripcion,
+            especificaciones,
+            nroserie,
+            nromac,
+            precio,
+            stock,
+            minimo,
+            preferencia,
+            estado,
+            idCategoria,
+            idMarca,
+            idFabricante)
         res.status(200).json(newProduct)
     } catch (error) {
         // console.log(error);
@@ -50,11 +65,35 @@ const postNewProductHandler = async (req, res) => {
 }
 
 const changeProductHandler = async (req, res) => {
-    const { id } = req.params; 
-
-    const { code, name, description, size, color, material, weight, image, cost, price, preference, state, stock, quantity, idCategory } = req.body;
+    const { 
+        id,
+        nombre,
+        descripcion,
+        especificaciones,
+        nroserie,
+        nromac,
+        precio,
+        stock,
+        minimo,
+        preferencia,
+        estado,
+        idCategoria,
+        idMarca,
+        idFabricante } = req.body;
     try {
-        const productUpdate = await changeProducts({ id, code, name, description, size, color, material, weight, image, cost, price, preference, state, stock, quantity, idCategory });
+        const productUpdate = await changeProducts({ nombre,
+            descripcion,
+            especificaciones,
+            nroserie,
+            nromac,
+            precio,
+            stock,
+            minimo,
+            preferencia,
+            estado,
+            idCategoria,
+            idMarca,
+            idFabricante});
         res.status(200).json(productUpdate);
     } catch (error) {
         res.status(400).json({ error: error.message });
@@ -76,9 +115,8 @@ const deleteProductHandler = async (req, res) => {
 
 const getProductsByNameHandler = async (req, res) => {
     try {
-        const { name } = req.query;
-        const productsByName = await getProductsByName(name);
-
+        const { nombre } = req.query;
+        const productsByName = await getProductsByName(nombre);
         res.status(200).json(productsByName);
     } catch (error) {
         res.status(404).json({ error: error.message });
@@ -86,10 +124,9 @@ const getProductsByNameHandler = async (req, res) => {
     }
 };
 
-const changeProductStockPatchHandler = async (req, res) => {
-    const { id } = req.params;
+const changeProductStockHandler = async (req, res) => {
   
-    const { stock } = req.body;
+    const { id, stock } = req.body;
   
     try {
       const productUpdate = await changeProductStock({ id, stock });
@@ -108,5 +145,5 @@ module.exports = {
     deleteProductHandler,
     getProductsByNameHandler,
     changeProductHandler,
-    changeProductStockPatchHandler
+    changeProductStockHandler
 }
