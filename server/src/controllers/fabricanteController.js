@@ -1,5 +1,14 @@
 const { Fabricantes } = require('../config/bd');
 
+// VER FABRICANTES
+const viewFabricantes = async () => {
+    try{
+        const listFabricantes = await Fabricantes.findAll()
+        return [...listFabricantes]
+    } catch (error){
+        return error.message
+    }
+}
 //CREAR FABRICANTE
 const createFabricante = async (nombre, descripcion) => {
     try{
@@ -34,7 +43,7 @@ const deleteFabricante = async (id, sw) => {
     //si sw es true se borra el registro de la tabla, si es false se desactiva el registro y no se elimina
     const data = await Fabricantes.findAll({ where: { id: id } })
     if (data.length === 0) {
-        throw new Error(`El ID del producto no existe ${id}`);
+        throw new Error(`El ID del Fabricante no existe ${id}`);
     }
     else {
         if (sw === 'true') {
@@ -47,6 +56,7 @@ const deleteFabricante = async (id, sw) => {
 }
 
 module.exports = {
+    viewFabricantes,
     createFabricante,
     updateFabricante,
     deleteFabricante

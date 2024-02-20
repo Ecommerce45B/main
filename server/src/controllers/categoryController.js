@@ -1,5 +1,15 @@
 const { Categorias } = require('../config/bd');
 
+// VER CATEGORIAS
+const viewCategory = async () => {
+    try{
+        const listCategory = await Categorias.findAll()
+        return [...listCategory]
+    } catch (error){
+        return error.message
+    }
+}
+
 // CREAR CATEGORIA
 const createCategory = async (nombre, descripcion) => {
     try{
@@ -47,6 +57,7 @@ const deleteCategory = async (id, sw) => {
 }
 
 module.exports = {
+    viewCategory,
     createCategory,
     updateCategory,
     deleteCategory

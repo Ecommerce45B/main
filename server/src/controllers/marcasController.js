@@ -1,7 +1,17 @@
 const { Marcas } = require('../config/bd');
 
+// VER MARCAS
+const viewMarcas = async () => {
+    try{
+        const listMarcas = await Marcas.findAll()
+        return [...listMarcas]
+    } catch (error){
+        return error.message
+    }
+}
+
 // CREAR MARCA
-const createMarcas = async (nombre, descripcion) => {
+const createMarca = async (nombre, descripcion) => {
     try{
         const newMarca = await Marcas.create({
             nombre,
@@ -14,15 +24,15 @@ const createMarcas = async (nombre, descripcion) => {
 }
 
 //ACTUALIZAR MARCA
-const updateMarcas = async (idMarca, nombre, descripcion) => {
+const updateMarca = async (id, nombre, descripcion, estado) => {
     try {
-        const existingMarca= await Marcas.findByPk(idMarca);
+        const existingMarca= await Marcas.findByPk(id);
 
         if(!existingMarca) {
             throw new Error ('Marca inexistente')
         }
 
-        const upMarca = await Marcas.update({ nombre: nombre, descripcion: descripcion }, { where: { id: idMarca } });
+        const upMarca = await Marcas.update({ nombre: nombre, descripcion: descripcion, estado:estado }, { where: { id: id } });
         return upMarca
     } catch(error) {
         return error.message
@@ -30,7 +40,7 @@ const updateMarcas = async (idMarca, nombre, descripcion) => {
 }
 
 //BORRAR MARCA
-const deleteMarcas = async (id, sw) => {
+const deleteMarca = async (id, sw) => {
     //si sw es true se borra el registro de la tabla, si es false se desactiva el registro y no se elimina
     const data = await Marcas.findAll({ where: { id: id } })
     if (data.length === 0) {
@@ -47,7 +57,8 @@ const deleteMarcas = async (id, sw) => {
 }
 
 module.exports = {
-    createMarcas,
-    updateMarcas,
-    deleteMarcas
+    viewMarcas,
+    createMarca,
+    updateMarca,
+    deleteMarca
 }
