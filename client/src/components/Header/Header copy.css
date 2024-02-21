@@ -10,7 +10,7 @@
 :root {
 	--mainColor: #D93D04;
 	--mainColorLight: #5767aa;
-	--secondaryColor: #0a0a0a;
+	--secondaryColor: #db2b39;
 	--textColor: #eee;
 }
 
@@ -72,16 +72,6 @@ header .nav-btn {
 	font-size: 1.8rem;
 }
 
-header .nav-btn-title {
-	padding: 5px;
-	cursor: pointer;
-	justify-content: center;
-	width: 120px;
-	height: auto;
-	margin-top: -400px;
-
-}
-
 header div,
 nav {
 	display: flex;
@@ -117,11 +107,6 @@ nav {
 		position: absolute;
 		top: 2rem;
 		right: 2rem;
-	}
-
-	nav .nav-close-btn-title {
-		position: absolute;
-		justify-content: center;
 	}
 
 	nav a {

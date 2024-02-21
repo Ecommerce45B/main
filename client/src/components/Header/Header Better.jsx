@@ -13,7 +13,6 @@ function Navbar() {
 
   const closeNavbar = () => {
     navRef.current.classList.remove("responsive_nav");
-    <img className="title-responsive" src={logo} />
   };
 
   return (
@@ -28,7 +27,6 @@ function Navbar() {
           placeholder="Busca lo que necesites..."
         />
       <nav ref={navRef}>
-          <img className="nav-btn-title nav-close-btn-title" src={logo} />
         <a>
           <NavLink to="/home" onClick={closeNavbar}>
             Home
@@ -66,10 +64,8 @@ function Navbar() {
 		</button>
       </nav>
       <button className="nav-btn" onClick={showNavbar}>
-      
         <FaBars />
       </button>
-      
     </header>
   );
 }
