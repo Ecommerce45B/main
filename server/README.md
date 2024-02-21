@@ -1,6 +1,6 @@
-# **Proyecto SILENCE** | Back-End
+# **Proyecto TECH STORE** | Back-End
 
-Bienvenido al Backend de Silence Project!
+Bienvenido al Backend del Proyecto TECH STORE
 
 Una vez clonado el proyecto, en la ubicación del server, hacer npm install para instalar las siguientes dependencias:
 
@@ -11,12 +11,13 @@ Una vez clonado el proyecto, en la ubicación del server, hacer npm install para
 
 ## Base de datos
 
-El presente proyecto utiliza `PostgreSQL` para su base de datos, por consiguiente, son datos relacionales. El dicho de dicha base de datos es `silencebd`.
+El presente proyecto utiliza `PostgreSQL` para su base de datos, por consiguiente, son modelos entodad-relación. 
+El nombre de la base de datos es `ecommerce`.
 
 Utilizando `Sequelize ORM` para su gestión.
 
     // Es necesario crear base de datos local
-    CREATE DATABASE silencebd
+    CREATE DATABASE ecommerce
 
 ---
 

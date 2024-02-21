@@ -33,6 +33,7 @@ const postNewProductHandler = async (req, res) => {
     const { nombre,
         descripcion,
         especificaciones,
+        imagen,
         nroserie,
         nromac,
         precio,
@@ -47,6 +48,7 @@ const postNewProductHandler = async (req, res) => {
         const newProduct = await postNewProducts(nombre,
             descripcion,
             especificaciones,
+            imagen,
             nroserie,
             nromac,
             precio,
@@ -70,6 +72,7 @@ const changeProductHandler = async (req, res) => {
         nombre,
         descripcion,
         especificaciones,
+        imagen,
         nroserie,
         nromac,
         precio,
@@ -81,9 +84,12 @@ const changeProductHandler = async (req, res) => {
         idMarca,
         idFabricante } = req.body;
     try {
-        const productUpdate = await changeProducts({ nombre,
+        const productUpdate = await changeProducts({ 
+            id,
+            nombre,
             descripcion,
             especificaciones,
+            imagen,
             nroserie,
             nromac,
             precio,
