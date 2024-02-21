@@ -18,6 +18,10 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING(500),
       allowNull: false,
     },
+    imagen: {
+      type: DataTypes.STRING(500),
+      allowNull: false,
+    },
     nroserie: {
         type: DataTypes.STRING(50),
         allowNull: false,
