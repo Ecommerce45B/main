@@ -1,7 +1,9 @@
 // import './App.css'
 import { Route, Routes } from "react-router-dom";
+import contents from './components/content'
 
 import Header from "../src/components/Header/Header"
+import Products from "./components/Products/Products";
 
 // import {Home, About, Services} from "./components/pages"
 import Home from "./components/pages/Home"
@@ -24,6 +26,19 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/budget" element={<Budget />} />
       </Routes>
+      <div className='App'>
+                {contents.map(contents => (
+                    <Products 
+                        key={contents.id}
+                        image={contents.image}
+                        name={contents.name}
+                        price={contents.price}
+                        totalSales={contents.totalSales}
+                        timeLeft={contents.timeLeft}
+                        rating={contents.rating}
+                    />
+                ))}
+            </div>
     </>
   )
 }
