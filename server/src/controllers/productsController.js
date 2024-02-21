@@ -32,6 +32,7 @@ const postNewProducts = async (
     nombre,
     descripcion,
     especificaciones,
+    imagen,
     nroserie,
     nromac,
     precio,
@@ -53,6 +54,7 @@ const postNewProducts = async (
                 nombre,
                 descripcion,
                 especificaciones,
+                imagen,
                 nroserie,
                 nromac,
                 precio,
@@ -68,7 +70,7 @@ const postNewProducts = async (
     }
 }
 
-const changeProducts = async ({id, nombre, descripcion, especificaciones, nroserie, nromac, precio, stock, minimo, preferencia, estado, idCategoria, idMarca, idFabricante}) => {
+const changeProducts = async ({id, nombre, descripcion, especificaciones, imagen, nroserie, nromac, precio, stock, minimo, preferencia, estado, idCategoria, idMarca, idFabricante}) => {
     console.log(id);
     try {
         const product = await Productos.findByPk(id);
@@ -77,7 +79,7 @@ const changeProducts = async ({id, nombre, descripcion, especificaciones, nroser
         }
 
         const updatedProduct = await Productos.update({
-            nombre, descripcion, especificaciones, nroserie, nromac, precio, stock, minimo, preferencia, estado, idCategoria, idMarca, idFabricante
+            nombre, descripcion, especificaciones, imagen, nroserie, nromac, precio, stock, minimo, preferencia, estado, idCategoria, idMarca, idFabricante
         });
         return updatedProduct;
     } catch (error) {
