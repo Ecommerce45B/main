@@ -8,7 +8,7 @@ module.exports = (database) => {
             primaryKey: true
         },
         url: {
-            type: DataTypes.STRING(100),
+            type: DataTypes.STRING(300),
             allowNull: false,
         },
         idProducto:{
