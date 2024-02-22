@@ -44,7 +44,12 @@
   color: #555;
 }
 
-.totalSales,
+.totalSales {
+  font-size: 16px;
+  color: #666;
+  margin-top: 10px;
+}
+
 .timeLeft {
   font-size: 16px;
   color: #666;

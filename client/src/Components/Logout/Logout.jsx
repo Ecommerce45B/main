@@ -5,6 +5,7 @@ import styles from "./Logout.module.css";
 
 const Logout = () => {
   const { logout, user } = useAuth0();
+ 
   let displayName = user.name || "unknown";
   if (displayName.includes('@')) {
     displayName = "unknown";

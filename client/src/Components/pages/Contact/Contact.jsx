@@ -1,4 +1,3 @@
-// ContactPage.jsx
 
 import React from 'react';
 import { FaMapMarkerAlt, FaPhone, FaEnvelope } from 'react-icons/fa';

@@ -1,11 +1,11 @@
 import React from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
-import styles from './Profile.module.css'; // Importar estilos CSS como módulos
+import styles from './Profile.module.css'; 
 
 const Profile = () => {
   const { user, isAuthenticated } = useAuth0();
 
-  // Determina el nombre a mostrar
+  
   let displayName = user.name || "unknown";
   if (displayName.includes('@')) {
     displayName = "unknown";

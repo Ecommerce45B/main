@@ -6,8 +6,8 @@ function Products(props) {
     return (
       <div className='productList'>
         <div key={props.id} className='productCard'>
-          <Link to={`/detail/${props.id}`} className='productLink'> {/* Aquí estaba el Link original */}
-            <img src={props.image} alt='product-img' className='productImage'></img> {/* Movemos el Link que envuelve la imagen aquí */}
+          <Link to={`/detail/${props.id}`} className='productLink'> 
+            <img src={props.image} alt='product-img' className='productImage'></img> 
           </Link>
   
           <FaShoppingCart className={"productCard__cart"} />
