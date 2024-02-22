@@ -8,9 +8,12 @@ import Landing from './Components/Landing/Landing'
 import Home from "./Components/pages/Home"
 import About from "./Components/pages/About"
 import Services from "./Components/pages/Services"
-import Contact from "./Components/pages/Contact"
+import Contact from "./Components/pages/Contact/Contact"
 import Budget from "./Components/pages/Budget";
 import Brands from "./Components/pages/Brands";
+import Profile from "./Components/Profile/Profile"
+import Faq from "./Components/pages/Faq/Faq"
+import Detail from "./Components/Detail/Detail"
 
 function App() {
 
@@ -29,6 +32,9 @@ function App() {
         <Route path="/services" element={<Services />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/budget" element={<Budget />} />
+        <Route path="/profile" element={<Profile/>}/>
+        <Route path="/faq" element={<Faq />} /> 
+        <Route path="/detail/:id" element={<Detail/>}/>
       </Routes>
     </>
   ) 

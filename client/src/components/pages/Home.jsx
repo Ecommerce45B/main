@@ -1,18 +1,19 @@
-import contents from '../content'
+import content from '../content'
 import Products from "../Products/Products";
 
 function Home() {
   return (
     <div className='App'>
-      {contents.map(contents => (
+      {content.map(content => (
           <Products 
-              key={contents.id}
-              image={contents.image}
-              name={contents.name}
-              price={contents.price}
-              totalSales={contents.totalSales}
-              timeLeft={contents.timeLeft}
-              rating={contents.rating}
+              key={content.id}
+              id={content.id}
+              image={content.image}
+              name={content.name}
+              price={content.price}
+              totalSales={content.totalSales}
+              timeLeft={content.timeLeft}
+              rating={content.rating}
           />
       ))}
     </div>
