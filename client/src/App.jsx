@@ -1,4 +1,6 @@
 // import './App.css'
+import { Route, Routes } from "react-router-dom";
+import contents from './Components/content'
 import { Route, Routes, useLocation } from "react-router-dom";
 
 import Header from "../src/Components/Header/Header"
