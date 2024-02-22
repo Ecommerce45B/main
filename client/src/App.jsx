@@ -1,17 +1,17 @@
 // import './App.css'
 import { Route, Routes } from "react-router-dom";
-import contents from './components/content'
+import contents from './Components/content'
 
-import Header from "../src/components/Header/Header"
-import Products from "./components/Products/Products";
+import Header from "../src/Components/Header/Header"
+import Products from "./Components/Products/Products";
 
-// import {Home, About, Services} from "./components/pages"
-import Home from "./components/pages/Home"
-import About from "./components/pages/About"
-import Services from "./components/pages/Services"
-import Contact from "./components/pages/Contact"
-import Budget from "./components/pages/Budget";
-import Brands from "./components/pages/Brands";
+// import {Home, About, Services} from "./Components/pages"
+import Home from "./Components/pages/Home"
+import About from "./Components/pages/About"
+import Services from "./Components/pages/Services"
+import Contact from "./Components/pages/Contact"
+import Budget from "./Components/pages/Budget";
+import Brands from "./Components/pages/Brands";
 
 function App() {
 
