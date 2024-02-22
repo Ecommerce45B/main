@@ -1,44 +1,35 @@
 // import './App.css'
-import { Route, Routes } from "react-router-dom";
-import contents from './components/content'
+import { Route, Routes, useLocation } from "react-router-dom";
 
-import Header from "../src/components/Header/Header"
-import Products from "./components/Products/Products";
+import Header from "../src/Components/Header/Header"
 
-// import {Home, About, Services} from "./components/pages"
-import Home from "./components/pages/Home"
-import About from "./components/pages/About"
-import Services from "./components/pages/Services"
-import Contact from "./components/pages/Contact"
-import Budget from "./components/pages/Budget";
-import Brands from "./components/pages/Brands";
+// import {Home, About, Services} from "./Components/pages"
+import Landing from './Components/Landing/Landing'
+import Home from "./Components/pages/Home"
+import About from "./Components/pages/About"
+import Services from "./Components/pages/Services"
+import Contact from "./Components/pages/Contact"
+import Budget from "./Components/pages/Budget";
+import Brands from "./Components/pages/Brands";
 
 function App() {
 
+  const location = useLocation()
+
   return (
     <>
-      <Header />
+      {
+        location.pathname !== '/' && <Header/>
+      }
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Landing />} ></Route>
+        <Route path="/Home" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/brands" element={<Brands />} />
         <Route path="/services" element={<Services />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/budget" element={<Budget />} />
       </Routes>
-      <div className='App'>
-                {contents.map(contents => (
-                    <Products 
-                        key={contents.id}
-                        image={contents.image}
-                        name={contents.name}
-                        price={contents.price}
-                        totalSales={contents.totalSales}
-                        timeLeft={contents.timeLeft}
-                        rating={contents.rating}
-                    />
-                ))}
-            </div>
     </>
   ) 
 }
