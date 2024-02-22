@@ -3,6 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 import "./Header.css";
 import logo from "../../assets/Union.png";
+import Filter from "../Filter/Filter";
 
 function Navbar() {
   const navRef = useRef();
@@ -27,6 +28,7 @@ function Navbar() {
           type="text"
           placeholder="Busca lo que necesites..."
         />
+        <Filter />
       <nav ref={navRef}>
           <img className="nav-btn-title nav-close-btn-title" src={logo} />
         <a>
