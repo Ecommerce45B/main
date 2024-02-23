@@ -31,11 +31,11 @@ function App() {
                 {contents.map(contents => (
                     <Products 
                         key={contents.id}
-                        image={contents.image}
-                        name={contents.name}
-                        price={contents.price}
-                        totalSales={contents.totalSales}
-                        timeLeft={contents.timeLeft}
+                        imagen={contents.imagen}
+                        nombre={contents.nombre}
+                        precio={contents.precio}
+                        nroserie={contents.nroserie}
+                        descripcion={contents.descripcion}
                         rating={contents.rating}
                     />
                 ))}

@@ -12,13 +12,10 @@ function Products(props) {
         <FaFireAlt className={"productCard__fastSelling"} />
 
         <div className='productCard__content'>
-            <h5 className='productName'>{props.nombre}</h5>
-            <h3 className='productDescription'>{props.descripcion}</h3>
+            <h3 className='productName'>{props.nombre}</h3>
             <div className='displayStack__1'>
                 <div className='productPrice'>${props.precio}</div>
-            </div>
-            <div className='displayStack__1'>
-                <div className='productNroserie'>Número de serie {props.nroserie}</div>
+                <div className='productSales'>{props.totalSales} units sold</div>
             </div>
             <div className='displayStack__2'>
                 <div className='productRating'>
@@ -26,6 +23,7 @@ function Products(props) {
                         <FaStar id={index + 1 } key={index} />
                     ))}
                 </div>
+                <div className='productTime'>{props.timeLeft} days left</div>
             </div>
         </div>
     </div>

@@ -70,31 +70,28 @@ html{
 }
 
 .productCard__content {
-  margin: 1rem;
+  margin: 2rem;
   text-align: center;
 }
 
 .productName{
   font-size: 1.5rem;
 }
-.productDescription{
-  font-size: 1.2rem;
-}
 
 .displayStack__1,
 .displayStack__2{
-  margin: 1.5rem 0;
+  margin: 2rem 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.productNroserie,
 .productPrice{
   font-size: 1.5rem;
   font-weight: bold;
 }
 
+.productSales,
 .productTime{
   font-size: 1.1rem;
 }
