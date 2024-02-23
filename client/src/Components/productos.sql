@@ -1,0 +1,2 @@
+INSERT INTO Productos (nombre, descripcion, especificaciones, imagen, nroserie, nromac, precio, stock, minimo, preferencia, estado, idCategoria, idMarca, idFabricante)
+VALUES ('HEADPHONES', 'MASSDROP X SENNHEISER HD 6XX HEADPHONES', 'MASSDROP X SENNHEISER HD 6XX', 'https://url-de-la-imagen.png', '123456789', 'abc-sd-1245', 220, 10, 5, 1, true, 1, 1, 1);
