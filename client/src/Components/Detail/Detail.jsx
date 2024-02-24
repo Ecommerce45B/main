@@ -1,11 +1,15 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import productData from '../content';
+import { useSelector  } from 'react-redux'
+//import productData from '../content';
 import { FaStar } from 'react-icons/fa';
 import styles from './Detail.module.css'; 
 
 function Detail() {
   const { id } = useParams();
+  const stateGlobal = useSelector((state) => state.products)
+  const productData = stateGlobal['products']
+
   const product = productData.find(product => product.id === parseInt(id));
 
   if (!product) {
