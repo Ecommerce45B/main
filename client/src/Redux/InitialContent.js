@@ -1,6 +1,6 @@
 const productData = [
   {
-    id: 1,
+    id: 234,
     name: "MASSDROP X SENNHEISER HD 6XX HEADPHONES",
     description:
       "Experience audio excellence with the Massdrop x Sennheiser HD 6XX headphones. Renowned for their warm sound and exceptional comfort, these open-back headphones are perfect for audiophiles.",
@@ -13,7 +13,7 @@ const productData = [
     totalSales: 7479,
   },
   {
-    id: 2,
+    id: 235,
     name: "DROP + SENNHEISER PC38X GAMING HEADSET",
     description:
       "Gain the competitive edge with the Drop + Sennheiser PC38X gaming headset. Featuring crystal-clear audio and a comfortable design, these headphones are perfect for long gaming sessions.",
@@ -26,7 +26,7 @@ const productData = [
     totalSales: 6898,
   },
   {
-    id: 3,
+    id: 236,
     name: "MASSDROP X SENNHEISER HD 58X JUBILEE HEADPHONES",
     description:
       "Enjoy a dynamic listening experience with the Massdrop x Sennheiser HD 58X Jubilee headphones. These open-back headphones deliver clear, detailed sound across the entire frequency range.",
@@ -39,7 +39,7 @@ const productData = [
     totalSales: 6347,
   },
   {
-    id: 4,
+    id: 237,
     name: "MASSDROP X SENNHEISER HD 6XX HEADPHONES",
     description:
       "Experience audio excellence with the Massdrop x Sennheiser HD 6XX headphones. Renowned for their warm sound and exceptional comfort, these open-back headphones are perfect for audiophiles.",
@@ -52,7 +52,7 @@ const productData = [
     totalSales: 7479,
   },
   {
-    id: 5,
+    id: 238,
     name: "DROP + SENNHEISER PC38X GAMING HEADSET",
     description:
       "Gain the competitive edge with the Drop + Sennheiser PC38X gaming headset. Featuring crystal-clear audio and a comfortable design, these headphones are perfect for long gaming sessions.",
@@ -65,7 +65,7 @@ const productData = [
     totalSales: 6898,
   },
   {
-    id: 6,
+    id: 239,
     name: "MASSDROP X SENNHEISER HD 58X JUBILEE HEADPHONES",
     description:
       "Enjoy a dynamic listening experience with the Massdrop x Sennheiser HD 58X Jubilee headphones. These open-back headphones deliver clear, detailed sound across the entire frequency range.",

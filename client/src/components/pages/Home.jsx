@@ -1,8 +1,44 @@
+//import content from '../content'
+import Products from "../Products/Products";
+
+import { useEffect } from "react";
+import { useSelector, useDispatch  } from 'react-redux'
+import { getProducts, addProduct } from '../../Redux/ProductsSlice'
 
 function Home() {
-  return (
-    <div>Home</div>
+
+  const stateGlobal = useSelector((state) => state.products)
+  const content = stateGlobal['products']
+
+  const dispatch = useDispatch()
+
+  const syncronized = async () => {
+    const consultaDB = await dispatch(getProducts())
     
+    const addProductState = dispatch(addProduct(consultaDB.payload))
+
+    console.log(addProductState)
+  }
+    
+  useEffect(() => {
+    syncronized()
+  }, [])
+
+  return (
+    <div className='App'>
+      {content && content.map(element => (
+          <Products 
+              key={element.id}
+              id={element.id}
+              image={element.image}
+              name={element.name}
+              price={element.price}
+              totalSales={element.totalSales}
+              timeLeft={element.timeLeft}
+              rating={element.rating}
+          />
+      ))}
+    </div>
   )
 }
 
