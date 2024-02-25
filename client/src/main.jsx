@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom/client';
 import { Auth0Provider } from "@auth0/auth0-react";
 import { BrowserRouter } from "react-router-dom";
 import App from './App.jsx';
+import store from './Redux/store.js'
+import { Provider } from 'react-redux'
+
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <Auth0Provider
@@ -11,7 +14,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     redirectUri={window.location.origin}
   >
     <BrowserRouter>
-      <App />
+      <Provider store={store}>
+        <App />
+      </Provider>
     </BrowserRouter>
   </Auth0Provider>
 );
