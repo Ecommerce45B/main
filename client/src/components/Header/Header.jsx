@@ -31,10 +31,6 @@ function Navbar() {
           placeholder="Busca lo que necesites..."
         />
         <Filter />
-        className="search-input"
-        type="text"
-        placeholder="Busca lo que necesites..."
-      />
       <nav ref={navRef}>
         <img className="nav-btn-title nav-close-btn-title" src={logo} alt="Logo" />
         <a>
