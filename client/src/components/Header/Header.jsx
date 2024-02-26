@@ -1,12 +1,16 @@
 import { useRef } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
+import { useAuth0 } from '@auth0/auth0-react';
 import "./Header.css";
 import logo from "../../assets/Union.png";
+import Login from "../../components/Login/Login"
+import Logout from "../../components/Login/Login";
 import Filter from "../Filter/Filter";
 
 function Navbar() {
   const navRef = useRef();
+  const { isAuthenticated } = useAuth0();
 
   const showNavbar = () => {
     navRef.current.classList.toggle("responsive_nav");
@@ -14,7 +18,6 @@ function Navbar() {
 
   const closeNavbar = () => {
     navRef.current.classList.remove("responsive_nav");
-    <img className="title-responsive" src={logo} />
   };
 
   return (
@@ -37,10 +40,16 @@ function Navbar() {
           </NavLink>
         </a>
         <a>
+          <NavLink to="/home" onClick={closeNavbar}>
+            Categorias
+          </NavLink>
+        </a>
+        <a>
           <NavLink to="/brands" onClick={closeNavbar}>
             Marcas
           </NavLink>
         </a>
+
         <a>
           <NavLink to="/budget" onClick={closeNavbar}>
             Presupuesto
@@ -61,17 +70,23 @@ function Navbar() {
             About
           </NavLink>
         </a>
-		<button
-			className="nav-btn nav-close-btn"
-			onClick={showNavbar}>
-			<FaTimes />
-		</button>
+        <a>
+          <NavLink to="/faq" onClick={closeNavbar}>
+            Preguntas Frecuentes
+          </NavLink>
+        </a>
+        {isAuthenticated ? (
+          <Logout closeNavbar={closeNavbar} />
+        ) : (
+          <Login closeNavbar={closeNavbar} />
+        )}
+        <button className="nav-btn nav-close-btn" onClick={showNavbar}>
+          <FaTimes />
+        </button>
       </nav>
       <button className="nav-btn" onClick={showNavbar}>
-      
         <FaBars />
       </button>
-      
     </header>
   );
 }
