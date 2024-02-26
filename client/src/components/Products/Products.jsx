@@ -1,4 +1,5 @@
 import { FaShoppingCart, FaRegBookmark, FaStar, FaFireAlt } from 'react-icons/fa'
+import { FaShoppingCart, FaRegBookmark, FaStar, FaFireAlt } from 'react-icons/fa'
 import './Products.css'
 import { Link } from 'react-router-dom'
 

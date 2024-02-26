@@ -8,6 +8,8 @@ import Filter from "../Filter/Filter";
 import Login from "../../Components/Login/Login";
 import Logout from "../../Components/Logout/Logout";
 
+import { FaShoppingCart } from 'react-icons/fa'
+
 function Navbar() {
   const navRef = useRef();
   const { isAuthenticated } = useAuth0();
@@ -72,6 +74,11 @@ function Navbar() {
           <NavLink to="/faq" onClick={closeNavbar}>
             Preguntas Frecuentes
           </NavLink>
+        </a>
+        <a>
+          <NavLink to="/Carrito" >
+            <FaShoppingCart className={"productCard__cart"} />
+          </NavLink>          
         </a>
         {isAuthenticated ? (
           <Logout closeNavbar={closeNavbar} />
