@@ -4,8 +4,8 @@ import { FaBars, FaTimes } from "react-icons/fa";
 import { useAuth0 } from '@auth0/auth0-react';
 import "./Header.css";
 import logo from "../../assets/Union.png";
-import Login from "../../components/Login/Login"
-import Logout from "../../components/Login/Login";
+import Login from "../../Components/Login/Login"
+import Logout from "../../Components/Login/Login";
 import Filter from "../Filter/Filter";
 
 function Navbar() {
