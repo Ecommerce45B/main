@@ -3,10 +3,6 @@ import './Filter.css'
 
 import filterblack from '../../img/filterb.svg'
 import filtericon from '../../img/filtericon.png'
-import user from '../../img/user.png'
-import filter from '../../img/filter.png'
-import edit from '../../img/edit.png'
-import filterb from '../../img/filterblack.png'
 
 function Filter() {
     const [open, setOpen] = useState(false);
@@ -22,7 +18,7 @@ function Filter() {
       };
   
       document.addEventListener("mousedown", handler);
-    
+      
       return() =>{
         document.removeEventListener("mousedown", handler);
       }

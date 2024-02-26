@@ -35,12 +35,17 @@ function Navbar() {
           <NavLink to="/home" onClick={closeNavbar}>
             Home
           </NavLink>
-        </a>
+        </a>º
         <a>
           <NavLink to="/brands" onClick={closeNavbar}>
             Marcas
           </NavLink>
         </a>
+        {/* <a>
+          <NavLink to="/filter" onClick={closeNavbar}>
+            Categorias
+          </NavLink>
+        </a> */}
         <a>
           <NavLink to="/budget" onClick={closeNavbar}>
             Presupuesto

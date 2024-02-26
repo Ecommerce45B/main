@@ -1,5 +1,6 @@
 const productData = [
     {   
+      id: '1', 
       nombre:"GFORCE RTX 3080",
       descripcion:"TARJETA GRÁFICA ENVIDIA",
       especificaciones:"MEMORIA DE 16GB",
@@ -16,6 +17,7 @@ const productData = [
       idFabricante:"1"
       },
       {   
+        id: '2', 
         nombre:"GFORCE RTX 3080",
         descripcion:"TARJETA GRÁFICA ENVIDIA",
         especificaciones:"MEMORIA DE 16GB",
@@ -32,6 +34,7 @@ const productData = [
         idFabricante:"1"
         },
         {   
+          id: '3', 
           nombre:"GFORCE RTX 3080",
           descripcion:"TARJETA GRÁFICA ENVIDIA",
           especificaciones:"MEMORIA DE 16GB",
@@ -48,6 +51,7 @@ const productData = [
           idFabricante:"1"
           },
           {   
+            id: '4', 
             nombre:"GFORCE RTX 3080",
             descripcion:"TARJETA GRÁFICA ENVIDIA",
             especificaciones:"MEMORIA DE 16GB",
@@ -64,6 +68,7 @@ const productData = [
             idFabricante:"1"
             },
             {   
+              id: '5', 
               nombre:"GFORCE RTX 3080",
               descripcion:"TARJETA GRÁFICA ENVIDIA",
               especificaciones:"MEMORIA DE 16GB",
@@ -79,7 +84,8 @@ const productData = [
               idMarca:"3",
               idFabricante:"1"
               },
-              {   
+              {  
+                id: '6', 
                 nombre:"GFORCE RTX 3080",
                 descripcion:"TARJETA GRÁFICA ENVIDIA",
                 especificaciones:"MEMORIA DE 16GB",
