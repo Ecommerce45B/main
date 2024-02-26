@@ -1,5 +1,6 @@
 import { FaShoppingCart, FaRegBookmark, FaStar, FaFireAlt } from 'react-icons/fa';
 import './Products.css'
+import { Link } from 'react-router-dom';
 
 function Products(props) {
   return (
@@ -27,10 +28,10 @@ function Products(props) {
                     ))}
                 </div>
             </div>
+          </div>
         </div>
-    </div>
-</div>
-  )
-}
+      </div>
+    );
+  }
 
 export default Products
