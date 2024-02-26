@@ -15,9 +15,7 @@ function Home() {
   const syncronized = async () => {
     const consultaDB = await dispatch(getProducts())
     
-    const addProductState = dispatch(addProduct(consultaDB.payload))
-
-    console.log(addProductState)
+    dispatch(addProduct(consultaDB.payload))
   }
     
   useEffect(() => {

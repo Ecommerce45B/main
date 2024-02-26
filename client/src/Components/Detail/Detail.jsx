@@ -1,19 +1,30 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
-import { useSelector  } from 'react-redux'
+import { useParams } from 'react-router-dom'
 //import productData from '../content';
-import { FaStar } from 'react-icons/fa';
-import styles from './Detail.module.css'; 
+import { FaStar, FaShoppingCart } from 'react-icons/fa'
+
+import styles from './Detail.module.css'
+import { useSelector, useDispatch  } from 'react-redux'
+
+import { addProduct } from '../../Redux/CarritoSlice'
 
 function Detail() {
-  const { id } = useParams();
+  const dispatch = useDispatch()
+  const { id } = useParams()
+
   const stateGlobal = useSelector((state) => state.products)
   const productData = stateGlobal['products']
 
-  const product = productData.find(product => product.id === parseInt(id));
+  const stateGlobalCarrito = useSelector((state) => state.productsCarrito)
+
+  const product = productData.find(product => product.id === parseInt(id))
 
   if (!product) {
     return <div>Producto no encontrado</div>;
+  }
+
+  const handlerCarritoAdd = ()=> {
+    console.log(stateGlobalCarrito)
+    dispatch(addProduct(product))
   }
 
   const renderStars = (rating) => {
@@ -22,7 +33,7 @@ function Detail() {
       stars.push(<FaStar key={i} className={styles.star} />); 
     }
     return stars;
-  };
+  }
 
   return (
     <div className={styles.container}>
@@ -36,9 +47,10 @@ function Detail() {
       <div className={styles.rating}>
         <p className={styles.textRating}>Rating:</p>
         <div className={styles.stars}>{renderStars(product.rating)}</div>
+        <FaShoppingCart className={"productCard__cart"} onClick={() => handlerCarritoAdd()} />
       </div>
     </div>
-  );
+  )
 }
 
 export default Detail;

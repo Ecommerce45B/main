@@ -1,6 +1,6 @@
 // import './App.css'
 
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom"
 
 import Header from "../src/Components/Header/Header"
 
@@ -10,11 +10,12 @@ import Home from "./Components/pages/Home"
 import About from "./Components/pages/About"
 import Services from "./Components/pages/Services"
 import Contact from "./Components/pages/Contact/Contact"
-import Budget from "./Components/pages/Budget";
-import Brands from "./Components/pages/Brands";
+import Budget from "./Components/pages/Budget"
+import Brands from "./Components/pages/Brands"
 import Profile from "./Components/Profile/Profile"
 import Faq from "./Components/pages/Faq/Faq"
 import Detail from "./Components/Detail/Detail"
+import Carrito from "./Components/Carrito/Carrito"
 
 function App() {
 
@@ -36,6 +37,7 @@ function App() {
         <Route path="/profile" element={<Profile/>}/>
         <Route path="/faq" element={<Faq />} /> 
         <Route path="/detail/:id" element={<Detail/>}/>
+        <Route path="/Carrito" element={<Carrito/>}/>
       </Routes>
     </>
   ) 
