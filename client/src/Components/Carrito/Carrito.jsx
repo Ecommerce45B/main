@@ -30,10 +30,10 @@ const Carrito = ()=>{
         { 
           carrito && carrito.map(product=>(
             <tr key={product.id}>
-              <td>{product.name}</td>
+              <td>{product.nombre}</td>
               <td>{product.cantidad}</td>
-              <td>{product.price}</td> 
-              <td>{totales.push(product.price * product.cantidad) && product.price * product.cantidad}</td>
+              <td>{product.precio}</td> 
+              <td>{totales.push(product.precio * product.cantidad) && product.precio * product.cantidad}</td>
               <td>
                 <button className={styles.borrar} onClick={() => handlerDelete(product.id)}>Borrar</button>
               </td>              

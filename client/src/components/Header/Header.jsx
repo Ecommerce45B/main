@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import React, { useRef } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { useAuth0 } from '@auth0/auth0-react';
@@ -75,7 +75,6 @@ function Navbar() {
             Preguntas Frecuentes
           </NavLink>
         </a>
-
         {isAuthenticated ? (
           <Logout closeNavbar={closeNavbar} />
         ) : (

@@ -1,6 +1,5 @@
 //import content from '../content'
 import Category from '../pages/Category/Category';
-import contents from '../content';
 import Products from '../../Components/Products/Products'
 
 
@@ -11,38 +10,40 @@ import { getProducts, addProduct } from '../../Redux/ProductsSlice'
 function Home() {
 
   const stateGlobal = useSelector((state) => state.products)
+  
   const content = stateGlobal['products']
 
   const dispatch = useDispatch()
 
-  const syncronized = async () => {
+  const syncronized = async() => {
     const consultaDB = await dispatch(getProducts())
-    
     dispatch(addProduct(consultaDB.payload))
   }
-    
+  
   useEffect(() => {
     syncronized()
   }, [])
 
   return (
-    <div>
+
+      <div>
       <Category />
-    <div className='App'>
-    {contents.map(contents => (
-      <Products 
-      key={contents.id}
-      imagen={contents.imagen}
-      nombre={contents.nombre}
-      precio={contents.precio}
-      nroserie={contents.nroserie}
-      descripcion={contents.descripcion}
-      rating={contents.rating}
-      />
-      ))}
-</div>
-      </div>
     
+    <div className='App'>
+      {content && content.map(element => (
+        <Products 
+          key={element.id}
+          id={element.id}
+          imagen={element.imagen}
+          nombre={element.nombre}
+          descripcion={element.descripcion}
+          precio={element.precio}
+          nroserie={element.nroserie}
+          rating={element.rating}
+        />          
+      ))}
+      </div>
+    </div>
   )
 }
 
