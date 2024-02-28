@@ -22,7 +22,7 @@ export const getProducts = createAsyncThunk(
   }
 )
 
-const productsSlice = createSlice({
+const ProductsSlice = createSlice({
   name: 'products',
   initialState: {
     //products: [...InitialContent]
@@ -43,14 +43,14 @@ const productsSlice = createSlice({
       // }
       const format=action.payload;
       const existingProduct = state.products.find((element) => element.id === format.id);
-      if(!existingProduct)state.products.push(format)
+      if(!existingProduct) state.products.push(format)
     },
-    removeProduct(state, action) {
-      const index = state.findIndex((product) => product.id === action.payload)
-      state.products.splice(index, 1)
-    },
+    // removeProduct(state, action) {
+    //   const index = state.findIndex((product) => product.id === action.payload)
+    //   state.products.splice(index, 1)
+    // },
   },
 })
 
-export const { addProduct, removeProduct } = productsSlice.actions
-export default productsSlice.reducer
+export const { addProduct, removeProduct } = ProductsSlice.actions
+export default ProductsSlice.reducer
