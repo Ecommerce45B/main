@@ -1,6 +1,4 @@
-//const axios      = require('axios')
 const { Usuarios } = require('../config/bd')
-// const url = `http://localhost:3001/usuarios`;
 const Sequelize = require('sequelize');
 
 const getAllUsuarios = async () => {
@@ -9,7 +7,6 @@ const getAllUsuarios = async () => {
 }
 
 const getUsuariosById = async (id) => {
-    // console.log("id al controller---> ", id);
     const dbUsuarios = await Usuarios.findAll({ where: { id: id } });
     return [...dbUsuarios];
 }
@@ -82,7 +79,6 @@ const changeUsuarios = async ({email, password, avatar, nombre, dirFacturacion, 
 
 
 const deleteUsuario = async (id, sw) => {
-    //si sw es true se borra el registro de la tabla, si es false se desactiva el registro y no se elimina
     const data = await Usuarios.findAll({ where: { id: id } })
     if (data.length === 0) {
         throw new Error(`No existe id del Usuario: ${id}`);

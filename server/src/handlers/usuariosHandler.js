@@ -19,7 +19,6 @@ const getUsuariosHandler = async (req, res) => {
 }
 const getUsuariosByIdHandler = async (req, res) => {
     const { id } = req.params
-    // console.log("id--->", id);
     try {
         const response = await getUsuariosById(id)
         res.status(200).json(response)

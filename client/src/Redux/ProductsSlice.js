@@ -25,21 +25,23 @@ export const getProducts = createAsyncThunk(
 const productsSlice = createSlice({
   name: 'products',
   initialState: {
-    products: [...InitialContent]
+    //products: [...InitialContent]
+    products: []
   },
   reducers: {
     addProduct(state, action) {
-      const format = {
-        id: action.payload[0].id,
-        name: action.payload[0].nombre,
-        description: action.payload[0].descripcion,
-        image: action.payload[0].imagen,
-        productType: action.payload[0].idCategoria,
-        price: action.payload[0].precio,
-        rating: 3,
-        timeLeft: 27,
-        totalSales: 7479,
-      }
+      // const format = {
+      //   id: action.payload[0].id,
+      //   name: action.payload[0].nombre,
+      //   description: action.payload[0].descripcion,
+      //   image: action.payload[0].imagen,
+      //   productType: action.payload[0].idCategoria,
+      //   price: action.payload[0].precio,
+      //   rating: 3,
+      //   timeLeft: 27,
+      //   totalSales: 7479,
+      // }
+      const format=action.payload;
       const existingProduct = state.products.find((element) => element.id === format.id);
       if(!existingProduct)state.products.push(format)
     },

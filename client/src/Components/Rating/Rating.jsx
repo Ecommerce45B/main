@@ -1,39 +1,49 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import { getVotos, postVotos } from '../../../Redux/Store/Slices/votosSlice';
-import style from './Ranking.module.css'
+import { getVotos, postVotos } from '../../Redux/VotosSlice';
+import { FaStar } from 'react-icons/fa';
+import './Rating.module.css'
 
-const Ranking = ({idProducto, idUsuario}) => {
+const Rating = ({idProducto, idUsuario, onRatingComplete}) => {
+  const stateGlobal = useSelector((state) => state.votos);
+  const datosVotos = stateGlobal['datosVotos'];
+  const [isLoading, setIsLoading] = useState(true);
+
   const dispatch = useDispatch();
-  const [loading, setLoading] = useState(true);
-  const votos = useSelector((state)=>state.votos);
+
+  const syncronized = async () => {
+    await dispatch(getVotos(idProducto));
+  }
+
   //Recuperando los datos de los votos del producto
   useEffect(() => {
     const fetchData = async () => {
-      await dispatch(getVotos(idProducto));
-      setLoading(false);
+      await syncronized();
+      setIsLoading(false);
     };
     fetchData();
-  }, [dispatch, idProducto]);
+    setTimeout(() => {
+      onRatingComplete(); // Llamar a la función de devolución de llamada cuando el proceso ha concluido
+    }, 1000);
+  }, []);
 
-  if (loading) {
-    return <p>Cargando...</p>;
-  }
   let sw=0;
   let promedio=0;
   let totalVotos=0;
   let comentarios="";
-  if(votos.ranking && votos.ranking.length > 0) {
-    promedio=parseFloat(votos.ranking[0].promedio).toFixed(2); 
-    totalVotos=votos.ranking[1].count;
+
+  if(datosVotos && datosVotos.length > 0) {
+    promedio=parseFloat(datosVotos[0].promedio).toFixed(2); 
+    totalVotos=datosVotos[1].count;
     const listacomentarios = [];
-    for (let i = 2; i < votos.ranking.length; i++) {
-      listacomentarios.push(votos.ranking[i].comentario);
+    for (let i = 2; i < datosVotos.length; i++) {
+      listacomentarios.push(datosVotos[i].comentario);
     }
     comentarios = listacomentarios.join("<br/>");
+    console.log('comentarios->',comentarios);
     if(idUsuario>0){
       //useEffect(()=>{dispatch(getvotosUser(idUser));},[dispatch, idUser])
-      if(votos.ranking && votos.ranking.length > 0) sw=0;
+      if(datosVotos && datosVotos.length > 0) sw=0;
     }
   }
 
@@ -51,13 +61,13 @@ const Ranking = ({idProducto, idUsuario}) => {
     dispatch(postVotos(newVote));
   }
   //Configurando el área para voto y comentario del usuario
-  let datosRankingUser=null;
+  let datosRatingUser=null;
   if(idUsuario>0 && sw===0) {
-    datosRankingUser=(
-        <div id="datosRankingUser" className="ranking-conteiner">
+    datosRatingUser=(
+        <div id="datosRatingUser" className="rating-Conteiner">
           <form onSubmit={handleSubmit}>
               <label>Calificar el producto</label>
-              <select name="voto" id="vote" tabIndex={1}>
+              <select name="voto" id="voto" tabIndex={1}>
                 <option value="1">1 min</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -80,16 +90,21 @@ const Ranking = ({idProducto, idUsuario}) => {
       </div>
     )
   }
-  const datosRanking=(
+  const datosRating=(
   <div>
     <hr/>
-    <h4 className="ranking-text">⭐ Ranking:{promedio}&nbsp;&nbsp;🗳 Votos:{totalVotos}</h4>
+    <h4 className="rating-text">⭐ rating:{promedio}&nbsp;&nbsp;🗳 Votos:{totalVotos}</h4>
   </div>)
+  console.log('isLoading--->', isLoading);
   return (
-    <div className="ranking-conteiner" >
-        {datosRanking}
-        {datosRankingUser}
-    </div>
+    <div className="rating-conteiner">
+    {!isLoading && (
+      <>
+        {datosRating}
+        {datosRatingUser}
+      </>
+    )}
+  </div>
   )
 }
-export default Ranking;
+export default Rating;
