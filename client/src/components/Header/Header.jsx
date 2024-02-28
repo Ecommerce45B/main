@@ -4,8 +4,11 @@ import { FaBars, FaTimes } from "react-icons/fa";
 import { useAuth0 } from '@auth0/auth0-react';
 import "./Header.css";
 import logo from "../../assets/Union.png";
+import Filter from "../Filter/Filter";
 import Login from "../../Components/Login/Login";
 import Logout from "../../Components/Logout/Logout";
+
+import { FaShoppingCart } from 'react-icons/fa'
 
 function Navbar() {
   const navRef = useRef();
@@ -25,22 +28,28 @@ function Navbar() {
         <img className="title-image" src={logo} alt="Logo" />
       </Link>
       <input
-        className="search-input"
-        type="text"
-        placeholder="Busca lo que necesites..."
-      />
+          className="search-input"
+          type="text"
+          placeholder="Busca lo que necesites..."
+        />
+        <Filter />
       <nav ref={navRef}>
         <img className="nav-btn-title nav-close-btn-title" src={logo} alt="Logo" />
         <a>
           <NavLink to="/home" onClick={closeNavbar}>
             Home
           </NavLink>
-        </a>
+        </a>º
         <a>
           <NavLink to="/brands" onClick={closeNavbar}>
             Marcas
           </NavLink>
         </a>
+        {/* <a>
+          <NavLink to="/filter" onClick={closeNavbar}>
+            Categorias
+          </NavLink>
+        </a> */}
         <a>
           <NavLink to="/budget" onClick={closeNavbar}>
             Presupuesto
@@ -65,6 +74,11 @@ function Navbar() {
           <NavLink to="/faq" onClick={closeNavbar}>
             Preguntas Frecuentes
           </NavLink>
+        </a>
+        <a>
+          <NavLink to="/Carrito" >
+            <FaShoppingCart className={"productCard__cart"} />
+          </NavLink>          
         </a>
         {isAuthenticated ? (
           <Logout closeNavbar={closeNavbar} />
