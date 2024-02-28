@@ -1,8 +1,7 @@
 const server = require('./src/server');
+
 //const PORT  = 5432;
 const PORT = 3001;
-
-
 /**
 la variable 'PORT' pasa a ser nombrada 'SERVER_PORT'
 y está ubicada en el archivo '.env'.

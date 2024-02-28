@@ -4,9 +4,10 @@ import { FaBars, FaTimes } from "react-icons/fa";
 import { useAuth0 } from '@auth0/auth0-react';
 import "./Header.css";
 import logo from "../../assets/Union.png";
-import Login from "../../Components/Login/Login"
-import Logout from "../../Components/Login/Login";
-import Filter from "../Filter/Filter";
+import Login from "../../Components/Login/Login";
+import Logout from "../../Components/Logout/Logout";
+import { FaMagnifyingGlass } from "react-icons/fa6";
+import { FaShoppingCart } from 'react-icons/fa';
 
 function Navbar() {
   const navRef = useRef();
@@ -21,60 +22,60 @@ function Navbar() {
   };
 
   return (
-    <header>
-       <Link to="/">
-        <img className="title-image" src={logo} />
-        {/* <h1 className="main-title">TECH STORE</h1> */}
+    <header className="fixed-header">
+      <Link to="/">
+        <img className="title-image" src={logo} alt="Logo" />
       </Link>
-      <input
-          className="search-input"
-          type="text"
-          placeholder="Busca lo que necesites..."
-        />
-        {/* <Filter /> */}
+
+      <div>
+  <input
+    className="search-input"
+    type="text"
+    placeholder="Busca lo que necesites..."
+  />
+  <button className="glass" >
+    <FaMagnifyingGlass />
+  </button>
+</div>
+
       <nav ref={navRef}>
-          <img className="nav-btn-title nav-close-btn-title" src={logo} />
-        <a>
+        <img className="nav-btn-title nav-close-btn-title" src={logo} alt="Logo" />
+        <a className="title-name">
           <NavLink to="/home" onClick={closeNavbar}>
             Home
           </NavLink>
         </a>
-        <a>
-          <NavLink to="/category" onClick={closeNavbar}>
-            Categorias
-          </NavLink>
-        </a>
-        <a>
+        <a className="title-name">
           <NavLink to="/brands" onClick={closeNavbar}>
             Marcas
           </NavLink>
         </a>
-
-        <a>
+        <a className="title-name">
           <NavLink to="/budget" onClick={closeNavbar}>
             Presupuesto
           </NavLink>
         </a>
-        <a>
+        <a className="title-name">
           <NavLink to="/services" onClick={closeNavbar}>
             Servicios
           </NavLink>
         </a>
-        <a>
+        <a className="title-name">
           <NavLink to="/contact" onClick={closeNavbar}>
             Contact
           </NavLink>
         </a>
-        <a>
+        <a className="title-name">
           <NavLink to="/about" onClick={closeNavbar}>
             About
           </NavLink>
         </a>
-        <a>
+        <a className="title-name2">
           <NavLink to="/faq" onClick={closeNavbar}>
             Preguntas Frecuentes
           </NavLink>
         </a>
+
         {isAuthenticated ? (
           <Logout closeNavbar={closeNavbar} />
         ) : (
@@ -84,6 +85,11 @@ function Navbar() {
           <FaTimes />
         </button>
       </nav>
+      <a>
+        <NavLink to="/Carrito">
+          <FaShoppingCart className="productCard-cartTwo" />
+        </NavLink>
+      </a>
       <button className="nav-btn" onClick={showNavbar}>
         <FaBars />
       </button>

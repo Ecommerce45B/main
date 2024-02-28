@@ -61,8 +61,7 @@ const postNewProductHandler = async (req, res) => {
             idFabricante)
         res.status(200).json(newProduct)
     } catch (error) {
-        // console.log(error);
-        res.status(400).send(`No se pudo crear el registro del producto ${code} ${description}`)
+        res.status(400).json(error.message)
     }
 }
 
