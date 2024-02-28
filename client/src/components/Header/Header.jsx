@@ -31,7 +31,7 @@ function Navbar() {
           type="text"
           placeholder="Busca lo que necesites..."
         />
-        <Filter />
+        {/* <Filter /> */}
       <nav ref={navRef}>
           <img className="nav-btn-title nav-close-btn-title" src={logo} />
         <a>
@@ -40,7 +40,7 @@ function Navbar() {
           </NavLink>
         </a>
         <a>
-          <NavLink to="/home" onClick={closeNavbar}>
+          <NavLink to="/category" onClick={closeNavbar}>
             Categorias
           </NavLink>
         </a>
