@@ -1,0 +1,45 @@
+.cards{
+  max-width: 85vw;
+  margin: auto;
+}
+
+.pagination, .content{
+  border-radius: 5px;
+}
+
+.pagination{
+  float: right;
+}
+
+.content{
+  background-color: #0f0f0f33;
+  padding-bottom: 25px;
+}
+.cards{
+  margin-top: 50px;
+}
+
+.page {
+  display: none;
+}
+
+.page.active {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  align-items: center;
+  gap: 15px;
+}
+
+.page-button {
+  padding: 5px 10px;
+  border: 1px solid white;
+  border-radius: 5px;
+  background-color: grey;
+  cursor: pointer;
+  width: 55px;
+  margin: 8PX;
+}
+
+.page-button.active {
+  background-color: teal;
+}

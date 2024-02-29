@@ -33,11 +33,40 @@ header {
 	border-radius: 5px;
 	position: relative;
 	width: 20rem;
+	margin: 0rem 1rem 0rem 1rem;
 }
+
+.glass {
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+	width: 40px;
+	height: 40px;
+	margin-top: 6px;
+	color: whitesmoke;
+	font-size: 25px;
+	transition: font-size 0.1s ease-in-out;
+  }
+  
+  .glass:hover {
+	font-size: 28px;
+	color: yellow;
+  }
+  
 
 .main-title {
 	font-size: 24px;
 	color: white;
+}
+
+.title-name {
+	font-size: 15px;
+	color: wheat;
+}
+
+.title-name2 {
+	font-size: 9px;
+	color: wheat;
 }
 
 .title-image {
@@ -48,6 +77,12 @@ header {
 .title-responsive {
 	justify-content: center;
 	margin-top: 90px;
+}
+
+.productCard-cartTwo {
+	color: white;
+	width: 25px;
+	height: auto;
 }
 
 nav a {
