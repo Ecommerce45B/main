@@ -11,13 +11,32 @@ export const getProducts = createAsyncThunk(
     const config = {
       method: 'get',
       url: `${LinkGetProductos}`
-    };
+    }
 
     try {
-      const response = await axios(config);
-      return await response.data;
+      const response = await axios(config)
+      const productsDB = response.data.map((producto) => {
+        const format = {
+          id: producto.id,
+          nombre: producto.nombre,
+          descripcion: producto.descripcion,
+          imagen: producto.imagen,
+          nroserie: producto.nroserie,
+          nromac: producto.nromac,
+          stock: producto.stock,
+          minimo: producto.minimo,
+          preferencia: producto.preferencia,
+          estado: producto.estado,
+          idCategoria: producto.idCategoria,
+          idMarca: producto.idMarca,
+          idFabricante: producto.idFabricante ,
+          rating: producto.rating
+        }
+        return format
+      })
+      return await productsDB
     } catch (error) {
-      return { error: error.message };
+      return { error: error.message }
     }
   }
 )
@@ -30,26 +49,26 @@ const ProductsSlice = createSlice({
   },
   reducers: {
     addProduct(state, action) {
-      // const format = {
-      //   id: action.payload[0].id,
-      //   name: action.payload[0].nombre,
-      //   description: action.payload[0].descripcion,
-      //   image: action.payload[0].imagen,
-      //   productType: action.payload[0].idCategoria,
-      //   price: action.payload[0].precio,
-      //   rating: 3,
-      //   timeLeft: 27,
-      //   totalSales: 7479,
-      // }
-      const format=action.payload;
-      const existingProduct = state.products.find((element) => element.id === format.id);
+      const format = {
+        id: action.payload[0].id,
+        nombre: action.payload[0].nombre,
+        descripcion: action.payload[0].descripcion,
+        imagen: action.payload[0].imagen,
+        nroserie: action.payload[0].nroserie,
+        nromac: action.payload[0].nromac,
+        stock: action.payload[0].stock,
+        minimo: action.payload[0].minimo,
+        preferencia: action.payload[0].preferencia,
+        estado: action.payload[0].estado,
+        idCategoria: action.payload[0].idCategoria,
+        idMarca: action.payload[0].idMarca,
+        idFabricante: action.payload[0].idFabricante, 
+        rating: action.payload[0].rating 
+      }
+      const existingProduct = state.products.find((element) => element.id === format.id)
       if(!existingProduct) state.products.push(format)
-    },
-    // removeProduct(state, action) {
-    //   const index = state.findIndex((product) => product.id === action.payload)
-    //   state.products.splice(index, 1)
-    // },
-  },
+    }
+  }
 })
 
 export const { addProduct, removeProduct } = ProductsSlice.actions

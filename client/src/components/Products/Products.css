@@ -19,7 +19,6 @@ html{
 .productList{
   display: grid;
   justify-content: space-evenly;
-  margin-top: 5rem;
 }
 
 .productCard{
