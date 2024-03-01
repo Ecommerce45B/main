@@ -5,10 +5,11 @@ const {
 } = require('../controllers/votosController');
 
 const getVotosIdUsuarioHandler = async(req,res)=>{
-    const {idUsuario} = req.params
-    console.log("idUser--->", idUsuario);
+    const {id} = req.params;
+    console.log('req.params--> ', req.params);
+    console.log("idUser--->", id);
     try {
-        const response = await getVotoUsuarioId(idUsuario)
+        const response = await getVotoUsuarioId(id)
         res.status(200).json(response)
     }
     catch(error){
@@ -18,9 +19,9 @@ const getVotosIdUsuarioHandler = async(req,res)=>{
 }
 
 const getVotoProductosHandler = async(req,res)=>{
-    const {idProducto} = req.params
+    const {id} = req.params;
     try {
-        const response = await getVotoProductosById(idProducto)
+        const response = await getVotoProductosById(id)
         res.status(200).json(response)
     }
     catch(error){

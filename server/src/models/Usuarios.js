@@ -43,12 +43,6 @@ module.exports = (sequelize) => {
   telefono: {
     type: DataTypes.STRING,
     defaultValue: "0000000000",
-    validate: {
-      isPhoneNumberFormat(value) {
-        if (!/^[0-9]{3,15}$/.test(value))
-          throw Error("Invalid phone number format.");
-      },
-    },
   },
   estado: {
     type: DataTypes.BOOLEAN,

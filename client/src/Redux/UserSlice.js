@@ -48,18 +48,8 @@ export const updateUser = createAsyncThunk(
         }
       );
 
-    //   const updateProfile = (values) => {
-    //     const profile = {
-    //         ...JSON.parse(localStorage.getItem('user')),
-    //         ...values
-    //     };
-    //     localStorage.setItem('user', JSON.stringify(profile));
-    // }
-    // updateProfile(values);
 
       localStorage.setItem("user", JSON.stringify(response.data.myUser));
-      // console.log("UpdateUser Response:", response.data);
-      // console.log('myUser deberia ser el obj usuario: ', response.data.myUser);
       return response.data;
     } catch (error) {
       throw new Error(error.response.data.message);
