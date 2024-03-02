@@ -17,6 +17,6 @@ module.exports = (sequelize) => {
     postalCode: {
       type: DataTypes.STRING,
       defaultValue: "",
-    }
-  })
-}
+    },
+  });
+};

@@ -1,132 +1,248 @@
-//const axios      = require('axios')
-const { Productos } = require('../config/bd')
-// const url = `http://localhost:3001/products`;
-const Sequelize = require('sequelize');
+const { createProductsFromJSON } = require("../config/productServices");
+const {
+  Productos,
+  Imagenes,
+  Categorias,
+  Marcas,
+  Fabricantes,
+  Votos,
+} = require("../config/bd");
+const { Sequelize } = require("sequelize");
 
 const getAllProducts = async () => {
-    const productsDB = await Productos.findAll()
-    return [...productsDB]
-}
+  try {
+    await createProductsFromJSON();
 
-const getProductsById = async (id) => {
-    // console.log("id al controller---> ", id);
-    const productsDB = await Productos.findAll({ where: { id: id } });
-    return [...productsDB];
-}
-
-const getProductsByName = async (nombre) => {
-    const bddProducts = await Productos.findAll({
-        where: {
-            name: {
-                [Sequelize.Op.iLike]: `%${nombre}%`,
-            }
-        }
+    const products = await Productos.findAll({
+      include: [
+        { model: Imagenes },
+        { model: Categorias },
+        { model: Marcas },
+        { model: Fabricantes },
+        { model: Votos },
+      ],
+      attributes: { exclude: ["idCategoria", "idMarca", "idFabricante"] },
     });
 
-    console.log(bddProducts);
+    products.forEach((product) => {
+      if (product.Categoria && !product.Categoria.estado) {
+        product.Categoria.nombre = "Categoría inactiva";
+      }
+      if (product.Marca && !product.Marca.estado) {
+        product.Marca.nombre = "Marca inactiva";
+      }
+      if (product.Fabricante && !product.Fabricante.estado) {
+        product.Fabricante.nombre = "Fabricante inactivo";
+      }
+    });
 
-    return bddProducts;
+    return products;
+  } catch (error) {
+    throw new Error("Error al obtener todos los productos: " + error.message);
+  }
+};
+
+const getProductsById = async (id) => {
+  const product = await Productos.findOne({
+    where: { id: id },
+    include: [
+      { model: Imagenes },
+      { model: Categorias },
+      { model: Marcas },
+      { model: Fabricantes },
+    ],
+    attributes: { exclude: ["idCategoria", "idMarca", "idFabricante"] },
+  });
+  return product;
+};
+
+const getProductsByName = async (nombre) => {
+  const bddProducts = await Productos.findAll({
+    where: {
+      [Sequelize.Op.or]: [
+        {
+          nombre: {
+            [Sequelize.Op.iLike]: `%${nombre}%`,
+          },
+        },
+        {
+          descripcion: {
+            [Sequelize.Op.iLike]: `%${nombre}%`,
+          },
+        },
+      ],
+    },
+    include: [
+      { model: Imagenes },
+      { model: Categorias },
+      { model: Marcas },
+      { model: Fabricantes },
+    ],
+    attributes: { exclude: ["idCategoria", "idMarca", "idFabricante"] },
+  });
+
+  return bddProducts;
 };
 
 const postNewProducts = async (
-    nombre,
-    descripcion,
-    especificaciones,
-    imagen,
-    nroserie,
-    nromac,
-    precio,
-    stock,
-    minimo,
-    preferencia,
-    estado,
-    idCategoria,
-    idMarca,
-    idFabricante,
+  nombre,
+  descripcion,
+  especificaciones,
+  //imagen,
+  nroserie,
+  nromac,
+  precio,
+  stock,
+  minimo,
+  preferencia,
+  estado,
+  idCategoria,
+  idMarca,
+  idFabricante
+  //imagenes
 ) => {
-    const data = await Productos.findAll({ where: { nroserie: nroserie } })
-    if (data.length > 0) {
-        throw new Error(`Ya existe un producto con el nro. Serie: ${nroserie}`);
-    }
-    else {
-        const newProducts = await Productos.create(
-            {
-                nombre,
-                descripcion,
-                especificaciones,
-                imagen,
-                nroserie,
-                nromac,
-                precio,
-                stock,
-                minimo,
-                preferencia,
-                estado,
-                idCategoria,
-                idMarca,
-                idFabricante,
-            })
-        return [newProducts];
-    }
-}
+  try {
+    console.log("Buscando productos con el número de serie:", nroserie);
+    const existingProduct = await Productos.findOne({
+      where: { nroserie: nroserie },
+    });
+    if (existingProduct) {
+      throw new Error(`Ya existe un producto con el nro. Serie: ${nroserie}`);
+    } else {
+      const maxIdProduct = await Productos.max("id");
 
-const changeProducts = async ({id, nombre, descripcion, especificaciones, imagen, nroserie, nromac, precio, stock, minimo, preferencia, estado, idCategoria, idMarca, idFabricante}) => {
-    console.log(id);
-    try {
-        const product = await Productos.findByPk(id);
-        if (!product) {
-            throw new Error(`El ID del producto no existe: ${id}`);
-        }
+      const newProductId = maxIdProduct ? maxIdProduct + 1 : 1;
 
-        const updatedProduct = await Productos.update({
-            nombre, descripcion, especificaciones, imagen, nroserie, nromac, precio, stock, minimo, preferencia, estado, idCategoria, idMarca, idFabricante
-        });
-        return updatedProduct;
-    } catch (error) {
-        throw new Error(`Error al actualizar el producto: ${error.message}`);
+      const newProduct = await Productos.create({
+        id: newProductId,
+        nombre,
+        descripcion,
+        especificaciones,
+        // imagen,
+        nroserie,
+        nromac,
+        precio,
+        stock,
+        minimo,
+        preferencia,
+        estado,
+        idCategoria,
+        idMarca,
+        idFabricante,
+      });
+
+      // await Promise.all(
+      //   imagenes.map(async (imagen) => {
+      //     await Imagenes.create({ ...imagen, idProducto: newProduct.id });
+      //   })
+      // );
+      const productWithAssociations = await Productos.findByPk(newProduct.id, {
+        include: [
+          //{ model: Imagenes },
+          { model: Categorias },
+          { model: Marcas },
+          { model: Fabricantes },
+        ],
+        attributes: { exclude: ["idCategoria", "idMarca", "idFabricante"] },
+      });
+
+      return productWithAssociations;
     }
-}
+  } catch (error) {
+    console.error("Error al crear un nuevo producto:", error);
+    throw error;
+  }
+};
 
+const changeProducts = async (id, productData) => {
+  try {
+    const existingProduct = await Productos.findByPk(id, {
+      include: [
+        { model: Imagenes },
+        { model: Categorias },
+        { model: Marcas },
+        { model: Fabricantes },
+      ],
+      attributes: { exclude: ["idCategoria", "idMarca", "idFabricante"] },
+    });
+
+    if (!existingProduct) {
+      throw new Error(`El ID del producto no existe: ${id}`);
+    }
+
+    await existingProduct.update(productData);
+
+    if (productData.imagenes && Array.isArray(productData.imagenes)) {
+      await Promise.all(
+        productData.imagenes.map(async (imagen) => {
+          await Imagenes.create({ ...imagen, idProducto: id });
+        })
+      );
+    }
+
+    const updatedProduct = await Productos.findByPk(id, {
+      include: [
+        { model: Imagenes },
+        { model: Categorias },
+        { model: Marcas },
+        { model: Fabricantes },
+      ],
+      attributes: { exclude: ["idCategoria", "idMarca", "idFabricante"] },
+    });
+
+    return updatedProduct;
+  } catch (error) {
+    throw new Error(`Error al actualizar el producto: ${error.message}`);
+  }
+};
 
 const deleteProducts = async (id, sw) => {
-    //si sw es true se borra el registro de la tabla, si es false se desactiva el registro y no se elimina
-    const data = await Productos.findAll({ where: { id: id } })
-    if (data.length === 0) {
-        throw new Error(`El ID del producto no existe ${id}`);
+  //si sw es true se borra el registro de la tabla, si es false se desactiva el registro y no se elimina
+  try {
+    const product = await Productos.findByPk(id);
+
+    if (!product) {
+      throw new Error(`El ID del producto no existe ${id}`);
     }
-    else {
-        if (sw === 'true') {
-            const product = await Productos.destroy({ where: { id: id } })
-        }
-        else {
-            const product = await Productos.update({ estado: sw }, { where: { id: id } })
-        }
+
+    if (sw === "true") {
+      await product.update({ estado: false });
+    } else if (sw === "false") {
+      await product.update({ estado: true });
+    } else {
+      throw new Error("El parámetro 'sw' debe ser 'true' o 'false'.");
     }
-}
+
+    return { message: "Producto actualizado correctamente" };
+  } catch (error) {
+    throw new Error(
+      `No se pudo actualizar la información del producto con id ${id}: ${error.message}`
+    );
+  }
+};
 
 const changeProductStock = async ({ id, stock }) => {
-    try {
-      const product = await Productos.findByPk(id);
-      if (!product) {
-        throw new Error(`El ID del producto no existe: ${id}`);
-      }
-  
-      const updatedProduct = await Productos.update({
-        stock: stock
-      });
-  
-      return updatedProduct;
-    } catch (error) {
-      throw new Error(`Error al actualizar el stock del producto: ${error.message}`);
+  try {
+    const product = await Productos.findByPk(id);
+    if (!product) {
+      throw new Error(`El ID del producto no existe: ${id}`);
     }
-  };
 
+    await product.update({ stock: stock });
+
+    return product;
+  } catch (error) {
+    throw new Error(
+      `Error al actualizar el stock del producto: ${error.message}`
+    );
+  }
+};
 module.exports = {
-    getAllProducts,
-    getProductsById,
-    getProductsByName,
-    postNewProducts,
-    changeProducts,
-    deleteProducts,
-    changeProductStock
-}
+  getAllProducts,
+  getProductsById,
+  getProductsByName,
+  postNewProducts,
+  changeProducts,
+  deleteProducts,
+  changeProductStock,
+};

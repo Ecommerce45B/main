@@ -10,9 +10,9 @@ function Products(props) {
   
   const dispatch = useDispatch()
   const stateGlobal = useSelector((state) => state.productsCarrito)
-
+  
   const handlerCarritoAdd = (cartNewProduct) => {
-    console.log(stateGlobal)
+   
     dispatch(addProduct(cartNewProduct))    
   }
 

@@ -1,0 +1,64 @@
+[
+  
+    {
+        "id": 1,
+        "nombre": "Mouses",
+        "descripcion": "Dispositivos de entrada para interactuar con la computadora mediante movimientos precisos.",
+        "estado": true
+    },
+    {
+        "id": 2,
+        "nombre": "Teclados",
+        "descripcion": "Dispositivos de entrada para introducir datos y comandos en la computadora.",
+        "estado": true
+    },
+    {
+      "id": 3,
+      "nombre": "Tarjetas gráficas",
+      "descripcion": "Tarjetas gráficas para mejorar el rendimiento visual",
+      "estado": true
+    },
+    {
+      "id": 4,
+      "nombre": "Memorias RAM",
+      "descripcion": "Memorias RAM para aumentar la capacidad de procesamiento",
+      "estado": true
+    },
+    {
+      "id": 5,
+      "nombre": "Procesadores",
+      "descripcion": "Impresoras para imprimir documentos y fotografías",
+      "estado": true
+    },
+    {
+      "id": 6,
+      "nombre": "Audífonos",
+      "descripcion": "Audífonos para escuchar audio de la computadora",
+      "estado": true
+    },
+    {
+      "id": 7,
+      "nombre": "Cámaras web",
+      "descripcion": "Cámaras web para realizar videollamadas y conferencias",
+      "estado": true
+    },
+    {
+      "id": 8,
+      "nombre": "Ventiladores",
+      "descripcion": "Ventiladores para mantener la temperatura de la computadora",
+      "estado": true
+    },
+    {
+      "id": 9,
+      "nombre": "USBs",
+      "descripcion": "Memorias USB para almacenar y transferir datos",
+      "estado": true
+    },
+    {
+    "id": 10,
+    "nombre": "Tarjetas de sonido",
+    "descripcion": "Tarjetas de sonido para mejorar la calidad de audio de la computadora",
+    "estado": true
+    }
+
+]

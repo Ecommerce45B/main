@@ -1,13 +1,16 @@
 const { Router } = require("express");
-const { getVotosIdUsuarioHandler,
-        getVotoProductosHandler, 
-        postNewVotosHandler 
-      } = require('../handlers/votosHandler');
+const {
+  getVotoProductosHandler,
+  postNewVotosHandler,
+  getVotoHandler,
+  getVotosIdUsuarioHandler,
+} = require("../handlers/votosHandler");
 
 const votesRouter = Router();
 
-votesRouter.get  ("/user/:id", getVotosIdUsuarioHandler);
-votesRouter.get  ("/:id"     , getVotoProductosHandler);
-votesRouter.post ("/new"     , postNewVotosHandler);
+votesRouter.get("/", getVotoHandler);
+votesRouter.get("/user/:idUsuario", getVotosIdUsuarioHandler);
+votesRouter.get("/producto/:idProducto", getVotoProductosHandler);
+votesRouter.post("/new", postNewVotosHandler);
 
 module.exports = votesRouter;

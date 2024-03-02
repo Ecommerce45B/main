@@ -1,32 +1,29 @@
 import { useParams } from 'react-router-dom'
-//import productData from '../content';
 import { FaStar, FaShoppingCart } from 'react-icons/fa'
-
-import styles from './Detail.module.css'
-import { useSelector, useDispatch  } from 'react-redux'
-
+import { useSelector, useDispatch } from 'react-redux'
 import { addProduct } from '../../Redux/CarritoSlice'
+import styles from './Detail.module.css'
 
 function Detail() {
   const dispatch = useDispatch()
   const { id } = useParams()
 
-  const stateGlobal = useSelector((state) => state.products)
-  const productData = stateGlobal['products']
-
-  const stateGlobalCarrito = useSelector((state) => state.productsCarrito)
-
-  const product = productData.find(product => product.id === parseInt(id))
+ 
+  const product = useSelector((state) => {
+    const products = state.products.products; 
+    return products.find(product => product.id === parseInt(id)) 
+  })
 
   if (!product) {
     return <div>Producto no encontrado</div>;
   }
 
-  const handlerCarritoAdd = ()=> {
-    console.log(stateGlobalCarrito)
+  
+  const handlerCarritoAdd = () => {
     dispatch(addProduct(product))
   }
 
+  
   const renderStars = (rating) => {
     const stars = []
     for (let i = 0; i < rating; i++) {
@@ -34,21 +31,28 @@ function Detail() {
     }
     return stars;
   }
-  console.log();
+
   return (
-    product && <div className={styles.container}>
+    <div className={styles.container}>
       <h2 className={styles.title}>{product.nombre}</h2>
       <img className={styles.image} src={product.imagen} alt={product.nombre} />
       <p className={styles.price}>Precio: ${product.precio}</p>
-      <p className={styles.productType}>Tipo de producto: {product.productType}</p>
-      <p className={styles.description}>Descripción: {product.descripcion}</p>
-      <p className={styles.totalSales}>Ventas totales: {product.totalSales}</p>
-      <p className={styles.timeLeft}>Días restantes: {product.timeLeft}</p>
+      <p className={styles.descripcion}>Descripción: {product.descripcion}</p>
+      <p className={styles.especificaciones}>Especificaciones: {product.especificaciones}</p>
+      <p className={styles.nroserie}>Número de Serie: {product.nroserie}</p>
+      <p className={styles.nromac}>Número MAC: {product.nromac}</p>
+      <p className={styles.stock}>Stock: {product.stock}</p>
+      <p className={styles.minimo}>Mínimo: {product.minimo}</p>
+      <p className={styles.preferencia}>Preferencia: {product.preferencia}</p>
+      <p className={styles.estado}>Estado: {product.estado ? 'Activo' : 'Inactivo'}</p>
+      <p className={styles.categoria}>Categoría: {product.Categoria.nombre}</p>
+      <p className={styles.marca}>Marca: {product.Marca.nombre}</p>
+      <p className={styles.fabricante}>Fabricante: {product.Fabricante.nombre}</p>
       <div className={styles.rating}>
         <p className={styles.textRating}>Rating:</p>
         <div className={styles.stars}>{renderStars(product.rating)}</div>        
       </div>
-      <FaShoppingCart className={"productCard__cart"} onClick={() => handlerCarritoAdd()} />
+      <FaShoppingCart className={"productCard__cart"} onClick={handlerCarritoAdd} />
     </div>
   )
 }

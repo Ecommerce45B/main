@@ -18,6 +18,7 @@ function Home() {
 
   const syncronized = async() => {
     const consultaDB = await dispatch(getProducts())
+    console.log("Productos sincronizados:", consultaDB.payload); 
     dispatch(addProduct(consultaDB.payload))
   }
   
@@ -25,19 +26,19 @@ function Home() {
     syncronized()
   }, [])
 
-  const tamaño = 10
-  let inicio = 0
-  let fin = tamaño
-
-  const sections = []
-
-  while (inicio < content.length) {
-    let aux1 = content.slice(inicio, fin)
-    sections.push(aux1)
-    inicio += tamaño
-    fin += tamaño
-  }
+  const tamaño = 10;
+  const sections = [];
   
+  if (content.length <= tamaño) {
+    sections.push(content);
+  } else {
+    for (let i = 0; i < content.length; i += tamaño) {
+      sections.push(content.slice(i, i + tamaño));
+    }
+  }
+  console.log("Contenido de productos:", content);
+
+
   const handleClick = (pageNumber) => {
     setCurrentPage(pageNumber)
   }
