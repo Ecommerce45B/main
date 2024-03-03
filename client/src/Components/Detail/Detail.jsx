@@ -6,6 +6,7 @@ import styles from './Detail.module.css'
 import { useSelector, useDispatch  } from 'react-redux'
 
 import { addProduct } from '../../Redux/CarritoSlice'
+import axios from 'axios'
 
 function Detail() {
   const dispatch = useDispatch()
@@ -22,9 +23,19 @@ function Detail() {
     return <div>Producto no encontrado</div>;
   }
 
-  const handlerCarritoAdd = ()=> {
+  const handlerCarritoAdd = async()=> {
     console.log(stateGlobalCarrito)
+    console.log(product)
     dispatch(addProduct(product))
+
+        
+    const usuarioAlmacenado = localStorage.getItem("user")
+    const usuario = JSON.parse(usuarioAlmacenado)
+    const carData = { idUser: usuario.id }
+    const response = await axios.post('http://localhost:3001/car/new', carData)
+    console.log('----------------------------------------')
+    console.log('Car creation successful:', response.data)
+
   }
 
   const renderStars = (rating) => {

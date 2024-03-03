@@ -1,15 +1,16 @@
 import { useSelector, useDispatch  } from 'react-redux'
-import { removeProducto } from '../../Redux/CarritoSlice'
+import { addProduct, removeProducto } from '../../Redux/CarritoSlice'
+import { useEffect } from 'react'
 
 import styles from './Carrito.module.css'
 
 const Carrito = ()=>{
 
   const dispatch = useDispatch()
-  
+
   const stateGlobalCarrito = useSelector((state) => state.productsCarrito)
   const carrito = stateGlobalCarrito.productsCarrito
-
+  
   const handlerDelete = (idCarrito)=>{
     dispatch(removeProducto(idCarrito))
   }

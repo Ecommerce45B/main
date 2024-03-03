@@ -7,23 +7,32 @@ import { useState, useEffect } from 'react'
 import { useSelector, useDispatch  } from 'react-redux'
 import { getProducts, addProduct } from '../../Redux/ProductsSlice'
 
+
 function Home() {
 
   const stateGlobal = useSelector((state) => state.products)
   const content = stateGlobal['products']
 
+  const stateGlobalCarrito = useSelector((state) => state.productsCarrito)
+  const carrito = stateGlobalCarrito.productsCarrito  
+
   const [currentPage, setCurrentPage] = useState(0)
 
   const dispatch = useDispatch()
-
-  const syncronized = async() => {
-    const consultaDB = await dispatch(getProducts())
-    dispatch(addProduct(consultaDB.payload))
-  }
   
-  useEffect(() => {
+  useEffect(() => {    
+    const syncronized = async() => {
+      
+      const consultaDB = await dispatch(getProducts())
+      await dispatch(addProduct(consultaDB.payload))
+      console.log(carrito)
+
+      
+
+    }
     syncronized()
-  }, [])
+  }, [carrito, dispatch])
+
 
   const tamaño = 10
   let inicio = 0

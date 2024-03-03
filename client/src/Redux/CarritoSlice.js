@@ -11,11 +11,12 @@ const CarritoSlice = createSlice({
       const existingProductIndex = state.productsCarrito.findIndex((product) => product.id === action.payload.id)
 
       if (existingProductIndex !== -1) {
-        // Product exists, increment quantity
         state.productsCarrito[existingProductIndex].cantidad += 1
-      } else {
-        // Product doesn't exist, add it with initial quantity 1
-        state.productsCarrito.push({ ...action.payload, cantidad: 1 })
+      }
+      else {
+        const usuarioAlmacenado = localStorage.getItem("user")
+        const usuario = JSON.parse(usuarioAlmacenado)
+        state.productsCarrito.push({ id_user: usuario.id, ...action.payload, cantidad: 1 })
       }
     },
     removeProducto(state, action) {

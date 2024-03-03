@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 
 import { addProduct } from '../../Redux/CarritoSlice'
 import { useSelector, useDispatch  } from 'react-redux'
+import axios from 'axios'
 
 
 function Products(props) {    
@@ -11,9 +12,16 @@ function Products(props) {
   const dispatch = useDispatch()
   const stateGlobal = useSelector((state) => state.productsCarrito)
 
-  const handlerCarritoAdd = (cartNewProduct) => {
+  const handlerCarritoAdd = async (cartNewProduct) => {
     console.log(stateGlobal)
     dispatch(addProduct(cartNewProduct))    
+    
+    const usuarioAlmacenado = localStorage.getItem("user")
+    const usuario = JSON.parse(usuarioAlmacenado)
+    const carData = { idUser: usuario.id }
+    const response = await axios.post('http://localhost:3001/car/new', carData)
+    console.log('----------------------------------------');
+    console.log('Car creation successful:', response.data)
   }
 
   return (

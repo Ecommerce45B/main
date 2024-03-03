@@ -11,6 +11,8 @@ const modelRoles          = require("../models/Roles.js");
 const modelPedidos        = require("../models/Pedidos.js");
 const modelPedidoProducto = require("../models/PedidoProducto.js");
 const modelVotos          = require("../models/votos.js")
+const modelCartUsers       = require("../models/CartUsers.js")
+const modelCartProducts    = require("../models/CartProducts.js")
 
 const sequelize = new Sequelize(
   `postgres://${USER}:${PASSWORD}@${HOST}:${PORT}/${BDD}`,
@@ -30,6 +32,8 @@ modelRoles(sequelize);
 modelPedidos(sequelize);
 modelPedidoProducto(sequelize);
 modelVotos(sequelize);
+modelCartUsers(sequelize)
+modelCartProducts(sequelize)
 
 const {
   Productos,
@@ -42,6 +46,8 @@ const {
   Pedidos,
   PedidoProducto,
   Votos,
+  CartUsers,
+  CartProducts
 } = sequelize.models;
 
 module.exports = {
