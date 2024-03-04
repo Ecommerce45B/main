@@ -24,11 +24,13 @@ function Detail() {
   }
 
   const handlerCarritoAdd = async()=> {
-    console.log(stateGlobalCarrito)
-    console.log(product)
+    // console.log('State global carrito')
+    // console.log(stateGlobalCarrito.productsCarrito)
+    // console.log('product')
+    // console.log(product)
     dispatch(addProduct(product))
 
-        
+    // Crear un carrito para el usuario
     const usuarioAlmacenado = localStorage.getItem("user")
     const usuario = JSON.parse(usuarioAlmacenado)
     const carData = { idUser: usuario.id }
@@ -36,12 +38,32 @@ function Detail() {
     console.log('----------------------------------------')
     console.log('Car creation successful:', response.data)
 
+    console.log(stateGlobalCarrito);
+
+    const producto = stateGlobalCarrito.productsCarrito[0]
+    const cantidad = producto.cantidad
+    const idUser = producto.id_user
+    const idProduct = producto.id
+    const precio = product.precio
+    const idCarrito = response.data
+    // Agregar productos al carrito
+    const productData = {
+      "idCar": idCarrito,
+      "idUser": idUser,
+      "idProduct": idProduct,
+      "cantidad": cantidad,
+      "monto": cantidad*precio,
+      "estado": false
+    }
+    const responseCartProducts = await axios.post('http://localhost:3001/cartproduct/new', productData)
+    console.log('Producto agregado al carrito:', responseCartProducts)
+
   }
 
   const renderStars = (rating) => {
     const stars = []
     for (let i = 0; i < rating; i++) {
-      stars.push(<FaStar key={i} className={styles.star} />)
+      stars.push(<FaStar className={styles.star} />)
     }
     return stars;
   }

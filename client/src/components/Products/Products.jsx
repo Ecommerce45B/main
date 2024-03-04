@@ -10,11 +10,11 @@ import axios from 'axios'
 function Products(props) {    
   
   const dispatch = useDispatch()
-  const stateGlobal = useSelector((state) => state.productsCarrito)
+  const stateGlobalCarrito = useSelector((state) => state.productsCarrito)
 
   const handlerCarritoAdd = async (cartNewProduct) => {
-    console.log(stateGlobal)
-    dispatch(addProduct(cartNewProduct))    
+    console.log(stateGlobalCarrito)
+    dispatch(addProduct(cartNewProduct)) 
     
     const usuarioAlmacenado = localStorage.getItem("user")
     const usuario = JSON.parse(usuarioAlmacenado)
@@ -22,6 +22,29 @@ function Products(props) {
     const response = await axios.post('http://localhost:3001/car/new', carData)
     console.log('----------------------------------------');
     console.log('Car creation successful:', response.data)
+
+    // Agregar productos al carrito
+    const producto = stateGlobalCarrito.productsCarrito[0]
+    const cantidad = producto.cantidad
+    const idUser = producto.id_user
+    const idProduct = producto.id
+    const precio = props.precio
+    const idCarrito = response.data
+
+    const productData = {
+      "idCar": idCarrito,
+      "idUser": idUser,
+      "idProduct": idProduct,
+      "cantidad": cantidad,
+      "monto": cantidad*precio,
+      "estado": false
+    }
+
+    console.log(productData)
+    const responseCartProducts = await axios.post('http://localhost:3001/cartproduct/new', productData)
+    console.log('Producto agregado al carrito:', responseCartProducts)
+
+    
   }
 
   return (

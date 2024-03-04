@@ -1,14 +1,25 @@
 const { CartProducts } = require('../config/bd');
 
-const CreateCartProduct = async (idCar, idUser, idProduct, cantidad) => {
+const CreateCartProduct = async (idCar, idUser, idProduct, cantidad, monto, estado) => {
   try {
-    const newCarProduct = CartProducts.create({
-      idCar,
-      idUser,
-      idProduct,
-      cantidad
-    })
-    return newCarProduct
+    let existingProduct = await CartProducts.findOne({where: {idProduct}})
+    if(!existingProduct){
+      const newCarProduct = await CartProducts.create({
+        idCar,
+        idUser,
+        idProduct,
+        cantidad,
+        monto,
+        estado
+      })
+      return newCarProduct
+    }
+    else{
+      // Si el producto ya está en el carrito, sumar la cantidad
+      existingProduct.cantidad += cantidad;
+      await existingProduct.save();
+      return existingProduct;
+    }
   } catch (error) {
     return error.message
   }
@@ -19,9 +30,11 @@ module.exports = {
 }
 
 
-// const { CartProducts } = require('../config/bd')
 
-// const CreateCartProduct = async (idCar, idUser, idProduct, cantidad) => {
+// const { CartProducts } = require('../config/bd')
+// const { CartUsers } = require('../config/bd');
+
+// const CreateCartProduct = async (idCar, idUser, idProduct, cantidad, monto, estado) => {
 //   try {
     
 //     // Verificar si ya existe un carrito para el usuario
@@ -33,16 +46,17 @@ module.exports = {
 //     }
 
 //     // Verificar si el producto ya está en el carrito
-//     const existingProduct = CartProducts.find(producto => producto.idProduct === idProduct)
+//     const existingProduct = await CartProducts.find({where: {idProduct}})
 
 //     if (existingProduct) {
 //       // Si el producto ya está en el carrito, sumar la cantidad
-//       existingProduct.cantidad += cantidad
+//       existingProduct.cantidad+=cantidad
 //       await existingProduct.save()
 //       return existingProduct
-//     } else {
+//     } 
+//     else {
 //       // Si el producto no está en el carrito, agregarlo
-//       const newCartProduct = await CartProducts.create({idCar, idUser, idProduct, cantidad})
+//       const newCartProduct = await CartProducts.create({idCar, idUser, idProduct, cantidad, monto, estado})
 //       return newCartProduct
 //     }
 //   } catch (error) {

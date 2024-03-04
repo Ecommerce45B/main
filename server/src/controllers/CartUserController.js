@@ -5,11 +5,11 @@ const CreateCarrito = async (idUser) => {
     const existingCarrito = await CartUsers.findOne({ where: { idUser } });
 
     if (existingCarrito) {
-      throw new Error('Ya existe un carrito para este usuario');
+      return existingCarrito.id
     }
 
-    const newCarrito = await CartUsers.create({ idUser });
-    return newCarrito
+    const newCarrito = await CartUsers.create({ idUser }, { returning: true });
+    return newCarrito.id;
   } catch (error) {
     return error.message;
   }
