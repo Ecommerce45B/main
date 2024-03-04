@@ -33,21 +33,26 @@ module.exports = (sequelize) => {
     precio: {
       type: DataTypes.FLOAT,
       allowNull: false,
+      defaultValue: 0
     },
     stock: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      defaultValue: 0,
     },
     minimo: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      defaultValue: 0
     },
     preferencia: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      defaultValue: 0
     },
     rating:{
-      type:DataTypes.FLOAT
+      type:DataTypes.FLOAT,
+      defaultValue: 0
     },
     estado: {
       type: DataTypes.BOOLEAN,

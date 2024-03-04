@@ -11,7 +11,7 @@ const { Sequelize } = require("sequelize");
 
 const getAllProducts = async () => {
   try {
-    await createProductsFromJSON();
+    //await createProductsFromJSON();
 
     const products = await Productos.findAll({
       include: [

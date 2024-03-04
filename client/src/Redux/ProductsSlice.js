@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import InitialContent from "./InitialContent";
+//import InitialContent from "./InitialContent";
 
 const LinkGetProductos = "http://localhost:3001/productos";
 
@@ -18,8 +18,8 @@ export const getProducts = createAsyncThunk("carrito/obtener", async () => {
 const ProductsSlice = createSlice({
   name: "products",
   initialState: {
-    products: [...InitialContent]
-    //products: []
+    //products: [...InitialContent]
+    products: []
   },
   reducers: {
     addProduct(state, action) {
