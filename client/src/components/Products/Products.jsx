@@ -51,7 +51,7 @@ function Products(props) {
     <div className='productList'>
         <div key={props.id} className='productCard'>
             <Link to={`/detail/${props.id}`}>
-                <img src={props.imagen} alt='product-img' className='productImage'></img>
+                <img src={props.imagen} alt='product-img' className='productImage' height={'100px'}></img>
             </Link>
     
             <FaShoppingCart className={"productCard__cart"} onClick={() => handlerCarritoAdd(props)} />

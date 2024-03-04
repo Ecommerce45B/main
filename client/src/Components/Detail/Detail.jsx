@@ -2,10 +2,10 @@ import { useParams } from 'react-router-dom'
 import { FaStar, FaShoppingCart } from 'react-icons/fa'
 import { useSelector, useDispatch } from 'react-redux'
 import { addProduct } from '../../Redux/CarritoSlice'
-import axios from 'axios'
+import  Rating  from '../Rating/Rating'
 import styles from './Detail.module.css'
 
-function Detail() {
+const Detail = () =>  {
   const dispatch = useDispatch()
   const { id } = useParams()
 
@@ -20,7 +20,6 @@ function Detail() {
   }
 
   
-  const handlerCarritoAdd = () => {
   const handlerCarritoAdd = async()=> {
     // console.log('State global carrito')
     // console.log(stateGlobalCarrito.productsCarrito)
@@ -41,7 +40,7 @@ function Detail() {
   return (
     <div className={styles.container}>
       <h2 className={styles.title}>{product.nombre}</h2>
-      <img className={styles.image} src={product.imagen} alt={product.nombre} />
+      <img className={styles.image} src={product.imagen} alt={product.nombre} width={'60%'}/>
       <p className={styles.price}>Precio: ${product.precio}</p>
       <p className={styles.descripcion}>Descripción: {product.descripcion}</p>
       <p className={styles.especificaciones}>Especificaciones: {product.especificaciones}</p>
@@ -56,7 +55,8 @@ function Detail() {
       <p className={styles.fabricante}>Fabricante: {product.Fabricante.nombre}</p>
       <div className={styles.rating}>
         <p className={styles.textRating}>Rating:</p>
-        <div className={styles.stars}>{renderStars(product.rating)}</div>        
+        <div className={styles.stars}>{renderStars(product.rating)}</div>  
+        <div><Rating idProducto={product.id}/></div>       
       </div>
       <FaShoppingCart className={"productCard__cart"} onClick={handlerCarritoAdd} />
     </div>

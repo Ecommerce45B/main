@@ -4,6 +4,7 @@ const { Categorias } = require("../config/bd");
 const viewCategory = async () => {
   try {
     const listCategory = await Categorias.findAll();
+    listCategory.sort((a, b) => (a.nombre > b.nombre) ? 1 : -1);
     return [...listCategory];
   } catch (error) {
     return error.message;

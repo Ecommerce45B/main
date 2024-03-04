@@ -13,9 +13,7 @@ module.exports = (sequelize) => {
       unique: true,
     },
     descripcion: {
-      type: DataTypes.STRING(200),
-      allowNull: false,
-      unique: true,
+      type: DataTypes.STRING(500),
     },
     estado: {
       type: DataTypes.BOOLEAN,

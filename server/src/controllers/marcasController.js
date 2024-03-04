@@ -4,6 +4,7 @@ const { Marcas } = require("../config/bd");
 const viewMarcas = async () => {
   try {
     const listMarcas = await Marcas.findAll();
+    listMarcas.sort((a, b) => (a.nombre > b.nombre) ? 1 : -1);
     return [...listMarcas];
   } catch (error) {
     return error.message;

@@ -6,6 +6,7 @@ const {
   changeProducts,
   deleteProducts,
   changeProductStock,
+  changeProductRating
 } = require("../controllers/productsController");
 
 const getProductsHandler = async (req, res) => {
@@ -174,6 +175,17 @@ const changeProductStockHandler = async (req, res) => {
   }
 };
 
+const changeProductRatingHandler = async (req, res) => {
+  const { id, rating } = req.body;
+
+  try {
+    const productUpdate = await changeProductRating({ id, rating });
+    res.status(200).json(productUpdate);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+};
+
 module.exports = {
   getProductsHandler,
   getProductsDetailHandler,
@@ -183,4 +195,5 @@ module.exports = {
   getProductsByNameHandler,
   changeProductHandler,
   changeProductStockHandler,
+  changeProductRatingHandler
 };

@@ -19,6 +19,9 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING(500),
       allowNull: false,
     },
+    imagen:{
+      type: DataTypes.STRING(500),
+    },
     nroserie: {
       type: DataTypes.STRING(50),
       allowNull: false,
@@ -42,6 +45,9 @@ module.exports = (sequelize) => {
     preferencia: {
       type: DataTypes.INTEGER,
       allowNull: false,
+    },
+    rating:{
+      type:DataTypes.FLOAT
     },
     estado: {
       type: DataTypes.BOOLEAN,

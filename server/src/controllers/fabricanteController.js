@@ -4,6 +4,7 @@ const { Fabricantes } = require("../config/bd");
 const viewFabricantes = async () => {
   try {
     const listFabricantes = await Fabricantes.findAll();
+    listFabricantes.sort((a, b) => (a.nombre > b.nombre) ? 1 : -1);
     return [...listFabricantes];
   } catch (error) {
     return error.message;

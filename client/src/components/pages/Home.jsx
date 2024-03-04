@@ -22,18 +22,13 @@ function Home() {
   
   useEffect(() => {    
     const syncronized = async() => {
-      
       const consultaDB = await dispatch(getProducts())
-    console.log("Productos sincronizados:", consultaDB.payload); 
+      console.log("Productos sincronizados:", consultaDB.payload); 
       await dispatch(addProduct(consultaDB.payload))
       console.log(carrito)
-
-      
-
     }
     syncronized()
   }, [carrito, dispatch])
-
 
   const tamaño = 10;
   const sections = [];
