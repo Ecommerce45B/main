@@ -15,6 +15,7 @@ import Profile from "./Components/Profile/Profile"
 import Faq from "./Components/pages/Faq/Faq"
 import Detail from "./Components/Detail/Detail"
 import Carrito from "./Components/Carrito/Carrito"
+import Footer from "./Components/Footer/Footer"
 
 function App() {
 
@@ -38,6 +39,7 @@ function App() {
         <Route path="/detail/:id" element={<Detail/>}/>
         <Route path="/Carrito" element={<Carrito/>}/>
       </Routes>
+      <Footer />
     </>
   ) 
 }

@@ -6,10 +6,10 @@ import "./Header.css";
 import logo from "../../assets/Union.png";
 import Login from "../../Components/Login/Login";
 import Logout from "../../Components/Logout/Logout";
-import { FaMagnifyingGlass } from "react-icons/fa6";
 import { FaShoppingCart } from 'react-icons/fa';
+import SearchBar from "../SearchBar.jsx/SearchBar";
 
-function Navbar() {
+function Navbar({ setFilterTerm }) {
   const navRef = useRef();
   const { isAuthenticated } = useAuth0();
 
@@ -27,17 +27,14 @@ function Navbar() {
         <img className="title-image" src={logo} alt="Logo" />
       </Link>
 
-      <div>
-  <input
-    className="search-input"
-    type="text"
-    placeholder="Busca lo que necesites..."
-  />
-  <button className="glass" >
-    <FaMagnifyingGlass />
-  </button>
-</div>
-
+        <SearchBar setFilterTerm={setFilterTerm} />
+      {/* <div>
+        <input
+          className="search-input"
+          type="text"
+          placeholder="Busca lo que necesites..."
+        />
+      </div> */}
       <nav ref={navRef}>
         <img className="nav-btn-title nav-close-btn-title" src={logo} alt="Logo" />
         <a className="title-name">

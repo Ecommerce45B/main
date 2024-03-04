@@ -52,15 +52,27 @@ module.exports = (sequelize) => {
     },
     idCategoria:{
       type:DataTypes.INTEGER,
-      allowNull: false
+      allowNull: false,
+      references: {
+        model: 'Categorias', 
+        key: 'id'
+      }
     },
     idMarca:{
       type:DataTypes.INTEGER,
-      allowNull: false
+      allowNull: false,
+      references: {
+        model: 'Marcas', 
+        key: 'id'
+      }
     },
     idFabricante:{
       type:DataTypes.INTEGER,
-      allowNull: false
+      allowNull: false,
+      references: {
+        model: 'Fabricantes', 
+        key: 'id'
+      }
     },
   });
 

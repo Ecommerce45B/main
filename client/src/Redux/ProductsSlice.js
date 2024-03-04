@@ -45,6 +45,7 @@ const ProductsSlice = createSlice({
   name: 'products',
   initialState: {
     products: [...InitialContent]
+    // products: []
   },
   reducers: {
     addProduct(state, action) {

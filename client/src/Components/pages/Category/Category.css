@@ -9,7 +9,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: navy;
+  background-color: teal;
   height: 10vh;
   color: white;
 }
@@ -23,4 +23,17 @@
   padding: 0.5rem;
   border-radius: 4px;
   border: none;
+}
+
+.search {
+  max-width: 25px;
+  float: left;
+  margin: 1em;
+}
+
+.inputSearch {
+  width: 150px;
+  margin: 1.25% 0.2%;
+  padding: 5px;
+  float: left;
 }

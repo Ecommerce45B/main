@@ -1,7 +1,13 @@
 import React from 'react';
 import './Category.css';
+import searchIcon from "../../../../../client/public/icons/search.png"
 
-function Category() {
+const SearchBar = ({ setFilterTerm }) => {
+  const handleSearchChange = (e) => {
+    const searchTerm = e.target.value.trim();
+    setFilterTerm(searchTerm);
+  };
+
   return (
     <div className="category-header">
       <label htmlFor="category">Categoría:</label>
@@ -28,8 +34,13 @@ function Category() {
         <option value="alien">Alien Ware</option>
         <option value="intel">Intel</option>
       </select>
+      <div className='containerSearchBar'>
+      <button>
+      <img src={searchIcon} alt="search" className='search' />
+      </button> 
+      </div>
     </div>
   );
 }
 
-export default Category;
+export default SearchBar;

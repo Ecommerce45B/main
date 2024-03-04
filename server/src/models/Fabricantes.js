@@ -8,14 +8,17 @@ module.exports = (database) => {
             primaryKey: true
         },
         nombre: {
-            type: DataTypes.STRING(100),
+            type: DataTypes.STRING,
             allowNull: false,
             unique: true
         },
         descripcion: {
-            type: DataTypes.STRING(200),
+            type: DataTypes.STRING(500),
             allowNull: false,
             unique: true
+        },
+        logo:{
+            type:  DataTypes.STRING(500)
         },
         estado: {
             type: DataTypes.BOOLEAN,
