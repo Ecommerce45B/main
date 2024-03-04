@@ -57,16 +57,16 @@ function Navbar({ setFilterTerm }) {
             Servicios
           </NavLink>
         </a>
-        <a className="title-name">
+        {/* <a className="title-name">
           <NavLink to="/contact" onClick={closeNavbar}>
             Contact
           </NavLink>
-        </a>
-        <a className="title-name">
+        </a> */}
+        {/* <a className="title-name">
           <NavLink to="/about" onClick={closeNavbar}>
             About
           </NavLink>
-        </a>
+        </a> */}
         <a className="title-name2">
           <NavLink to="/faq" onClick={closeNavbar}>
             Preguntas Frecuentes

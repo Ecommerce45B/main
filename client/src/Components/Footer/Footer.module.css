@@ -1,0 +1,159 @@
+.footerSmall {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 1rem;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  padding-bottom: 0vh;
+  margin-top: 5.6rem;
+  margin-bottom: 0vh;
+  color: wheat;
+  text-decoration: none;
+  background-color: #A52502;
+  position: relative;
+  width: auto;
+}
+
+.footerSmall svg {
+  height: 1.8rem;
+  width: 1.8rem;
+}
+
+.footerSmall a {
+  text-decoration: none;
+}
+
+.footerSmall a:link,
+a:visited {
+  color: wheat;
+  text-decoration: none;
+}
+
+.footerAbout {
+  font-size: 1.2rem;
+}
+
+.footerSmall a:link:active,
+a:visited:active {
+  color: wheat;
+}
+
+h5 {
+  font-size: 24px;
+}
+
+.footer {
+  margin-top: 0px;
+  justify-content: center;
+  padding: 1rem;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  text-decoration: none;
+  background-color: #A52502;
+  position: relative;
+  color: wheat;
+  display: flex;
+  flex-wrap: wrap;
+  padding-bottom: 1rem;
+}
+
+/* .footer {
+  padding-right: 1rem;
+  padding-left: 1rem;
+  margin-top: 7rem;
+  width: auto;
+  margin-bottom: 0rem;
+} */
+
+.footer svg {
+  height: 1.8rem;
+  width: 1.8rem;
+}
+
+.footer a {
+  text-decoration: none;
+}
+
+.footer a:link,
+a:visited {
+  color: wheat;
+  text-decoration: none;
+}
+
+.footer a:link:active,
+a:visited:active {
+  color: #A52502;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.links a {
+  transition: ease .4s;
+}
+
+.links a:hover {
+  transform: scale(1.2);
+  color: wheat;
+}
+
+.text {
+  padding-top: 0px;
+  margin-top: 0.8rem;
+  margin: 1rem;
+  padding: .5rem;
+  gap: .5rem;
+}
+
+.textIcon {
+  margin: .5rem;
+  gap: 12px;
+  width: 300px;
+}
+
+.textBold {
+  font-size: 24px;
+  font-weight: 900;
+  padding-top: 0px;
+  margin-top: 0.1rem;
+  flex-direction: column;
+  align-items: center;
+}
+
+.textBold:hover {
+  color: #000B0D;
+  animation: shake 0.5s;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.links a {
+  transition: ease .4s;
+}
+
+.links a:hover {
+  transform: scale(1.2);
+  color: wheat;
+}
+
+
+
+@keyframes shake {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(-5px, 0); }
+  50% { transform: translate(5px, 0); }
+  75% { transform: translate(-5px, 0); }
+  100% { transform: translate(0, 0); }
+}
