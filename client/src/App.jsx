@@ -21,6 +21,7 @@ import Carrito from "./Components/Carrito/Carrito"
 import DashboardRoutes from "./DashboardRoutes";
 import Banned from "./Components/pages/Dashboard/Banned/Banned"
 
+import Footer from "./Components/Footer/Footer"
 
 function App() {
 
@@ -116,6 +117,7 @@ function App() {
         <Route path="/detail/:id" element={<Detail />} />
         <Route path="/Carrito" element={<Carrito/>}/>
       </Routes>
+      <Footer />
     </>
   );
 }

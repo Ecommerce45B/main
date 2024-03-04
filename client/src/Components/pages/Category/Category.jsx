@@ -4,8 +4,14 @@ import { getCategorias } from '../../../Redux/CategoriasSlice';
 import { getMarcas } from '../../../Redux/MarcasSlice';
 
 import './Category.css';
+import searchIcon from "../../../../../client/public/icons/search.png"
 
-function Category() {
+const SearchBar = ({ setFilterTerm }) => {
+  const handleSearchChange = (e) => {
+    const searchTerm = e.target.value.trim();
+    setFilterTerm(searchTerm);
+  };
+
   const categoriaGlobal = useSelector((state) => state.categorias)
   const categorias      = categoriaGlobal['categorias'];
 
@@ -55,8 +61,13 @@ function Category() {
         <option key={marca.id} value={marca.id}>{marca.nombre}</option>
       ))} 
       </select>
+      <div className='containerSearchBar'>
+      <button>
+      <img src={searchIcon} alt="search" className='search' />
+      </button> 
+      </div>
     </div>
   );
 }
 
-export default Category;
+export default SearchBar;

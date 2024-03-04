@@ -2,6 +2,7 @@ const productData = [
   {   
     id: '1', 
     nombre:"GFORCE RTX 3080",
+    category: "gpu",
     descripcion:"TARJETA GRÁFICA ENVIDIA",
     especificaciones:"MEMORIA DE 16GB",
     imagen:"https://hiraoka.com.pe/media/mageplaza/blog/post/t/a/tarjeta_grafica-que_es_y_como_funciona.jpg",
@@ -19,6 +20,7 @@ const productData = [
     {   
       id: '2', 
       nombre:"GFORCE RTX 3080",
+      category: "scrren",
       descripcion:"TARJETA GRÁFICA ENVIDIA",
       especificaciones:"MEMORIA DE 16GB",
       imagen:"https://hiraoka.com.pe/media/mageplaza/blog/post/t/a/tarjeta_grafica-que_es_y_como_funciona.jpg",
@@ -36,6 +38,7 @@ const productData = [
       {   
         id: '3', 
         nombre:"GFORCE RTX 3080",
+        category: "screen",
         descripcion:"TARJETA GRÁFICA ENVIDIA",
         especificaciones:"MEMORIA DE 16GB",
         imagen:"https://hiraoka.com.pe/media/mageplaza/blog/post/t/a/tarjeta_grafica-que_es_y_como_funciona.jpg",
@@ -53,6 +56,7 @@ const productData = [
         {   
           id: '4', 
           nombre:"GFORCE RTX 3080",
+          category: "mouse",
           descripcion:"TARJETA GRÁFICA ENVIDIA",
           especificaciones:"MEMORIA DE 16GB",
           imagen:"https://hiraoka.com.pe/media/mageplaza/blog/post/t/a/tarjeta_grafica-que_es_y_como_funciona.jpg",
@@ -70,6 +74,7 @@ const productData = [
           {   
             id: '5', 
             nombre:"GFORCE RTX 3080",
+            category: "motherboard",
             descripcion:"TARJETA GRÁFICA ENVIDIA",
             especificaciones:"MEMORIA DE 16GB",
             imagen:"https://hiraoka.com.pe/media/mageplaza/blog/post/t/a/tarjeta_grafica-que_es_y_como_funciona.jpg",
@@ -86,7 +91,8 @@ const productData = [
             },
             {  
               id: '6', 
-              nombre:"GFORCE RTX 3080",
+              nombre:"GFORCE RTX 3080",    
+              category: "gpu",
               descripcion:"TARJETA GRÁFICA ENVIDIA",
               especificaciones:"MEMORIA DE 16GB",
               imagen:"https://hiraoka.com.pe/media/mageplaza/blog/post/t/a/tarjeta_grafica-que_es_y_como_funciona.jpg",

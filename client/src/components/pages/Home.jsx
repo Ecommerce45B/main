@@ -7,6 +7,9 @@ import { useState, useEffect } from 'react'
 import { useSelector, useDispatch  } from 'react-redux'
 import { getProducts, addProduct } from '../../Redux/ProductsSlice'
 
+import Banner from '../Banner/Banner';
+import HomeCategory from '../HomeCategory';
+import Sponsor from '../../Components/Sponsor.jsx';
 
 function Home() {
 
@@ -89,6 +92,9 @@ function Home() {
           })          
         }
       </div>
+      <div>
+        <Sponsor />
+      </div> 
     </div>
   )
 }
