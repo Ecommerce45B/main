@@ -1,0 +1,206 @@
+[
+  {
+      "id": 1,
+      "nombre": "MageGee MK-Box - Teclado mecánico portátil 60%",
+      "descripcion": "Mini portátil 60% diseño compacto: MK-Box es un teclado mecánico de 68 teclas que tiene un tamaño pequeño y lindo. Puede usarse para juegos o trabajar mientras ahorra espacio.",
+      "especificaciones": "Dispositivos compatibles: Portátil, Tecnología de conectividad: USB, Usos Recomendados Para Producto: Multimedia, Videojuegos.",
+      "nroserie": "987654321",
+      "nromac": "DEF456",
+      "precio": 120,
+      "stock": 50,
+      "minimo": 5,
+      "preferencia": 1,
+      "estado": true,
+      "idCategoria": 2,
+      "idMarca": 1,
+      "idFabricante": 6,
+      "imagenes":[  
+        {"id": 1, "idProducto": 1},
+        {"id": 2, "idProducto": 1}
+        ]
+  },
+  {
+      "id": 2,
+      "nombre": "Auriculares inalámbricos para juegos GMRPWNAGE - Capitán 100",
+      "descripcion": "Los auriculares inalámbricos para juegos GMRPWNAGE cuentan con tecnología de conexión de vanguardia de 2.4 GHz.",
+      "especificaciones": "Tecnología de conectividad: Inalámbrico (2.4 GHz y Bluetooth 5.2), Factor de forma: Por Arriba de la Oreja.",
+      "nroserie": "9876543210",
+      "nromac": "DEF456",
+      "precio": 150,
+      "stock": 50,
+      "minimo": 5,
+      "preferencia": 1,
+      "estado": true,
+      "idCategoria": 2,
+      "idMarca": 1,
+      "idFabricante": 6,
+      "imagenes":[  
+        {"id": 3, "idProducto": 2},
+        {"id": 4, "idProducto": 2}
+        ]
+  },
+  {
+      "id": 3,
+      "nombre": "EVGA GeForce RTX 3080 Ti FTW3 Ultra Gaming",
+      "descripcion": "Tarjeta gráfica de alta gama para gaming con la última tecnología RTX.",
+      "especificaciones": "Interfaz de memoria: 384-bit, Memoria: 12 GB GDDR6X, Reloj base: 1860 MHz, Reloj de aumento: 1815 MHz.",
+      "nroserie": "123456789",
+      "nromac": "ABC123",
+      "precio": 1599,
+      "stock": 20,
+      "minimo": 3,
+      "preferencia": 1,
+      "estado": true,
+      "idCategoria": 3,
+      "idMarca": 7,
+      "idFabricante": 3,
+      "imagenes":[  
+        {"id": 5, "idProducto": 3},
+        {"id": 6, "idProducto": 3}
+        ]
+  },
+  {
+      "id": 4,
+      "nombre": "HyperX Predator RGB 32GB DDR4 3200MHz CL16",
+      "descripcion": "Memoria RAM de alto rendimiento con iluminación RGB.",
+      "especificaciones": "Capacidad: 32GB (2 x 16GB), Velocidad: 3200MHz, Latencia CAS: CL16, Tipo: DDR4.",
+      "nroserie": "9876543210",
+      "nromac": "DEF456",
+      "precio": 249,
+      "stock": 30,
+      "minimo": 5,
+      "preferencia": 1,
+      "estado": true,
+      "idCategoria": 4,
+      "idMarca": 6,
+      "idFabricante": 5,
+      "imagenes":[  
+        {"id": 7, "idProducto": 4},
+        {"id": 8, "idProducto": 4}
+        ]
+  },
+  {
+      "id": 5,
+      "nombre": "AMD Ryzen 9 5950X",
+      "descripcion": "Procesador de 16 núcleos y 32 hilos con un rendimiento excepcional.",
+      "especificaciones": "Núcleos de CPU: 16, Hilos: 32, Reloj base: 3.4GHz, Reloj de aumento máx.: 4.9GHz, TDP: 105W.",
+      "nroserie": "1234567890",
+      "nromac": "ABC123",
+      "precio": 799,
+      "stock": 15,
+      "minimo": 2,
+      "preferencia": 1,
+      "estado": true,
+      "idCategoria": 5,
+      "idMarca": 10,
+      "idFabricante": 2,
+      "imagenes":[  
+        {"id": 9, "idProducto": 5},
+        {"id": 10, "idProducto": 5}
+        ]
+  },
+  {
+      "id": 6,
+      "nombre": "Logitech G Pro Wireless",
+      "descripcion": "Mouse gaming inalámbrico de alta precisión y bajo peso.",
+      "especificaciones": "Sensor HERO 25K, DPI: 100 - 25.600, Peso: 80g, Duración de batería: 60 horas.",
+      "nroserie": "987654321",
+      "nromac": "DEF456",
+      "precio": 129,
+      "stock": 40,
+      "minimo": 5,
+      "preferencia": 1,
+      "estado": true,
+      "idCategoria": 1,
+      "idMarca": 6,
+      "idFabricante": 6,
+      "imagenes":[  
+        {"id": 11, "idProducto": 6},
+        {"id": 12, "idProducto": 6}
+        ]
+  },
+  {
+      "id": 7,
+      "nombre": "Kingston DataTraveler Elite G2",
+      "descripcion": "Memoria USB con carcasa de metal y capacidad de hasta 128GB.",
+      "especificaciones": "Capacidad: 128GB, Velocidad: 180MB/s (lectura), 70MB/s (escritura), Conector: USB-A.",
+      "nroserie": "1234567890",
+      "nromac": "ABC123",
+      "precio": 29,
+      "stock": 100,
+      "minimo": 10,
+      "preferencia": 1,
+      "estado": true,
+      "idCategoria": 9,
+      "idMarca": 5,
+      "idFabricante": 5,
+      "imagenes":[  
+        {"id": 13, "idProducto": 7},
+        {"id": 14, "idProducto": 7}
+        ]
+  },
+  {
+      "id": 8,
+      "nombre": "Corsair LL120 RGB Ventilador de Refrigeración",
+      "descripcion": "Ventilador de alta calidad con iluminación RGB vibrante.",
+      "especificaciones": "Tamaño: 120mm, Velocidad: 600 - 1500 RPM, Flujo de aire: 43.25 CFM, Nivel de ruido: 24.8 dBA.",
+      "nroserie": "9876543210",
+      "nromac": "DEF456",
+      "precio": 39,
+      "stock": 25,
+      "minimo": 3,
+      "preferencia": 1,
+      "estado": true,
+      "idCategoria": 8,
+      "idMarca": 7,
+      "idFabricante": 7,
+      "imagenes":[  
+        {"id": 15, "idProducto": 8},
+        {"id": 16, "idProducto": 8}
+        ]
+  },
+  {
+      "id": 9,
+      "nombre": "Audio-Technica ATH-M50X",
+      "descripcion": "Auriculares de estudio profesionales con calidad de audio excepcional.",
+      "especificaciones": "Tipo: Cerrados, Dinámicos, Diámetro del transductor: 45mm, Respuesta en frecuencia: 15 - 28.000 Hz.",
+      "nroserie": "123456789",
+      "nromac": "ABC123",
+      "precio": 149,
+      "stock": 35,
+      "minimo": 5,
+      "preferencia": 1,
+      "estado": true,
+      "idCategoria": 6,
+      "idMarca": 8,
+      "idFabricante": 8,
+      "imagenes":[  
+        {"id": 17, "idProducto": 9},
+        {"id": 18, "idProducto": 9}
+        ]
+  },
+  {
+      "id": 10,
+      "nombre": "MSI MAG B550 Tomahawk",
+      "descripcion": "Placa base ATX para gaming con soporte PCIe 4.0 y tecnología de refrigeración avanzada.",
+      "especificaciones": "Socket: AM4, Chipset: AMD B550, Formato: ATX, PCIe 4.0, Conectividad: Wi-Fi 6, Bluetooth 5.1.",
+      "nroserie": "9876543210",
+      "nromac": "DEF456",
+      "precio": 179,
+      "stock": 20,
+      "minimo": 3,
+      "preferencia": 1,
+      "estado": true,
+      "idCategoria": 5,
+      "idMarca": 9,
+      "idFabricante": 9,
+      "imagenes":[  
+        {"id": 19, "idProducto": 10},
+        {"id": 20, "idProducto": 10}
+        ]
+  }
+]
+
+
+
+  

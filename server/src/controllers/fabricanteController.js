@@ -1,63 +1,78 @@
-const { Fabricantes } = require('../config/bd');
+const { Fabricantes } = require("../config/bd");
 
 // VER FABRICANTES
 const viewFabricantes = async () => {
-    try{
-        const listFabricantes = await Fabricantes.findAll()
-        return [...listFabricantes]
-    } catch (error){
-        return error.message
-    }
-}
+  try {
+    const listFabricantes = await Fabricantes.findAll();
+    return [...listFabricantes];
+  } catch (error) {
+    return error.message;
+  }
+};
+
 //CREAR FABRICANTE
 const createFabricante = async (nombre, descripcion) => {
-    try{
-        const newFabricante = await Fabricantes.create({
-            nombre,
-            descripcion
-        })
-        return newFabricante
-    } catch (error){
-        return error.message
-    }
-}
+  try {
+    const maxIdFabricante = await Fabricantes.max("id");
+
+    const newIdFabricante = maxIdFabricante ? maxIdFabricante + 1 : 1;
+
+    const newFabricante = await Fabricantes.create({
+      id: newIdFabricante,
+      nombre,
+      descripcion,
+    });
+    return newFabricante;
+  } catch (error) {
+    console.error("Error al crear el Fabricante:", error.message);
+    throw error;
+  }
+};
 
 //ACTUALIZAR FABRICANTE
-const updateFabricante = async (idFabricante, nombre, descripcion) => {
-    try {
-        const existingFabricante= await Fabricantes.findByPk(idFabricante);
+const updateFabricante = async (id, nombre, descripcion, estado) => {
+  try {
+    const existingFabricante = await Fabricantes.findByPk(id);
 
-        if(!existingFabricante) {
-            throw new Error ('Fabricante inexistente')
-        }
-
-        const upFabricante = await Fabricantes.update({ nombre: nombre, descripcion: descripcion }, { where: { id: idFabricante } });
-        return upFabricante
-    } catch(error) {
-        return error.message
+    if (!existingFabricante) {
+      throw new Error("Fabricante inexistente");
     }
-}
+
+    await Fabricantes.update(
+      { nombre: nombre, descripcion: descripcion, estado: estado },
+      { where: { id: id } }
+    );
+    return await Fabricantes.findByPk(id);
+  } catch (error) {
+    throw error;
+  }
+};
 
 //BORRAR FABRICANTE
 const deleteFabricante = async (id, sw) => {
-    //si sw es true se borra el registro de la tabla, si es false se desactiva el registro y no se elimina
-    const data = await Fabricantes.findAll({ where: { id: id } })
-    if (data.length === 0) {
-        throw new Error(`El ID del Fabricante no existe ${id}`);
+  //si sw es true se borra el registro de la tabla, si es false se desactiva el registro y no se elimina
+  try {
+    const Fabricante = await Fabricantes.findByPk(id);
+    if (!Fabricante) {
+      throw new Error(`El ID de la categoria no existe ${id}`);
     }
-    else {
-        if (sw === 'true') {
-            const Fabricante = await Fabricantes.destroy({ where: { id: id } })
-        }
-        else {
-            const Fabricante = await Fabricantes.update({ estado: sw }, { where: { id: id } })
-        }
+    if (sw === "true") {
+      await Fabricantes.update({ estado: false }, { where: { id: id } });
+    } else if (sw === "false") {
+      await Fabricantes.update({ estado: true }, { where: { id: id } });
+    } else {
+      throw new Error("El parametro 'sw' debe ser 'true' o 'false'");
     }
-}
+    return { message: "Fabricante actualizado correctamente" };
+  } catch (error) {
+    console.error("Error al actualizar estado de Fabricante", error.message);
+  }
+  throw error;
+};
 
 module.exports = {
-    viewFabricantes,
-    createFabricante,
-    updateFabricante,
-    deleteFabricante
-}
+  viewFabricantes,
+  createFabricante,
+  updateFabricante,
+  deleteFabricante,
+};

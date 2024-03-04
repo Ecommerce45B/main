@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef,useState,useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { useAuth0 } from '@auth0/auth0-react';
@@ -8,10 +8,33 @@ import Login from "../../Components/Login/Login";
 import Logout from "../../Components/Logout/Logout";
 import { FaMagnifyingGlass } from "react-icons/fa6";
 import { FaShoppingCart } from 'react-icons/fa';
+import axios from "axios"
 
 function Navbar() {
   const navRef = useRef();
-  const { isAuthenticated } = useAuth0();
+  const { isAuthenticated ,user} = useAuth0();
+  const [isAdmin,setIsAdmin] = useState(false)
+
+
+  useEffect(()=>{
+    const fetchUserRole = async () => {
+      try{
+        if (user && user.email) {
+        const response = await axios.get(`http://localhost:3001/usuarios/email/${user.email}`)
+        if(response.data.length>0){
+          const userData = response.data[0];
+          const roleId = userData.Role.id;
+          setIsAdmin(roleId === 1)
+         }
+        }
+      }catch(error){
+        console.error("Error al traer rol de usuario:",error)
+      }
+    }
+    if(isAuthenticated){
+      fetchUserRole()
+    }
+  },[isAuthenticated,user])
 
   const showNavbar = () => {
     navRef.current.classList.toggle("responsive_nav");
@@ -75,6 +98,12 @@ function Navbar() {
             Preguntas Frecuentes
           </NavLink>
         </a>
+        {isAdmin && (
+           <Link to="/dashboard" onClick={closeNavbar} className="admin-btn">
+            Dashboard
+           </Link>
+        )}
+
         {isAuthenticated ? (
           <Logout closeNavbar={closeNavbar} />
         ) : (
