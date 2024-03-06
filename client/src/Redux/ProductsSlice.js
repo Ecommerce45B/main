@@ -1,19 +1,17 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
-//import InitialContent from "./InitialContent";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
+import axios from "axios"
+// import InitialContent from "./InitialContent"
 
-const LinkGetProductos = "http://localhost:3001/productos";
+const LinkGetProductos = "http://localhost:3001/productos"
 
 export const getProducts = createAsyncThunk("carrito/obtener", async () => {
   try {
-    const response = await axios.get(LinkGetProductos);
-    console.log("Productos obtenidos de la API:", response.data);
-    return response.data;
+    const response = await axios.get(LinkGetProductos)
+    return response.data
   } catch (error) {
-    console.log("Error al obtener los productos de la API:", error);
-    return { error: error.message };
+    return { error: error.message }
   }
-});
+})
 
 const ProductsSlice = createSlice({
   name: "products",
@@ -55,15 +53,15 @@ const ProductsSlice = createSlice({
             descripcion: product.Fabricante.descripcion,
             estado: product.Fabricante.estado,
           },
-        };
+        }
         const existingProduct = state.products.find(
           (element) => element.id === format.id
-        );
-        if (!existingProduct) state.products.push(format);
-      });
+        )
+        if (!existingProduct) state.products.push(format)
+      })
     },
   },
-});
+})
 
-export const { addProduct, removeProduct } = ProductsSlice.actions;
-export default ProductsSlice.reducer;
+export const { addProduct, removeProduct } = ProductsSlice.actions
+export default ProductsSlice.reducer

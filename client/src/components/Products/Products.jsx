@@ -6,22 +6,41 @@ import { addProduct } from '../../Redux/CarritoSlice'
 import { useSelector, useDispatch  } from 'react-redux'
 import axios from 'axios'
 
-
 function Products(props) {    
   
   const dispatch = useDispatch()
   const stateGlobalCarrito = useSelector((state) => state.productsCarrito)
+  
+  const usuarioAlmacenado = localStorage.getItem("user")
+  const usuario = JSON.parse(usuarioAlmacenado)
+  const carData = { idUser: usuario.id }
+
+  const idCarrito = async () => {
+    const response = await axios.post('http://localhost:3001/car/new', carData)
+    return response.data
+  }
+
+  const idCarritoUser = idCarrito()
+
+  idCarritoUser.then((idCarrito) => {
+    localStorage.setItem("idCarritoUser", idCarrito)
+  })
 
   const handlerCarritoAdd = async (cartNewProduct) => {
+
+    const config = {
+      method: 'get',
+      url: 'http://localhost:3001/cartproduct/get',
+      data: {
+        idCar: 1
+      }
+    }
+    const response1 = await axios(config)
+    console.log('------------ products cart ------------')
+    console.log(response1.data)
+
     console.log(stateGlobalCarrito)
     dispatch(addProduct(cartNewProduct)) 
-    
-    const usuarioAlmacenado = localStorage.getItem("user")
-    const usuario = JSON.parse(usuarioAlmacenado)
-    const carData = { idUser: usuario.id }
-    const response = await axios.post('http://localhost:3001/car/new', carData)
-    console.log('----------------------------------------');
-    console.log('Car creation successful:', response.data)
 
     // Agregar productos al carrito
     const producto = stateGlobalCarrito.productsCarrito[0]
@@ -29,7 +48,7 @@ function Products(props) {
     const idUser = producto.id_user
     const idProduct = producto.id
     const precio = props.precio
-    const idCarrito = response.data
+    const idCarrito = idCarritoUser
 
     const productData = {
       "idCar": idCarrito,

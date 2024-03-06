@@ -19,6 +19,9 @@ const Detail = () =>  {
     return <div>Producto no encontrado</div>;
   }
 
+  const idCarritoUser = localStorage.getItem("idCarritoUser")
+  console.log('---------------- Carrito id ----------------')
+  console.log(idCarritoUser)
   
   const handlerCarritoAdd = async()=> {
     // console.log('State global carrito')

@@ -7,6 +7,7 @@ import { useState, useEffect } from 'react'
 import { useSelector, useDispatch  } from 'react-redux'
 import { getProducts, addProduct } from '../../Redux/ProductsSlice'
 
+
 import Banner from '../Banner/Banner';
 import HomeCategory from '../HomeCategory';
 import Sponsor from '../../Components/Sponsor.jsx';
@@ -16,22 +17,25 @@ function Home() {
   const stateGlobal = useSelector((state) => state.products)
   const content = stateGlobal['products']
 
-  const stateGlobalCarrito = useSelector((state) => state.productsCarrito)
-  const carrito = stateGlobalCarrito.productsCarrito  
+  // const stateGlobalCarrito = useSelector((state) => state.productsCarrito)
+  // const carrito = stateGlobalCarrito.productsCarrito  
 
   const [currentPage, setCurrentPage] = useState(0)
 
   const dispatch = useDispatch()
   
+  const carritoJSON = localStorage.getItem("carrito")
+  const carritoLocalStorage = JSON.parse(carritoJSON)
+
   useEffect(() => {    
+    console.log('------------------------ Carrito Local Storage ------------------------')
+    console.log(carritoLocalStorage)
     const syncronized = async() => {
       const consultaDB = await dispatch(getProducts())
-      console.log("Productos sincronizados:", consultaDB.payload); 
       await dispatch(addProduct(consultaDB.payload))
-      console.log(carrito)
     }
     syncronized()
-  }, [carrito, dispatch])
+  }, [carritoLocalStorage, dispatch])
 
   const tamaño = 10;
   const sections = [];

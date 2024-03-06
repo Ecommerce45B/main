@@ -1,62 +1,92 @@
 [
-  {
-      "id": 1,
-      "nombre": "Intel Corporation",
-      "descripcion": "Fabricante de procesadores (CPU) y otros componentes internos de computadoras. Con sede en Santa Clara, California, Estados Unidos.",
-      "estado": true
+  {   
+    "id": "1", 
+    "nombre":"Lenovo",
+    "descripcion":"Empresa china con sede en Beijing. Fabrica una amplia gama de dispositivos informáticos, desde laptops y desktops hasta servidores y tablets. ThinkPad es conocida por su durabilidad y rendimiento, mientras que IdeaPad ofrece opciones más económicas. Legion es la marca de gaming de Lenovo.",
+    "logo":"https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Lenovo_Global_Corporate_Logo.png/800px-Lenovo_Global_Corporate_Logo.png",
+    "estado":"true",
+    "createdAt":"2024-02-29",
+    "updatedAt":"2024-02-29"
   },
-  {
-      "id": 2,
-      "nombre": "Advanced Micro Devices (AMD)",
-      "descripcion": "Fabricante de procesadores (CPU) y tarjetas gráficas (GPU). Con sede en Santa Clara, California, Estados Unidos.",
-      "estado": true
+  {   
+    "id": "2", 
+    "nombre":"HP",
+    "descripcion":"Empresa estadounidense con sede en Palo Alto, California. Es uno de los mayores fabricantes de hardware y software del mundo. Spectre es la marca premium de HP, mientras que Envy ofrece laptops y desktops de diseño elegante. OMEN es la marca de gaming de HP.",
+    "logo":"https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/HP_New_Logo_2D.svg/600px-HP_New_Logo_2D.svg.png",
+    "estado":"true",
+    "createdAt":"2024-02-29",
+    "updatedAt":"2024-02-29"
   },
-  {
-      "id": 3,
-      "nombre": "NVIDIA Corporation",
-      "descripcion": "Fabricante líder de unidades de procesamiento gráfico (GPU) para computadoras. Con sede en Santa Clara, California, Estados Unidos.",
-      "estado": true
+  {   
+    "id": "3", 
+    "nombre":"DELL",
+    "descripcion":"Empresa estadounidense con sede en Round Rock, Texas. Es uno de los mayores fabricantes de PCs del mundo. XPS es la marca premium de Dell, mientras que Alienware es conocida por sus laptops y desktops para gaming. Inspiron ofrece una amplia gama de opciones para todos los presupuestos.",
+    "logo":"https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Dell_Logo.svg/300px-Dell_Logo.svg.png",
+    "estado":"true",
+    "createdAt":"2024-02-29",
+    "updatedAt":"2024-02-29"
   },
-  {
-      "id": 4,
-      "nombre": "Samsung Electronics",
-      "descripcion": "Produce una amplia gama de productos electrónicos, incluidos discos de estado sólido (SSD), monitores y dispositivos de almacenamiento. Con sede en Seúl, Corea del Sur.",
-      "estado": true
+  {   
+    "id": "4", 
+    "nombre":"APPLE",
+    "descripcion":"Empresa estadounidense con sede en Cupertino, California. Es conocida por sus productos innovadores y de alta calidad. MacBooks son las laptops de Apple, y vienen en una variedad de tamaños y configuraciones.",
+    "logo":"https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/488px-Apple_logo_black.svg.png",
+    "estado":"true",
+    "createdAt":"2024-02-29",
+    "updatedAt":"2024-02-29"
   },
-  {
-      "id": 5,
-      "nombre": "Kingston Technology",
-      "descripcion": "Fabricante de memorias RAM, unidades flash USB y otros dispositivos de almacenamiento. Con sede en Fountain Valley, California, Estados Unidos.",
-      "estado": true
+  {   
+    "id": "5", 
+    "nombre":"ACER",
+    "descripcion":"Empresa taiwanesa con sede en Xizhi, New Taipei City. Fabrica una amplia gama de dispositivos informáticos, desde laptops y desktops hasta smartphones y tablets. Predator es la marca de gaming de Acer, mientras que Nitro ofrece opciones más económicas. Aspire es la marca generalista de Acer.",
+    "logo":"https://upload.wikimedia.org/wikipedia/commons/a/a1/Acer_Logo.svg",
+    "estado":"true",
+    "createdAt":"2024-02-29",
+    "updatedAt":"2024-02-29"
   },
-  {
-      "id": 6,
-      "nombre": "Logitech",
-      "descripcion": "Fabricante de periféricos de computadora, como ratones, teclados, cámaras web y altavoces. Con sede en Lausana, Suiza.",
-      "estado": true
+  {  
+    "id": "6", 
+    "nombre":"ASUS",
+    "descripcion":"Empresa taiwanesa con sede en Beitou, Taipei. Fabrica una amplia gama de dispositivos informáticos, desde laptops y desktops hasta smartphones y tablets. ROG es la marca de gaming de ASUS, mientras que ZenBook ofrece laptops delgadas y livianas. VivoBook es la marca generalista de ASUS.",
+    "logo":"https://upload.wikimedia.org/wikipedia/commons/2/2e/ASUS_Logo.svg",
+    "estado":"true",
+    "createdAt":"2024-02-29",
+    "updatedAt":"2024-02-29"
   },
-  {
-      "id": 7,
-      "nombre": "Corsair",
-      "descripcion": "Fabricante de componentes internos de computadoras, como memorias RAM, unidades de almacenamiento y periféricos gaming. Con sede en Fremont, California, Estados Unidos.",
-      "estado": true
+  {  
+    "id": "7", 
+    "nombre":"Samsung",
+    "descripcion":"Empresa surcoreana con sede en Seúl. Es uno de los mayores fabricantes de electrónica del mundo. Galaxy Book es la marca de laptops de Samsung, mientras que Galaxy Flex es una laptop plegable. Chromebook es la marca de laptops de Samsung que funcionan con el sistema operativo Chrome OS.",
+    "logo":"https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg",
+    "estado":"true",
+    "createdAt":"2024-02-29",
+    "updatedAt":"2024-02-29"
   },
-  {
-      "id": 8,
-      "nombre": "Seagate Technology",
-      "descripcion": "Fabricante líder de discos duros internos y externos para computadoras. Con sede en Cupertino, California, Estados Unidos.",
-      "estado": true
+  {  
+    "id": "8", 
+    "nombre":"Microsoft",
+    "descripcion":"Empresa estadounidense con sede en Redmond, Washington. Es conocida por su software, como Windows y Office. Surface Laptop, Surface Pro y Surface Book son laptops y tablets convertibles que funcionan con Windows.",
+    "logo":"https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/512px-Microsoft_logo.svg.png",
+    "estado":"true",
+    "createdAt":"2024-02-29",
+    "updatedAt":"2024-02-29"
   },
-  {
-      "id": 9,
-      "nombre": "Western Digital Corporation",
-      "descripcion": "Fabricante de discos duros internos y externos, así como también de unidades de estado sólido (SSD). Con sede en San José, California, Estados Unidos.",
-      "estado": true
+  {  
+    "id": "9", 
+    "nombre":"MSI",
+    "descripcion":"Empresa taiwanesa con sede en New Taipei City. Fabrica laptops y desktops para gaming. GE66 Raider y GS66 Stealth son laptops para gaming de alto rendimiento, mientras que Creator Z16 está diseñada para creadores de contenido.",
+    "logo":"https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Msi-Logo.jpg/800px-Msi-Logo.jpg",
+    "estado":"true",
+    "createdAt":"2024-02-29",
+    "updatedAt":"2024-02-29"
   },
-  {
-      "id": 10,
-      "nombre": "ASUS",
-      "descripcion": "Fabricante de tarjetas madre (placas base), tarjetas gráficas, monitores, laptops y otros dispositivos electrónicos. Con sede en Taipéi, Taiwán.",
-      "estado": true
+  {  
+    "id": "10", 
+    "nombre":"Razer",
+    "descripcion":"Empresa estadounidense con sede en San Francisco, California. Fabrica laptops y desktops para gaming. Blade 15, Blade 17 y Blade Stealth son laptops para gaming de alto rendimiento.",
+    "logo":"https://upload.wikimedia.org/wikipedia/commons/7/79/Logo_Razer_2017.png",
+    "estado":"true",
+    "createdAt":"2024-02-29",
+    "updatedAt":"2024-02-29"
   }
 ]
