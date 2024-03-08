@@ -1,0 +1,254 @@
+[
+  {
+    "id": "1",
+    "nombre": "ThinkPad",
+    "descripcion": "Marca de laptops de Lenovo conocida por su durabilidad y rendimiento.",
+    "estado": "true",
+    "idFabricante": "1",
+    "createdAt": "2024-02-29",
+    "updatedAt": "2024-02-29"
+  },
+  {
+    "id": "2",
+    "nombre": "IdeaPad",
+    "descripcion": "Marca de laptops de Lenovo que ofrece opciones más económicas.",
+    "estado": "true",
+    "idFabricante": "1",
+    "createdAt": "2024-02-29",
+    "updatedAt": "2024-02-29"
+  },
+  {
+    "id": "3",
+    "nombre": "Legion",
+    "descripcion": "Marca de laptops de Lenovo para gaming.",
+    "estado": "true",
+    "idFabricante": "1",
+    "createdAt": "2024-02-29",
+    "updatedAt": "2024-02-29"
+  },
+  {
+    "id": "4",
+    "nombre": "Spectre",
+    "descripcion": "Marca premium de laptops de HP.",
+    "estado": "true",
+    "idFabricante": "2",
+    "createdAt": "2024-02-29",
+    "updatedAt": "2024-02-29"
+  },
+  {
+    "id": "5",
+    "nombre": "Envy",
+    "descripcion": "Marca de laptops de HP que ofrece diseños elegantes.",
+    "estado": "true",
+    "idFabricante": "2",
+    "createdAt": "2024-02-29",
+    "updatedAt": "2024-02-29"
+  },
+  {
+    "id": "6",
+    "nombre": "OMEN",
+    "descripcion": "Marca de laptops de HP para gaming.",
+    "estado": "true",
+    "idFabricante": "2",
+    "createdAt": "2024-02-29",
+    "updatedAt": "2024-02-29"
+  },
+  {
+    "id": "7",
+    "nombre": "XPS",
+    "descripcion": "Marca premium de laptops de Dell.",
+    "estado": "true",
+    "idFabricante": "3",
+    "createdAt": "2024-02-29",
+    "updatedAt": "2024-02-29"
+  },
+  {
+    "id": "8",
+    "nombre": "Alienware",
+    "descripcion": "Marca de laptops de Dell para gaming.",
+    "estado": "true",
+    "idFabricante": "3",
+    "createdAt": "2024-02-29",
+    "updatedAt": "2024-02-29"
+  },
+  {
+    "id": "9",
+    "nombre": "Inspiron",
+    "descripcion": "Marca de laptops de Dell que ofrece una amplia gama de opciones para todos los presupuestos.",
+    "estado": "true",
+    "idFabricante": "3",
+    "createdAt": "2024-02-29",
+    "updatedAt": "2024-02-29"
+  },
+  {
+    "id": "10",
+    "nombre": "MacBooks",
+    "descripcion": "Marca de laptops de Apple.",
+    "estado": "true",
+    "idFabricante": "4",
+    "createdAt": "2024-02-29",
+    "updatedAt": "2024-02-29"
+  },
+  {
+    "id": "11",
+    "nombre": "Predator",
+    "descripcion": "Marca de laptops de Acer para gaming.",
+    "estado": "true",
+    "idFabricante": "5",
+    "createdAt": "2024-02-29",
+    "updatedAt": "2024-02-29"
+  },
+  {
+    "id": "12",
+    "nombre": "Nitro",
+    "descripcion": "Marca de laptops de Acer que ofrece opciones más económicas.",
+    "estado": "true",
+    "idFabricante": "5",
+    "createdAt": "2024-02-29",
+    "updatedAt": "2024-02-29"
+  },
+  {
+    "id": "13",
+    "nombre": "Aspire",
+    "descripcion": "Marca generalista de laptops de Acer.",
+    "estado": "true",
+    "idFabricante": "5",
+    "createdAt": "2024-02-29",
+    "updatedAt": "2024-02-29"
+  },
+  {
+    "id": "14",
+    "nombre": "ROG",
+    "descripcion": "Marca de laptops de ASUS para gaming.",
+    "estado": "true",
+    "idFabricante": "6",
+    "createdAt": "2024-02-29",
+    "updatedAt": "2024-02-29"
+  },
+  {
+    "id": "15",
+    "nombre": "ZenBook",
+    "descripcion": "Marca de laptops de ASUS delgadas y livianas.",
+    "estado": "true",
+    "idFabricante": "6",
+    "createdAt": "2024-02-29",
+    "updatedAt": "2024-02-29"
+  },
+  {
+    "id": "16",
+    "nombre": "VivoBook",
+    "descripcion": "Marca generalista de laptops de ASUS.",
+    "estado": "true",
+    "idFabricante": "6",
+    "createdAt": "2024-02-29",
+    "updatedAt": "2024-02-29"
+  },
+  {
+    "id": "17",
+    "nombre": "Galaxy Book",
+    "descripcion": "Marca de laptops de Samsung.",
+    "estado": "true",
+    "idFabricante": "7",
+    "createdAt": "2024-02-29",
+    "updatedAt": "2024-02-29"
+  },
+  {
+    "id": "18",
+    "nombre": "Galaxy Flex",
+    "descripcion": "Marca de laptops plegables de Samsung.",
+    "estado": "true",
+    "idFabricante": "7",
+    "createdAt": "2024-02-29",
+    "updatedAt": "2024-02-29"
+  },
+  {
+    "id": "19",
+    "nombre": "Chromebook",
+    "descripcion": "Marca de laptops de Samsung que funcionan con el sistema operativo Chrome OS.",
+    "estado": "true",
+    "idFabricante": "7",
+    "createdAt": "2024-02-29",
+    "updatedAt": "2024-02-29"
+  },
+  {
+    "id": "20",
+    "nombre": "Surface Laptop",
+    "descripcion": "Marca de laptops de Microsoft.",
+    "estado": "true",
+    "idFabricante": "8",
+    "createdAt": "2024-02-29",
+    "updatedAt": "2024-02-29"
+  },
+  {
+    "id": "21",
+    "nombre": "Surface Pro",
+    "descripcion": "Marca de tablets convertibles de Microsoft.",
+    "estado": "true",
+    "idFabricante": "8",
+    "createdAt": "2024-02-29",
+    "updatedAt": "2024-02-29"
+  },
+  {
+    "id": "22",
+    "nombre": "Surface Book",
+    "descripcion": "Marca de laptops convertibles de Microsoft.",
+    "estado": "true",
+    "idFabricante": "8",
+    "createdAt": "2024-02-29",
+    "updatedAt": "2024-02-29"
+  },
+  {
+    "id": "23",
+    "nombre": "Raider",
+    "descripcion": "Marca de laptops de MSI para gaming.",
+    "estado": "true",
+    "idFabricante": "9",
+    "createdAt": "2024-02-29",
+    "updatedAt": "2024-02-29"
+  },
+  {
+    "id": "24",
+    "nombre": "GS66 Stealth",
+    "descripcion": "Marca de laptops de MSI para gaming.",
+    "estado": "true",
+    "idFabricante": "9",
+    "createdAt": "2024-02-29",
+    "updatedAt": "2024-02-29"
+  },
+  {
+    "id": "25",
+    "nombre": "Creator Z16",
+    "descripcion": "Marca de laptops de MSI para creadores de contenido.",
+    "estado": "true",
+    "idFabricante": "9",
+    "createdAt": "2024-02-29",
+    "updatedAt": "2024-02-29"
+  },
+  {
+    "id": "26",
+    "nombre": "Blade 15",
+    "descripcion": "Marca de laptops de Razer para gaming.",
+    "estado": "true",
+    "idFabricante": "10",
+    "createdAt": "2024-02-29",
+    "updatedAt": "2024-02-29"
+  },
+  {
+    "id": "27",
+    "nombre": "Blade 17",
+    "descripcion": "Marca de laptops de Razer para gaming.",
+    "estado": "true",
+    "idFabricante": "10",
+    "createdAt": "2024-02-29",
+    "updatedAt": "2024-02-29"
+  },
+  {
+    "id": "28",
+    "nombre": "Blade Stealth",
+    "descripcion": "Marca de laptops de Razer para gaming.",
+    "estado": "true",
+    "idFabricante": "10",
+    "createdAt": "2024-02-29",
+    "updatedAt": "2024-02-29"
+  }
+]

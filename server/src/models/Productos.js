@@ -1,10 +1,11 @@
-const { DataTypes } = require('sequelize');
+const { DataTypes } = require("sequelize");
+
 module.exports = (sequelize) => {
-  sequelize.define('Productos', {
+  const Productos = sequelize.define("Productos", {
     id: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
-      primaryKey: true
+      primaryKey: true,
     },
     nombre: {
       type: DataTypes.STRING(100),
@@ -18,50 +19,58 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING(500),
       allowNull: false,
     },
-    imagen: {
+    imagen:{
       type: DataTypes.STRING(500),
-      allowNull: false,
     },
     nroserie: {
-        type: DataTypes.STRING(50),
-        allowNull: false,
+      type: DataTypes.STRING(50),
+      allowNull: false,
     },
     nromac: {
-        type: DataTypes.STRING(50),
-        allowNull: false,
+      type: DataTypes.STRING(50),
+      allowNull: false,
     },
     precio: {
       type: DataTypes.FLOAT,
       allowNull: false,
+      defaultValue: 0
     },
     stock: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      defaultValue: 0,
     },
     minimo: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      defaultValue: 0
     },
     preferencia: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      defaultValue: 0
+    },
+    rating:{
+      type:DataTypes.FLOAT,
+      defaultValue: 0
     },
     estado: {
       type: DataTypes.BOOLEAN,
-      defaultValue: true
+      defaultValue: true,
     },
-    idCategoria:{
-      type:DataTypes.INTEGER,
-      allowNull: false
+    idCategoria: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
     },
-    idMarca:{
-      type:DataTypes.INTEGER,
-      allowNull: false
+    idMarca: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
     },
-    idFabricante:{
-      type:DataTypes.INTEGER,
-      allowNull: false
+    idFabricante: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
     },
   });
 
+  return Productos;
 };
