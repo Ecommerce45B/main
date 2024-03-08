@@ -5,6 +5,6 @@ const { CreateProductCart, GetProductCart } = require('../handlers/CartProductHa
 const carProductRouter = Router()
 
 carProductRouter.post("/new"     ,CreateProductCart)
-carProductRouter.get("/get"     ,GetProductCart)
+carProductRouter.get("/get/:idCar"     ,GetProductCart)
 
-module.exports = carProductRouter;
+module.exports = carProductRouter

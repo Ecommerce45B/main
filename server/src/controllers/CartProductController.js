@@ -27,14 +27,29 @@ const CreateCartProduct = async (idCar, idUser, idProduct, cantidad, monto, esta
 
 const GetCartProducts = async (idCar) => {
   try {
-    const listCartProducts = await CartProducts.findAll({ where: { idCar } })
+    const listCartProducts = await CartProducts.findAll({ where: { idCar: idCar } })
     return listCartProducts
   } catch (error) {
     return error.message
   }
 }
 
+const DropCartProducts = async (idProduct) => {
+  try{
+    const deleteCartProducts = await CartProducts.destroy({
+      where: {
+        idProduct: idProduct
+      }
+    })
+    return deleteCartProducts
+  }
+  catch(error){
+    return error.message
+  }
+}
+
 module.exports = {
   CreateCartProduct,
-  GetCartProducts
+  GetCartProducts,
+  DropCartProducts
 }

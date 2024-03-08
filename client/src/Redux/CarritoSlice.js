@@ -17,7 +17,7 @@ const CarritoSlice = createSlice({
       else {
         const usuarioAlmacenado = localStorage.getItem("user")
         const usuario = JSON.parse(usuarioAlmacenado)
-        state.productsCarrito.push({ id_user: usuario.id, id_carrito: idCarritoUser, ...action.payload, cantidad: 1 })
+        state.productsCarrito.push({ id_user: usuario.id, id_carrito: idCarritoUser, ...action.payload})
       }
       localStorage.setItem("carrito", JSON.stringify(state.productsCarrito))  
     },

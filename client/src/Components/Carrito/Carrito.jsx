@@ -16,6 +16,7 @@ const Carrito = ()=>{
   
   const handlerDelete = (idCarrito)=>{
     console.log(globalCarrito)
+    
     dispatch(removeProducto(idCarrito))
   }
 
@@ -26,6 +27,7 @@ const Carrito = ()=>{
       <h1 className={styles.titulo}>Carrito de productos</h1>
       <table className={styles.table}>
         <tr>
+          <th>Id</th>
           <th>Nombre</th>
           <th>Cantidad</th>
           <th>Precio Unitario</th>
@@ -35,6 +37,7 @@ const Carrito = ()=>{
         { 
           carrito && carrito.map(product=>(
             <tr key={product.id}>
+              <td>{product.id}</td>
               <td>{product.nombre}</td>
               <td>{product.cantidad}</td>
               <td>{product.precio}</td> 

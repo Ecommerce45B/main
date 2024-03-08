@@ -1,4 +1,4 @@
-const { CreateCartProduct, GetCartProducts } = require('../controllers/CartProductController');
+const { CreateCartProduct, GetCartProducts, DropCartProducts } = require('../controllers/CartProductController');
 // POST
 const CreateProductCart = async (req, res) => {
   try {
@@ -13,7 +13,7 @@ const CreateProductCart = async (req, res) => {
 // GET
 const GetProductCart = async (req, res) => {
   try {
-    const { idCar } = req.body
+    const idCar = parseInt(req.params.idCar)
     const cartProducts = await GetCartProducts(idCar)
     res.status(200).json(cartProducts)
   } catch (error) {
@@ -21,7 +21,19 @@ const GetProductCart = async (req, res) => {
   }
 }
 
+// DELETE
+const DeleteProductsCart = async (req, res) => {
+  try {
+    const eliminar = await DropCartProducts
+    req.status(200).json()
+  }
+  catch (error) {
+    res.status(400).json(`Error: ${error.message}`)
+  }
+}
+
 module.exports = {
   CreateProductCart,
-  GetProductCart
+  GetProductCart,
+  DeleteProductsCart
 }
