@@ -25,13 +25,13 @@
       "descripcion": "Los auriculares inalámbricos para juegos GMRPWNAGE cuentan con tecnología de conexión de vanguardia de 2.4 GHz.",
       "especificaciones": "Tecnología de conectividad: Inalámbrico (2.4 GHz y Bluetooth 5.2), Factor de forma: Por Arriba de la Oreja.",
       "nroserie": "9876543210",
-      "nromac": "DEF456",
+      "nromac": "OPQ789",
       "precio": 150,
       "stock": 50,
       "minimo": 5,
       "preferencia": 1,
       "estado": true,
-      "idCategoria": 2,
+      "idCategoria": 6,
       "idMarca": 1,
       "idFabricante": 6,
       "imagenes":[  
@@ -65,7 +65,7 @@
       "descripcion": "Memoria RAM de alto rendimiento con iluminación RGB.",
       "especificaciones": "Capacidad: 32GB (2 x 16GB), Velocidad: 3200MHz, Latencia CAS: CL16, Tipo: DDR4.",
       "nroserie": "9876543210",
-      "nromac": "DEF456",
+      "nromac": "WXY678",
       "precio": 249,
       "stock": 30,
       "minimo": 5,
@@ -85,7 +85,7 @@
       "descripcion": "Procesador de 16 núcleos y 32 hilos con un rendimiento excepcional.",
       "especificaciones": "Núcleos de CPU: 16, Hilos: 32, Reloj base: 3.4GHz, Reloj de aumento máx.: 4.9GHz, TDP: 105W.",
       "nroserie": "1234567890",
-      "nromac": "ABC123",
+      "nromac": "LMN456",
       "precio": 799,
       "stock": 15,
       "minimo": 2,
@@ -105,7 +105,7 @@
       "descripcion": "Mouse gaming inalámbrico de alta precisión y bajo peso.",
       "especificaciones": "Sensor HERO 25K, DPI: 100 - 25.600, Peso: 80g, Duración de batería: 60 horas.",
       "nroserie": "987654321",
-      "nromac": "DEF456",
+      "nromac": "DEF458",
       "precio": 129,
       "stock": 40,
       "minimo": 5,
@@ -125,7 +125,7 @@
       "descripcion": "Memoria USB con carcasa de metal y capacidad de hasta 128GB.",
       "especificaciones": "Capacidad: 128GB, Velocidad: 180MB/s (lectura), 70MB/s (escritura), Conector: USB-A.",
       "nroserie": "1234567890",
-      "nromac": "ABC123",
+      "nromac": "AZC123",
       "precio": 29,
       "stock": 100,
       "minimo": 10,
@@ -145,7 +145,7 @@
       "descripcion": "Ventilador de alta calidad con iluminación RGB vibrante.",
       "especificaciones": "Tamaño: 120mm, Velocidad: 600 - 1500 RPM, Flujo de aire: 43.25 CFM, Nivel de ruido: 24.8 dBA.",
       "nroserie": "9876543210",
-      "nromac": "DEF456",
+      "nromac": "XYZ789",
       "precio": 39,
       "stock": 25,
       "minimo": 3,
@@ -165,7 +165,7 @@
       "descripcion": "Auriculares de estudio profesionales con calidad de audio excepcional.",
       "especificaciones": "Tipo: Cerrados, Dinámicos, Diámetro del transductor: 45mm, Respuesta en frecuencia: 15 - 28.000 Hz.",
       "nroserie": "123456789",
-      "nromac": "ABC123",
+      "nromac": "WNY679",
       "precio": 149,
       "stock": 35,
       "minimo": 5,
@@ -185,21 +185,304 @@
       "descripcion": "Placa base ATX para gaming con soporte PCIe 4.0 y tecnología de refrigeración avanzada.",
       "especificaciones": "Socket: AM4, Chipset: AMD B550, Formato: ATX, PCIe 4.0, Conectividad: Wi-Fi 6, Bluetooth 5.1.",
       "nroserie": "9876543210",
-      "nromac": "DEF456",
+      "nromac": "ABC901",
       "precio": 179,
       "stock": 20,
       "minimo": 3,
       "preferencia": 1,
       "estado": true,
-      "idCategoria": 5,
+      "idCategoria": 7,
       "idMarca": 9,
       "idFabricante": 9,
       "imagenes":[  
         {"id": 19, "idProducto": 10},
         {"id": 20, "idProducto": 10}
         ]
+  },
+  {
+    "id": 11,
+    "nombre": "Razer DeathAdder V2 - Ratón Gaming",
+    "descripcion": "El Razer DeathAdder V2 es un ratón gaming de alto rendimiento con sensor óptico avanzado y diseño ergonómico para una experiencia de juego cómoda y precisa.",
+    "especificaciones": "Sensor óptico avanzado, Diseño ergonómico, Botones programables, Iluminación RGB personalizable.",
+    "nroserie": "123456789",
+    "nromac": "ASV123",
+    "precio": 70,
+    "stock": 30,
+    "minimo": 5,
+    "preferencia": 1,
+    "estado": true,
+    "idCategoria": 1,
+    "idMarca": 1,
+    "idFabricante": 7,
+    "imagenes": [
+      { "id": 21, "idProducto": 11 },
+      { "id": 22, "idProducto":11 }
+    ]
+  },
+  {
+    "id": 12,
+    "nombre": "Crucial MX500 - SSD 1TB",
+    "descripcion": "El Crucial MX500 es un disco de estado sólido (SSD) de 1TB de capacidad con tecnología NAND 3D y velocidades de lectura/escritura rápidas para mejorar el rendimiento de tu computadora.",
+    "especificaciones": "Capacidad: 1TB, Interfaz: SATA III 6 Gb/s, Velocidad de lectura: hasta 560 MB/s, Velocidad de escritura: hasta 510 MB/s.",
+    "nroserie": "234567890",
+    "nromac": "XCZ689",
+    "precio": 110,
+    "stock": 20,
+    "minimo": 5,
+    "preferencia": 1,
+    "estado": true,
+    "idCategoria": 9,
+    "idMarca": 2,
+    "idFabricante": 5,
+    "imagenes": [
+      { "id": 23, "idProducto": 12 },
+      { "id": 24, "idProducto": 12 }
+    ]
+  },
+  {
+    "id": 13,
+    "nombre": "SteelSeries Apex Pro - Teclado Gaming mecánico",
+    "descripcion": "El SteelSeries Apex Pro es un teclado gaming mecánico con switches ajustables, pantalla OLED integrada y retroiluminación RGB personalizable para una experiencia de juego avanzada.",
+    "especificaciones": "Switches ajustables, Pantalla OLED integrada, Retroiluminación RGB personalizable, Reposamuñecas magnético.",
+    "nroserie": "345678901",
+    "nromac": "LMN456",
+    "precio": 200,
+    "stock": 15,
+    "minimo": 5,
+    "preferencia": 1,
+    "estado": true,
+    "idCategoria": 2,
+    "idMarca": 3,
+    "idFabricante": 6,
+    "imagenes": [
+      { "id": 25, "idProducto": 13 },
+      { "id": 26, "idProducto": 13 }
+    ]
+  },
+  {
+    "id": 14,
+    "nombre": "G.SKILL Trident Z RGB - Kit de Memoria RAM DDR4 16GB (2x8GB)",
+    "descripcion": "El G.SKILL Trident Z RGB es un kit de memoria RAM DDR4 de 16GB (2x8GB) con iluminación RGB personalizable y velocidades de hasta 3600MHz para un rendimiento excepcional en juegos y aplicaciones exigentes.",
+    "especificaciones": "Capacidad: 16GB (2x8GB), Velocidad: DDR4-3600MHz, Latencia: CL16-19-19-39, Voltaje: 1.35V.",
+    "nroserie": "456789012",
+    "nromac": "OPQ789",
+    "precio": 150,
+    "stock": 25,
+    "minimo": 5,
+    "preferencia": 1,
+    "estado": true,
+    "idCategoria": 4,
+    "idMarca": 4,
+    "idFabricante": 5,
+    "imagenes": [
+      { "id": 27, "idProducto": 14 },
+      { "id": 28, "idProducto": 14 }
+    ]
+  },
+  {
+    "id": 15,
+    "nombre": "AOC C24G1 - Monitor Gaming Curvo de 24 Pulgadas",
+    "descripcion": "El AOC C24G1 es un monitor gaming curvo de 24 pulgadas con resolución Full HD, frecuencia de actualización de 144Hz y tecnología AMD FreeSync para una experiencia de juego suave y sin cortes.",
+    "especificaciones": "Tamaño de pantalla: 24 pulgadas, Resolución: Full HD (1920 x 1080), Frecuencia de actualización: 144Hz, Tiempo de respuesta: 1ms.",
+    "nroserie": "567890123",
+    "nromac": "RST012",
+    "precio": 200,
+    "stock": 20,
+    "minimo": 5,
+    "preferencia": 1,
+    "estado": true,
+    "idCategoria": 11,
+    "idMarca": 5,
+    "idFabricante": 3,
+    "imagenes": [
+      { "id": 29, "idProducto": 15 },
+      { "id": 30, "idProducto": 15 }
+    ]
+  },
+  {
+    "id": 16,
+    "nombre": "HyperX Cloud Alpha - Auriculares Gaming con Cable",
+    "descripcion": "Los HyperX Cloud Alpha son auriculares gaming con cable diseñados para brindar una calidad de audio superior, comodidad duradera y un micrófono desmontable con cancelación de ruido para una comunicación clara durante el juego.",
+    "especificaciones": "Controladores: Dinámicos, 50mm con imanes de neodimio, Respuesta de frecuencia: 13Hz–27,000Hz, Impedancia: 65 Ω.",
+    "nroserie": "678901234",
+    "nromac": "UVW345",
+    "precio": 100,
+    "stock": 30,
+    "minimo": 5,
+    "preferencia": 1,
+    "estado": true,
+    "idCategoria": 6,
+    "idMarca": 6,
+    "idFabricante": 1,
+    "imagenes": [
+      { "id": 31, "idProducto": 16 },
+      { "id": 32, "idProducto": 16 }
+    ]
+  },
+  {
+    "id": 17,
+    "nombre": "EVGA GeForce RTX 3080 Ti FTW3 ULTRA GAMING - Tarjeta Gráfica",
+    "descripcion": "La EVGA GeForce RTX 3080 Ti FTW3 ULTRA GAMING es una tarjeta gráfica de alto rendimiento con arquitectura Ampere, 12GB de memoria GDDR6X, y tecnología de trazado de rayos para una experiencia de juego inmersiva y realista.",
+    "especificaciones": "Arquitectura: NVIDIA Ampere, VRAM: 12GB GDDR6X, Núcleos CUDA: 10240, Interfaz de memoria: 384-bit.",
+    "nroserie": "789012345",
+    "nromac": "WXY678",
+    "precio": 1200,
+    "stock": 10,
+    "minimo": 5,
+    "preferencia": 1,
+    "estado": true,
+    "idCategoria": 3,
+    "idMarca": 7,
+    "idFabricante": 7,
+    "imagenes": [
+      { "id": 33, "idProducto": 17 },
+      { "id": 34, "idProducto": 17 }
+    ]
+  },
+  {
+    "id": 18,
+    "nombre": "Audio-Technica AT2020 - Micrófono de Estudio",
+    "descripcion": "El Audio-Technica AT2020 es un micrófono de estudio con diafragma grande y patrón de captación cardioide para una grabación de audio nítida y profesional. Ideal para voces e instrumentos.",
+    "especificaciones": "Patrón polar: Cardioide, Respuesta de frecuencia: 20Hz–20,000Hz, Impedancia: 100 ohms.",
+    "nroserie": "890123456",
+    "nromac": "XYZ012",
+    "precio": 150,
+    "stock": 15,
+    "minimo": 5,
+    "preferencia": 1,
+    "estado": true,
+    "idCategoria": 10,
+    "idMarca": 8,
+    "idFabricante": 6,
+    "imagenes": [
+      { "id": 35, "idProducto": 18 },
+      { "id": 36, "idProducto": 18 }
+    ]
+  },
+  {
+    "id": 19,
+    "nombre": "MSI MPG Z590 GAMING PLUS - Placa Base ATX",
+    "descripcion": "La MSI MPG Z590 GAMING PLUS es una placa base ATX con socket LGA 1200 para procesadores Intel Core de 10ª y 11ª generación. Equipada con VRM digital, PCIe 4.0 y audio de alta calidad para un rendimiento excepcional en juegos y aplicaciones.",
+    "especificaciones": "Socket: LGA 1200, Chipset: Intel Z590, Formato: ATX, PCIe 4.0, USB 3.2 Gen 2x2.",
+    "nroserie": "901234567",
+    "nromac": "XYZ789",
+    "precio": 250,
+    "stock": 10,
+    "minimo": 5,
+    "preferencia": 1,
+    "estado": true,
+    "idCategoria": 7,
+    "idMarca": 9,
+    "idFabricante": 9,
+    "imagenes": [
+      { "id": 37, "idProducto": 19 },
+      { "id": 38, "idProducto": 19 }
+    ]
+  },
+  {
+    "id": 20,
+    "nombre": "Apple MacBook Pro 2023",
+    "descripcion": "Ordenador portátil de alta gama con pantalla Retina y potente rendimiento.",
+    "especificaciones": "Procesador: Intel Core i9, RAM: 16GB, Almacenamiento: 512GB SSD, Pantalla: 16 pulgadas Retina.",
+    "nroserie": "9012345678",
+    "nromac": "XYN189",
+    "precio": 2299,
+    "stock": 10,
+    "minimo": 2,
+    "preferencia": 1,
+    "estado": true,
+    "idCategoria": 11,
+    "idMarca": 11,
+    "idFabricante": 11,
+    "imagenes": [
+      { "id": 39, "idProducto": 20 },
+      { "id": 40, "idProducto": 20 }
+    ]
+  },
+  {
+    "id": 21,
+    "nombre": "Samsung Galaxy S25",
+    "descripcion": "Teléfono inteligente de última generación con cámara de alta resolución y rendimiento rápido.",
+    "especificaciones": "Pantalla: 6.8 pulgadas Super AMOLED, Procesador: Exynos 8nm, RAM: 12GB, Almacenamiento: 256GB.",
+    "nroserie": "8901234567",
+    "nromac": "ANM989",
+    "precio": 999,
+    "stock": 15,
+    "minimo": 3,
+    "preferencia": 1,
+    "estado": true,
+    "idCategoria": 12,
+    "idMarca": 12,
+    "idFabricante": 4,
+    "imagenes": [
+      { "id": 41, "idProducto": 21 },
+      { "id": 42, "idProducto": 21 }
+    ]
+  },
+  {
+    "id": 22,
+    "nombre": "HP DeskJet Plus 4155",
+    "descripcion": "Impresora multifuncional de inyección de tinta con conectividad Wi-Fi.",
+    "especificaciones": "Funciones: Impresión, escaneo, copia, Conectividad: Wi-Fi, Velocidad de impresión: hasta 8 ppm (negro), 5.5 ppm (color).",
+    "nroserie": "7890123456",
+    "nromac": "XYD539",
+    "precio": 99,
+    "stock": 20,
+    "minimo": 5,
+    "preferencia": 1,
+    "estado": true,
+    "idCategoria": 13,
+    "idMarca": 13,
+    "idFabricante": 13,
+    "imagenes": [
+      { "id": 43, "idProducto": 22 },
+      { "id": 44, "idProducto": 22 }
+    ]
+  },
+  {
+    "id": 23,
+    "nombre": "Dell XPS 15 2023",
+    "descripcion": "Portátil premium con pantalla InfinityEdge y rendimiento excepcional.",
+    "especificaciones": "Procesador: Intel Core i7, RAM: 32GB, Almacenamiento: 1TB SSD, Pantalla: 15.6 pulgadas 4K InfinityEdge.",
+    "nroserie": "6789012345",
+    "nromac": "WRZ289",
+    "precio": 1999,
+    "stock": 8,
+    "minimo": 2,
+    "preferencia": 1,
+    "estado": true,
+    "idCategoria": 11,
+    "idMarca": 14,
+    "idFabricante": 13,
+    "imagenes": [
+      { "id": 45, "idProducto": 23 },
+      { "id": 46, "idProducto": 23 }
+    ]
+  },
+  {
+    "id": 24,
+    "nombre": "Apple iPhone 14 Pro",
+    "descripcion": "Teléfono móvil de gama alta con cámara avanzada y diseño elegante.",
+    "especificaciones": "Pantalla: 6.1 pulgadas OLED, Procesador: Apple A16 Bionic, RAM: 6GB, Almacenamiento: 128GB.",
+    "nroserie": "5678901234",
+    "nromac": "RTZ789",
+    "precio": 1199,
+    "stock": 12,
+    "minimo": 3,
+    "preferencia": 1,
+    "estado": true,
+    "idCategoria": 12,
+    "idMarca": 11,
+    "idFabricante": 11,
+    "imagenes": [
+      { "id": 47, "idProducto": 24 },
+      { "id": 48, "idProducto": 24 }
+    ]
   }
 ]
+
+  
+
 
 
 

@@ -11,7 +11,7 @@ const { Sequelize } = require("sequelize");
 
 const getAllProducts = async () => {
   try {
-    //await createProductsFromJSON();
+    await createProductsFromJSON();
 
     const products = await Productos.findAll({
       include: [
@@ -35,7 +35,7 @@ const getAllProducts = async () => {
         product.Fabricante.nombre = "Fabricante inactivo";
       }
     });
-    products.sort((a, b) => (a.nombre > b.nombre) ? 1 : -1);
+
     return products;
   } catch (error) {
     throw new Error("Error al obtener todos los productos: " + error.message);
@@ -77,6 +77,7 @@ const getProductsByName = async (nombre) => {
       { model: Categorias },
       { model: Marcas },
       { model: Fabricantes },
+      { model: Votos },
     ],
     attributes: { exclude: ["idCategoria", "idMarca", "idFabricante"] },
   });
@@ -237,24 +238,6 @@ const changeProductStock = async ({ id, stock }) => {
     );
   }
 };
-
-const changeProductRating = async ({ id, rating }) => {
-  try {
-    const product = await Productos.findByPk(id);
-    if (!product) {
-      throw new Error(`El ID del producto no existe: ${id}`);
-    }
-
-    await product.update({ rating: rating });
-
-    return product;
-  } catch (error) {
-    throw new Error(
-      `Error al actualizar el Rating del producto: ${error.message}`
-    );
-  }
-};
-
 module.exports = {
   getAllProducts,
   getProductsById,
@@ -263,5 +246,4 @@ module.exports = {
   changeProducts,
   deleteProducts,
   changeProductStock,
-  changeProductRating
 };

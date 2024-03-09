@@ -9,9 +9,7 @@
     "dirEnvio": "Ciudad 1, País 1",
     "telefono": "123456789",
     "estado": true,
-    "idRol": 1,
-    "createdAt": "2024-02-29",
-    "updatedAt": "2024-02-29"
+    "idRol": 1
   },
   {
     "id": 2,
@@ -23,9 +21,7 @@
     "dirEnvio": "Ciudad 2, País 2",
     "telefono": "987654321",
     "estado": true,
-    "idRol": 2,
-    "createdAt": "2024-02-29",
-    "updatedAt": "2024-02-29"
+    "idRol": 2
   },
   {
     "id": 3,
@@ -37,9 +33,7 @@
     "dirEnvio": "Ciudad 3, País 3",
     "telefono": "111222333",
     "estado": true,
-    "idRol": 2,
-    "createdAt": "2024-02-29",
-    "updatedAt": "2024-02-29"
+    "idRol": 2
   },
   {
     "id": 4,
@@ -51,9 +45,7 @@
     "dirEnvio": "Ciudad 4, País 4",
     "telefono": "444555666",
     "estado": true,
-    "idRol": 1,
-    "createdAt": "2024-02-29",
-    "updatedAt": "2024-02-29"
+    "idRol": 1
   },
   {
     "id": 5,
@@ -65,9 +57,7 @@
     "dirEnvio": "Ciudad 5, País 5",
     "telefono": "777888999",
     "estado": true,
-    "idRol": 2,
-    "createdAt": "2024-02-29",
-    "updatedAt": "2024-02-29"
+    "idRol": 2
   },
   {
     "id": 6,
@@ -79,9 +69,7 @@
     "dirEnvio": "Ciudad 6, País 6",
     "telefono": "101112131",
     "estado": true,
-    "idRol": 1,
-    "createdAt": "2024-02-29",
-    "updatedAt": "2024-02-29"
+    "idRol": 1
   },
   {
     "id": 7,
@@ -93,9 +81,7 @@
     "dirEnvio": "Ciudad 7, País 7",
     "telefono": "141516171",
     "estado": true,
-    "idRol": 2,
-    "createdAt": "2024-02-29",
-    "updatedAt": "2024-02-29"
+    "idRol": 2
   },
   {
     "id": 8,
@@ -107,9 +93,7 @@
     "dirEnvio": "Ciudad 8, País 8",
     "telefono": "181920212",
     "estado": true,
-    "idRol": 1,
-    "createdAt": "2024-02-29",
-    "updatedAt": "2024-02-29"
+    "idRol": 1
   },
   {
     "id": 9,
@@ -121,9 +105,7 @@
     "dirEnvio": "Ciudad 9, País 9",
     "telefono": "212223242",
     "estado": true,
-    "idRol": 2,
-    "createdAt": "2024-02-29",
-    "updatedAt": "2024-02-29"
+    "idRol": 2
   },
   {
     "id": 10,
@@ -135,9 +117,7 @@
     "dirEnvio": "Ciudad 10, País 10",
     "telefono": "282930313",
     "estado": true,
-    "idRol": 1,
-    "createdAt": "2024-02-29",
-    "updatedAt": "2024-02-29"
+    "idRol": 1
   },
   {
     "id": 11,
@@ -149,9 +129,7 @@
     "dirEnvio": "Ciudad 11, País 11",
     "telefono": "2829313",
     "estado": true,
-    "idRol": 1,
-    "createdAt": "2024-02-29",
-    "updatedAt": "2024-02-29"
+    "idRol": 1
   },
   {
     "id": 13,
@@ -163,9 +141,7 @@
     "dirEnvio": "Ciudad 13, País 13",
     "telefono": "2829333313",
     "estado": true,
-    "idRol": 1,
-    "createdAt": "2024-02-29",
-    "updatedAt": "2024-02-29"
+    "idRol": 1
   }
 
 ]

@@ -2,22 +2,36 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import styles from './adminUsers.module.css';
+import SearchBarUsuarios from '../SearchBar/SearchBarUsuarios';
 
 const AdminUsers = () => {
     const [users, setUsers] = useState([]);
-
-    const fetchUsers = async () => {
-        try {
-            const response = await axios.get(`http://localhost:3001/usuarios`);
-            setUsers(response.data);
-        } catch (error) {
-            console.error("Error trayendo usuarios:", error);
-        }
-    };
+    const [filteredUsers, setFilteredUsers] = useState([]);
+    const [initialFetchDone, setInitialFetchDone] = useState(false);
 
     useEffect(() => {
         fetchUsers();
     }, []);
+
+    const fetchUsers = async () => {
+        try {
+            const response = await axios.get(`http://localhost:3001/usuarios`);
+            // Eliminar usuarios duplicados por id
+           
+            const uniqueUsers = response.data.reduce((acc, curr) => {
+                if (!acc.find(user => user.id === curr.id)) {
+                    acc.push(curr);
+                }
+                return acc;
+            }, []);
+            
+            setUsers(uniqueUsers);
+            setFilteredUsers(uniqueUsers); 
+            setInitialFetchDone(true);
+        } catch (error) {
+            console.error("Error trayendo usuarios:", error);
+        }
+    };
 
     const handleUpdateRole = async (userId, newRoleId) => {
         try {
@@ -44,7 +58,7 @@ const AdminUsers = () => {
                 { estado: isBanned }
             );
             if(!response.data) {
-                console.error("Errr actualizando el estado de baneo:", response.statusText)
+                console.error("Error actualizando el estado de baneo:", response.statusText)
                 return;
             }
 
@@ -53,18 +67,49 @@ const AdminUsers = () => {
             console.error("Error actualizando el estado de baneo:", error) ;
         }
     }
-
+    const handleSearch = async (searchTerm) => {
+       
+        try {
+            let response;
+            const searchTermString = Array.isArray(searchTerm) ? searchTerm[0] : searchTerm; // Convertir searchTerm a una cadena de texto si es un array
+            if (searchTermString.trim() === '') {
+                
+                // Si el término de búsqueda está vacío, llamar a fetchUsers para obtener todos los usuarios
+                await fetchUsers();
+            } else {
+               
+                // Realizar la búsqueda por nombre
+                response = await axios.get(`http://localhost:3001/usuarios/nombre/${searchTermString}`);
+                if (response && response.data) {
+                    console.log('Búsqueda exitosa, usuarios encontrados:', response.data);
+                    setFilteredUsers(response.data);
+                } else {
+                    console.error('La respuesta no contiene datos:', response);
+                }
+            }
+        } catch (error) {
+            console.error('Error al buscar usuarios:', error);
+        }
+    };
+    
+    
     return (
         <div className={styles.container}>
             <h1 className={styles.h1}>Administración de usuarios</h1>
             <button className={styles.homeButton}>
-            <Link to="/dashboard/HomeDashboard" className={styles.homeLink}>
-               HomeDashboard
-            </Link>
-
+                <Link to="/dashboard/adminProducts" className={styles.homeLink}>
+                    AdminProducts
+                </Link>
             </button>
+            <button className={styles.homeButton}>
+                <Link to="/dashboard/adminCatFabMarc" className={styles.homeLink}>
+                    Admin Categorias y Marcas
+                </Link>
+            </button>
+            <SearchBarUsuarios onSearch={handleSearch} />
+
             <ul className={styles.userList}>
-                {users.map((user) => (
+                {filteredUsers.map((user) => (
                     <li key={user.id} className={styles.userListItem}>
                         <div className={styles.userDetails}>
                             <span className={styles.userName}>{user.nombre}</span>

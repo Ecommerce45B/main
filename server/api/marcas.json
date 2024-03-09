@@ -1,63 +1,87 @@
 [
-    {
-      "id": 1,
-      "nombre": "Razer",
-      "descripcion": "Razer es una marca conocida por sus periféricos gaming de alta calidad, como ratones, teclados y auriculares.",
-      "estado": true
-    },
-    {
-      "id": 2,
-      "nombre": "Crucial",
-      "descripcion": "Crucial es una marca especializada en la fabricación de memorias RAM y unidades de estado sólido (SSD) de alta calidad.",
-      "estado": true
-    },
-    {
-      "id": 3,
-      "nombre": "SteelSeries",
-      "descripcion": "SteelSeries es una marca conocida por sus periféricos gaming, incluyendo ratones, teclados y auriculares.",
-      "estado": true
-    },
-    {
-      "id": 4,
-      "nombre": "G.SKILL",
-      "descripcion": "G.SKILL es una marca reconocida por sus memorias RAM de alto rendimiento y sus periféricos gaming.",
-      "estado": true
-    },
-    {
-      "id": 5,
-      "nombre": "AOC",
-      "descripcion": "AOC es una marca líder en la fabricación de monitores de alta calidad y rendimiento para diferentes usos, incluyendo gaming y diseño.",
-      "estado": true
-    },
-    {
-      "id": 6,
-      "nombre": "HyperX",
-      "descripcion": " HyperX es una marca reconocida por sus periféricos gaming de alta calidad, como auriculares, teclados y memorias RAM.",
-      "estado": true
-    },
-    {
-      "id": 7,
-      "nombre": "EVGA",
-      "descripcion": "EVGA es una marca especializada en la fabricación de tarjetas gráficas de alto rendimiento para entusiastas de gaming y computación.",
-      "estado": true
-    },
-    {
-      "id": 8,
-      "nombre": "Audio-Technica",
-      "descripcion": "Audio-Technica es una marca reconocida por sus productos de audio de alta fidelidad, incluyendo auriculares, micrófonos y tocadiscos.",
-      "estado": true
-    },
-    {
-      "id": 9,
-      "nombre": "MSI (Micro-Star International)",
-      "descripcion": "MSI es una marca conocida por sus placas base, tarjetas gráficas, laptops gaming y otros productos relacionados con la computación.",
-      "estado": true
-    },
-    {
-      "id": 10,
-      "nombre": "AMD Ryzen",
-      "descripcion": "AMD Ryzen es una línea de procesadores de alto rendimiento fabricada por Advanced Micro Devices (AMD)",
-      "estado": true
-    }
-  ]
+  {
+    "id": 1,
+    "nombre": "Razer",
+    "descripcion": "Razer es una marca conocida por sus periféricos gaming de alta calidad, como ratones, teclados y auriculares.",
+    "estado": true
+  },
+  {
+    "id": 2,
+    "nombre": "Crucial",
+    "descripcion": "Crucial es una marca especializada en la fabricación de memorias RAM y unidades de estado sólido (SSD) de alta calidad.",
+    "estado": true
+  },
+  {
+    "id": 3,
+    "nombre": "SteelSeries",
+    "descripcion": "SteelSeries es una marca conocida por sus periféricos gaming, incluyendo ratones, teclados y auriculares.",
+    "estado": true
+  },
+  {
+    "id": 4,
+    "nombre": "G.SKILL",
+    "descripcion": "G.SKILL es una marca reconocida por sus memorias RAM de alto rendimiento y sus periféricos gaming.",
+    "estado": true
+  },
+  {
+    "id": 5,
+    "nombre": "AOC",
+    "descripcion": "AOC es una marca líder en la fabricación de monitores de alta calidad y rendimiento para diferentes usos, incluyendo gaming y diseño.",
+    "estado": true
+  },
+  {
+    "id": 6,
+    "nombre": "HyperX",
+    "descripcion": "HyperX es una marca reconocida por sus periféricos gaming de alta calidad, como auriculares, teclados y memorias RAM.",
+    "estado": true
+  },
+  {
+    "id": 7,
+    "nombre": "EVGA",
+    "descripcion": "EVGA es una marca especializada en la fabricación de tarjetas gráficas de alto rendimiento para entusiastas de gaming y computación.",
+    "estado": true
+  },
+  {
+    "id": 8,
+    "nombre": "Audio-Technica",
+    "descripcion": "Audio-Technica es una marca reconocida por sus productos de audio de alta fidelidad, incluyendo auriculares, micrófonos y tocadiscos.",
+    "estado": true
+  },
+  {
+    "id": 9,
+    "nombre": "MSI (Micro-Star International)",
+    "descripcion": "MSI es una marca conocida por sus placas base, tarjetas gráficas, laptops gaming y otros productos relacionados con la computación.",
+    "estado": true
+  },
+  {
+    "id": 10,
+    "nombre": "AMD Ryzen",
+    "descripcion": "AMD Ryzen es una línea de procesadores de alto rendimiento fabricada por Advanced Micro Devices (AMD).",
+    "estado": true
+  },
+  {
+    "id": 11,
+    "nombre": "Apple",
+    "descripcion": "Apple es una empresa multinacional estadounidense conocida por sus productos electrónicos de consumo, software y servicios en línea, incluyendo el iPhone, iPad, Mac, Apple Watch y más.",
+    "estado": true
+  },
+  {
+    "id": 12,
+    "nombre": "Samsung",
+    "descripcion": "Samsung es una empresa surcoreana líder en tecnología, conocida por sus teléfonos inteligentes, televisores, electrodomésticos y componentes electrónicos.",
+    "estado": true
+  },
+  {
+    "id": 13,
+    "nombre": "HP",
+    "descripcion": "HP (Hewlett-Packard) es una empresa líder en tecnología de la información, conocida por sus computadoras personales, impresoras y servicios de TI.",
+    "estado": true
+  },
+  {
+    "id": 14,
+    "nombre": "Dell",
+    "descripcion": "Dell Technologies es una empresa estadounidense que ofrece una amplia gama de productos tecnológicos, incluyendo computadoras personales, servidores y soluciones empresariales.",
+    "estado": true
+  }
   
+]

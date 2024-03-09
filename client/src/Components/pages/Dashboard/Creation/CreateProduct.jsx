@@ -289,7 +289,7 @@ const CreateProduct = () => {
             <button type="sumbit"  className={styles.button}>Crear Producto</button>
          </form>
 
-         <Link to="/dashboard/HomeDashboard"className={styles.link}>Volver a HomeDashboard</Link>
+         <Link to="/dashboard/adminProducts"className={styles.link}>Volver a HomeDashboard</Link>
     </div>
  )
  }

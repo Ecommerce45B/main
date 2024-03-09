@@ -7,13 +7,14 @@
 }
 
 .buttonContainer {
+  width: 1200px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-top: 20px;
 }
 
-.buttonDashboard,
-.buttonCreation {
+.buttonDashboard {
   display: inline-block;
   padding: 10px 20px;
   margin-bottom: 10px;
@@ -22,35 +23,44 @@
   text-decoration: none;
   cursor: pointer;
 }
-
-.buttonCreation {
-  margin-left: 100px;
-  margin-right: 70px;
-}
 .buttonDashboard {
   color: #007bff;
+}
+
+.buttonCreation {
+  margin-right: 20px;
+  background-color: #ff7f50;
+  color: white;
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  text-decoration: none;
+  cursor: pointer;
+}
+.buttonCreation:hover {
+  background-color: #ffa07a;
+}
+.titleContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 
 .name {
   font-size: 16px;
   margin: 10px;
 }
-.buttonCreation {
-  background-color: #28a745;
-  color: white;
-}
 
-.buttonCreation:hover {
-  background-color: #0056b3;
+.searchBarContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .title {
   margin: 10px;
-}
-
-.cardContainer {
-  display: flex;
-  flex-wrap: wrap;
 }
 
 .productTable {
@@ -69,31 +79,18 @@
   background-color: #f2f2f2;
 }
 
-.productTable .name {
-  font-weight: bold;
-}
-
 .imagesContainer {
   display: flex;
   flex-wrap: wrap;
 }
 
 .productImage {
-  width: 50px;
-  height: 50px;
+  max-width: 400px;
+  max-height: 400px;
   margin-right: 5px;
   margin-bottom: 5px;
   border: 1px solid #ccc;
   border-radius: 5px;
-}
-
-.votesList {
-  list-style-type: none;
-  padding-left: 0;
-}
-
-.voteItem {
-  margin-bottom: 5px;
 }
 
 .actionButton,
@@ -107,30 +104,10 @@
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
 }
-.deleteButton {
-  background-color: #dc3545;
-  color: white;
-}
 
 .restoreButton {
   background-color: #28a745;
   color: white;
-}
-
-.deleteButton:hover,
-.deleteButton2:hover {
-  background-color: #c82333;
-}
-
-.restoreButton,
-.restoreButton2 {
-  background-color: #28a745;
-  color: white;
-}
-
-.restoreButton:hover,
-.restoreButton2:hover {
-  background-color: #218838;
 }
 
 .linkEditar {
@@ -150,30 +127,10 @@
 .linkEditar:hover {
   background-color: rgba(9, 33, 186, 0.591);
 }
-.deletedProduct,
-.deletedCategoria {
+
+.deletedProduct {
   opacity: 0.5;
   background-color: #f8d7da;
-}
-
-.cardContainer {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
-.card {
-  width: calc(33.33% - 20px);
-  margin: 10px;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-}
-
-.productName {
-  font-weight: bold;
-  margin-bottom: 10px;
-  font-size: 24px;
-  text-align: center;
 }
 
 .productImage {
@@ -204,24 +161,7 @@
   transition: background-color 0.3s, color 0.3s;
 }
 
-.deletedProduct,
-.deletedCategoria {
-  opacity: 0.5;
-  background-color: #f8d7da;
-}
-
-.nombre {
-  font-size: 18px;
-  margin-bottom: 5px;
-}
-
-.itemLista {
-  display: flex;
-  align-items: center;
-}
-
-.deleteButton,
-.deleteButton2 {
+.deleteButton {
   background-color: #dc3545;
   color: white;
   border-radius: 5px;
@@ -231,13 +171,11 @@
   cursor: pointer;
 }
 
-.deleteButton:hover,
-.deleteButton2:hover {
+.deleteButton:hover {
   background-color: #c82333;
 }
 
-.restoreButton,
-.restoreButton2 {
+.restoreButton {
   background-color: #28a745;
   color: white;
   border-radius: 5px;
@@ -247,12 +185,24 @@
   cursor: pointer;
 }
 
-.restoreButton:hover,
-.restoreButton2:hover {
+.restoreButton:hover {
   background-color: #218838;
 }
 
-.deleteButton2,
-.restoreButton2 {
-  margin-left: auto;
+.filterContainer {
+  margin-top: 4px;
+  margin-right: 100px;
+}
+
+.filterLabel {
+  font-weight: bold;
+  font-size: 18px;
+  margin-right: 5px;
+}
+
+.filterSelect {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
 }

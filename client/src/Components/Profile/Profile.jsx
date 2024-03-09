@@ -3,36 +3,75 @@ import { useAuth0 } from '@auth0/auth0-react';
 import axios from 'axios';
 import { useForm } from 'react-hook-form';
 import styles from './Profile.module.css';
+import { FaStar } from 'react-icons/fa';
 
 const Profile = () => {
   const { user, isAuthenticated } = useAuth0();
   const [userData, setUserData] = useState({});
+  const [userVotes, setUserVotes] = useState([]);
   const [userUpdated, setUserUpdated] = useState(false);
   const { register, handleSubmit, formState: { errors }, setValue } = useForm();
+  const [products, setProducts] = useState([]);
+
+  const fetchUserVotes = async () => {
+    try {
+      if (userData.id) {
+        const response = await axios.get(`http://localhost:3001/votos/user/${userData.id}`);
+        setUserVotes(response.data);
+      }
+    } catch (error) {
+      console.error('Error fetching user votes:', error);
+    }
+  };
 
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await axios.get(`http://localhost:3001/usuarios/email/${user.email}`);
-        if (response.data.length > 0) {
-          const userData = response.data[0];
-          setUserData(userData);
-          setValue('nombre', userData.nombre || '');
-          setValue('dirEnvio', userData.dirEnvio || '');
-          setValue('dirFacturacion', userData.dirFacturacion || '');
-          setValue('telefono', userData.telefono || '');
-        } else {
-          console.error('No se encontraron usuarios con ese email.');
+        if (isAuthenticated && user && user.email) {
+          const response = await axios.get(`http://localhost:3001/usuarios/email/${user.email}`);
+          if (response.data.length > 0) {
+            const userData = response.data[0];
+            setUserData(userData);
+            setValue('nombre', userData.nombre || '');
+            setValue('dirEnvio', userData.dirEnvio || '');
+            setValue('dirFacturacion', userData.dirFacturacion || '');
+            setValue('telefono', userData.telefono || '');
+          } else {
+            console.error('No se encontraron usuarios con ese email.');
+          }
         }
       } catch (error) {
         console.error('Error fetching user data:', error);
       }
     };
+  
+    fetchUserData();
+  }, [isAuthenticated, user, setValue]);
 
-    if (isAuthenticated) {
-      fetchUserData();
+  useEffect(() => {
+    if (userData.id) {
+      fetchUserVotes();
     }
-  }, [isAuthenticated, user.email, setValue]);
+  }, [userData.id]);
+
+  useEffect(() => {
+    const fetchProductDetails = async (idProducto) => {
+      try {
+        const response = await axios.get(`http://localhost:3001/productos/${idProducto}`);
+        return response.data;
+      } catch (error) {
+        console.error("Error trayendo el detalle del producto:", error);
+        return null;
+      }
+    };
+
+    const fetchAllProductDetails = async () => {
+      const productDetails = await Promise.all(userVotes.map(vote => fetchProductDetails(vote.idProducto)));
+      setProducts(productDetails);
+    };
+
+    fetchAllProductDetails();
+  }, [userVotes]);
 
   const displayName = userData.nombre || (user ? user.name || 'unknown' : 'unknown');
 
@@ -45,6 +84,16 @@ const Profile = () => {
       console.error('Error updating user profile:', error);
     }
   };
+
+  const handleDeleteVote = async (id) => {
+    try {
+      await axios.delete(`http://localhost:3001/votos/delete/${id}`);
+      fetchUserVotes();
+    } catch (error) {
+      console.error('Error deleting vote:', error);
+    }
+  };
+
 
   return (
     isAuthenticated && (
@@ -91,12 +140,38 @@ const Profile = () => {
           </button>
 
           {userUpdated && <p className={styles.userUpdatedMessage}>Usuario actualizado</p>}
-        </form>
+        
 
-        <div className={styles.profileSection}>
-          <h3 className={styles.profileSectionTitle}>Historial de Pedidos</h3>
-          <p className={styles.profileSectionContent}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus feugiat felis ac leo bibendum, nec tincidunt lectus suscipit.</p>
-        </div>
+          <div className={styles.profileSection}>
+      <h3 className={styles.profileSectionTitle}>Historial de Comentarios</h3>
+      <ul className={styles.commentList}>
+        {userVotes.map((vote, index) => (
+          <li key={vote.id} className={styles.commentItem}>
+         
+            {products[index] && (
+              <div className={styles.productDetails}>
+                  <p className={styles.productName}>{products[index].nombre}</p>
+                <div>
+                  <img className={styles.productImage} src={products[index].Imagenes[0].url} alt={products[index].nombre} />
+                </div>
+                <div className={styles.productInfo}>
+                
+                </div>
+              </div>
+            )}
+            
+           
+            <div className={styles.commentContent}>
+                    <p className={styles.commentText}><span className={styles.boldText}>Comentario:</span> {vote.comentario}</p>
+                    <p className={styles.commentVote}>Voto: {Array.from({ length: vote.voto }, (_, i) => <FaStar key={i} className={styles.starIcon} />)}</p>
+                   
+                    <button className={styles.deleteButton}  onClick={() => handleDeleteVote(vote.id)}>x</button>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </form>
       </div>
     )
   );

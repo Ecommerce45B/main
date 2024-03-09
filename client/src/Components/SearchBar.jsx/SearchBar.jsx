@@ -1,7 +1,7 @@
 // SearchBar.jsx
 
 import styles from "./SearchBar.module.css";
-import searchIcon from "../../../public/icons/search.png"
+import searchIcon from "/icons/search.png";
 
 const SearchBar = ({ setFilterTerm }) => {
   const handleSearchChange = (e) => {

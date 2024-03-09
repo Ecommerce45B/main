@@ -1,62 +1,81 @@
 [
-  {
+    {
       "id": 1,
       "nombre": "Intel Corporation",
-      "descripcion": "Fabricante de procesadores (CPU) y otros componentes internos de computadoras. Con sede en Santa Clara, California, Estados Unidos.",
+      "descripcion": "Fabricante líder de procesadores (CPU) y otros componentes internos de computadoras. Con sede en Santa Clara, California, Estados Unidos.",
       "estado": true
-  },
-  {
+    },
+    {
       "id": 2,
       "nombre": "Advanced Micro Devices (AMD)",
-      "descripcion": "Fabricante de procesadores (CPU) y tarjetas gráficas (GPU). Con sede en Santa Clara, California, Estados Unidos.",
+      "descripcion": "Fabricante de renombre de procesadores (CPU) y tarjetas gráficas (GPU). Con sede en Santa Clara, California, Estados Unidos.",
       "estado": true
-  },
-  {
+    },
+    {
       "id": 3,
       "nombre": "NVIDIA Corporation",
-      "descripcion": "Fabricante líder de unidades de procesamiento gráfico (GPU) para computadoras. Con sede en Santa Clara, California, Estados Unidos.",
+      "descripcion": "Líder en la fabricación de unidades de procesamiento gráfico (GPU) para computadoras. Con sede en Santa Clara, California, Estados Unidos.",
       "estado": true
-  },
-  {
+    },
+    {
       "id": 4,
       "nombre": "Samsung Electronics",
-      "descripcion": "Produce una amplia gama de productos electrónicos, incluidos discos de estado sólido (SSD), monitores y dispositivos de almacenamiento. Con sede en Seúl, Corea del Sur.",
+      "descripcion": "Fabricante mundial de una amplia gama de productos electrónicos, incluidos discos de estado sólido (SSD), monitores y dispositivos de almacenamiento. Con sede en Seúl, Corea del Sur.",
       "estado": true
-  },
-  {
+    },
+    {
       "id": 5,
       "nombre": "Kingston Technology",
-      "descripcion": "Fabricante de memorias RAM, unidades flash USB y otros dispositivos de almacenamiento. Con sede en Fountain Valley, California, Estados Unidos.",
+      "descripcion": "Proveedor líder de memorias RAM, unidades flash USB y otros dispositivos de almacenamiento. Con sede en Fountain Valley, California, Estados Unidos.",
       "estado": true
-  },
-  {
+    },
+    {
       "id": 6,
       "nombre": "Logitech",
-      "descripcion": "Fabricante de periféricos de computadora, como ratones, teclados, cámaras web y altavoces. Con sede en Lausana, Suiza.",
+      "descripcion": "Fabricante reconocido de periféricos de computadora, como ratones, teclados, cámaras web y altavoces. Con sede en Lausana, Suiza.",
       "estado": true
-  },
-  {
+    },
+    {
       "id": 7,
       "nombre": "Corsair",
-      "descripcion": "Fabricante de componentes internos de computadoras, como memorias RAM, unidades de almacenamiento y periféricos gaming. Con sede en Fremont, California, Estados Unidos.",
+      "descripcion": "Fabricante de componentes internos de computadoras, incluyendo memorias RAM, unidades de almacenamiento y periféricos gaming. Con sede en Fremont, California, Estados Unidos.",
       "estado": true
-  },
-  {
+    },
+    {
       "id": 8,
       "nombre": "Seagate Technology",
-      "descripcion": "Fabricante líder de discos duros internos y externos para computadoras. Con sede en Cupertino, California, Estados Unidos.",
+      "descripcion": "Proveedor líder de discos duros internos y externos para computadoras. Con sede en Cupertino, California, Estados Unidos.",
       "estado": true
-  },
-  {
+    },
+    {
       "id": 9,
       "nombre": "Western Digital Corporation",
-      "descripcion": "Fabricante de discos duros internos y externos, así como también de unidades de estado sólido (SSD). Con sede en San José, California, Estados Unidos.",
+      "descripcion": "Fabricante de discos duros internos y externos, así como de unidades de estado sólido (SSD). Con sede en San José, California, Estados Unidos.",
       "estado": true
-  },
-  {
+    },
+    {
       "id": 10,
       "nombre": "ASUS",
       "descripcion": "Fabricante de tarjetas madre (placas base), tarjetas gráficas, monitores, laptops y otros dispositivos electrónicos. Con sede en Taipéi, Taiwán.",
       "estado": true
-  }
-]
+    },
+    {
+      "id": 11,
+      "nombre": "Apple Inc.",
+      "descripcion": "Fabricante líder de dispositivos electrónicos, incluyendo iPhones, iPads, MacBooks y otros productos. Con sede en Cupertino, California, Estados Unidos.",
+      "estado": true
+    },
+    {
+      "id": 12,
+      "nombre": "HP Inc.",
+      "descripcion": "Descripción: Empresa multinacional de tecnología que fabrican computadoras personales, impresoras, dispositivos de almacenamiento y software. Con sede en Palo Alto, California, EE. UU.",
+      "estado": true
+    },
+    {
+      "id": 13,
+      "nombre": "Dell Technologies Inc.",
+      "descripcion": "Empresa líder en tecnología que ofrece computadoras personales, servidores, dispositivos de almacenamiento y servicios de consultoría. Con sede en Round Rock, Texas, Estados Unidos.",
+      "estado": true
+    }
+  ]
+  
