@@ -42,6 +42,7 @@ const Detail = () =>  {
 
   return (
     <div className={styles.container}>
+      <FaShoppingCart className={"productCard__cart"} onClick={handlerCarritoAdd} />
       <h2 className={styles.title}>{product.nombre}</h2>
       <img className={styles.image} src={product.imagen} alt={product.nombre} width={'60%'}/>
       <p className={styles.price}>Precio: ${product.precio}</p>
@@ -61,7 +62,6 @@ const Detail = () =>  {
         <div className={styles.stars}>{renderStars(product.rating)}</div>  
         <div><Rating idProducto={product.id}/></div>       
       </div>
-      <FaShoppingCart className={"productCard__cart"} onClick={handlerCarritoAdd} />
     </div>
   )
 }

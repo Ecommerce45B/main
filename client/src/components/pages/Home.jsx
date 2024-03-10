@@ -99,6 +99,7 @@ function Home() {
         }
       </div>
       <div>
+        <h1>Patrocidado por:</h1>
         <Sponsor />
       </div> 
     </div>

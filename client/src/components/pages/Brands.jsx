@@ -1,8 +1,11 @@
 import React from 'react'
+import Sponsor from '../Sponsor'
 
 function Brands() {
   return (
-    <div>Marcas</div>
+    <div>
+      <Sponsor />
+    </div>
   )
 }
 

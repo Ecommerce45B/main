@@ -44,17 +44,19 @@ header {
 	background-color: transparent;
 	border: none;
 	cursor: pointer;
-	width: 40px;
+	padding: .2rem;
+	gap: .3rem;
+	width: 32px;
 	height: 40px;
-	margin-top: 6px;
+	margin-top: 3px;
 	color: whitesmoke;
-	font-size: 25px;
+	font-size: 18px;
 	transition: font-size 0.1s ease-in-out;
   }
   
   .glass:hover {
 	font-size: 28px;
-	color: yellow;
+	color: black;
   }
   
 
@@ -68,8 +70,8 @@ header {
 	font-weight: 600;
 	color: wheat;
 	/* background-color: #872812; */
-	margin: 1rem;
-	padding: 1rem;
+	/* margin: 1rem; */
+	/* padding: 1rem; */
 	border-radius: 6px;
 	opacity: 75%;
 }
@@ -79,8 +81,8 @@ header {
 	font-weight: 600;
 	color: wheat;
 	/* background-color: #872812; */
-	margin: 1rem;
-	padding: 1rem;
+	/* margin: 1rem; */
+	/* padding: 1rem; */
 	border-radius: 6px;
 	opacity: 75%;
 }

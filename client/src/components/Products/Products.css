@@ -43,8 +43,8 @@ html{
   background-color: var(--color-grey-primary);
   margin: 3rem;
   padding: 2rem;
-  width: 21rem;
-  height: 28rem;
+  width: 30rem;
+  height: 40rem;
   transition: 0.2s;
 }
 
@@ -66,7 +66,8 @@ html{
   position: absolute;
   right: 0;
   margin: 1rem;
-  font-size: 2rem;
+  font-size: 2.5rem;
+  color: orangered;
   transition: 0.2s;
   cursor: pointer;
 }
@@ -91,17 +92,24 @@ html{
 .productCard__content {
   margin: 1rem;
   text-align: left;
+  font-size: 15px;
+  color: black;
 }
 
 .productName{
   font-size: 1.5rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
 }
+
 .productDescription{
-  font-size: 1.2rem;
-  font-weight: 100;
-  width: 180px;
-  height: 70px;
-  overflow: auto;
+  font-size: 1.2rem; /* Tamaño del texto */
+  font-weight: 100; /* Grosor del texto */
+  width: 240px; /* Ancho del contenedor */
+  height: 160px; /* Altura del contenedor */
+  overflow-y: scroll; /* Aplicar scroll solo en el eje vertical */
+  scrollbar-width: thin; /* Establecer el grosor de la barra de desplazamiento */
+  scrollbar-color: #333 #ffffff; /* Establecer el color de la barra de desplazamiento */
 }
 
 .displayStack__1,
@@ -115,9 +123,9 @@ html{
 .productNroserie,
 .productPrice{
   font-size: 1.5rem;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .productTime{
-  font-size: 1.1rem;
+  font-size: 1rem;
 }

@@ -74,6 +74,7 @@ function Navbar() {
 					className='input-search'
 					onChange={e => setQuery(e.target.value)} />
 				{/* <Products data={Search(content)} /> */}
+        <FaMagnifyingGlass  className="glass"/>
 			</div>
 
       <nav ref={navRef}>
