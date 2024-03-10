@@ -58,17 +58,29 @@ module.exports = (sequelize) => {
       type: DataTypes.BOOLEAN,
       defaultValue: true,
     },
-    idCategoria: {
-      type: DataTypes.INTEGER,
+    idCategoria:{
+      type:DataTypes.INTEGER,
       allowNull: false,
+      references: {
+        model: 'Categorias', 
+        key: 'id'
+      }
     },
-    idMarca: {
-      type: DataTypes.INTEGER,
+    idMarca:{
+      type:DataTypes.INTEGER,
       allowNull: false,
+      references: {
+        model: 'Marcas', 
+        key: 'id'
+      }
     },
-    idFabricante: {
-      type: DataTypes.INTEGER,
+    idFabricante:{
+      type:DataTypes.INTEGER,
       allowNull: false,
+      references: {
+        model: 'Fabricantes', 
+        key: 'id'
+      }
     },
   });
 

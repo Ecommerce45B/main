@@ -62,6 +62,7 @@ const Detail = () =>  {
         <div className={styles.stars}>{renderStars(product.rating)}</div>  
         <div><Rating idProducto={product.id}/></div>       
       </div>
+      <FaShoppingCart className={"productCard__cart"} onClick={() => handlerCarritoAdd()} />
     </div>
   )
 }

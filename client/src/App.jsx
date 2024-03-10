@@ -107,7 +107,9 @@ function App() {
         <Route path="/" element={<Landing />} />
         <Route path="/Home" element={<Home />} />
         <Route path="/about" element={<About />} />
+        {/* <Route path="/filter" element={<Filter />} /> */}
         <Route path="/brands" element={<Brands />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/services" element={<Services />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/budget" element={<Budget />} />
@@ -115,6 +117,8 @@ function App() {
         <Route path="/faq" element={<Faq />} />
         <Route path="/dashboard/*" element={<DashboardRoutes />} />
         <Route path="/detail/:id" element={<Detail />} />
+        <Route path="/profile" element={<Profile/>}/>
+        <Route path="/faq" element={<Faq />} /> 
         <Route path="/Carrito" element={<Carrito/>}/>
       </Routes>
       <Footer />

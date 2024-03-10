@@ -3,6 +3,7 @@ import { useSelector, useDispatch  } from 'react-redux'
 import { getCategorias } from '../../../Redux/CategoriasSlice';
 import { getMarcas } from '../../../Redux/MarcasSlice';
 
+import React from 'react';
 import './Category.css';
 import searchIcon from "../../../../../client/public/icons/search.png"
 
@@ -41,11 +42,12 @@ const SearchBar = ({ setFilterTerm }) => {
     <div className="category-header">
       <label htmlFor="category">Categoría:</label>
       <select id="category">
-      <option value="">Selecciona una categoria</option>
-      {categorias.map(categoria => (
-        <option key={categoria.id} value={categoria.id}>{categoria.nombre}</option>
-      ))} 
+        <option value="">Selecciona una categoría</option>
+        <option value="motherboard">Tarjetas</option>
+        <option value="screen">Pantalla</option>
+        <option value="keyboard">Teclados</option>
       </select>
+
       <label htmlFor="price">Precio:</label>
       <select id="price">
         <option value="">Selecciona un rango de precios</option>
@@ -54,12 +56,13 @@ const SearchBar = ({ setFilterTerm }) => {
         <option value="100+">$100+</option>
       </select>
 
-      <label htmlFor="marca">Marca:</label>
-      <select id="marca">
-      <option value="">Selecciona una Marca</option>
-      {marcas.map(marca=> (
-        <option key={marca.id} value={marca.id}>{marca.nombre}</option>
-      ))} 
+      <label htmlFor="brand">Marca:</label>
+      <select id="brand">
+        <option value="">Selecciona una marca</option>
+        <option value="nvidia">Nvidia</option>
+        <option value="apple">Apple</option>
+        <option value="alien">Alien Ware</option>
+        <option value="intel">Intel</option>
       </select>
       <div className='containerSearchBar'>
       <button>

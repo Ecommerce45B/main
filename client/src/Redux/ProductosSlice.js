@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-const url = "localhost:3001";
+const url='localhost:3001';
 
 import axios from "axios";
 
@@ -29,19 +29,16 @@ export const getById = createAsyncThunk("detalleProductos", async (id) => {
   }
 });
 
-export const postProducto = createAsyncThunk(
-  "productos/new",
-  async (product) => {
-    console.log(product);
-    try {
-      const response = await axios.post(`${url}/productos/new`, product);
+export const postProducto = createAsyncThunk("productos/new", async (product) => {
+  console.log(product);
+  try {
+    const response = await axios.post(`${url}/productos/new`, product);
 
-      return response.data;
-    } catch (error) {
-      console.log(error);
-    }
+    return response.data;
+  } catch (error) {
+    console.log(error);
   }
-);
+});
 
 export const getCategories = createAsyncThunk("categorias", async () => {
   try {

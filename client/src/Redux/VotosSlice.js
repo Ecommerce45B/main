@@ -25,7 +25,7 @@ export const getVotos = createAsyncThunk(
   async (id) => {
     const config = {
       method: 'get',
-      url: `${url}/producto/${id}`
+      url: `${url}/${id}`
     };
     try {
       const response = await axios(config);
@@ -43,7 +43,7 @@ export const postVotos = createAsyncThunk(
     console.log(votos);
     const config = {
       method: 'post',
-      url: `${url}/new`,
+      url: `${url}`,
       data:votos
     };
     try {

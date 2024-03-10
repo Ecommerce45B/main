@@ -18,39 +18,32 @@ function Home() {
   const stateGlobal = useSelector((state) => state.products)
   const content = stateGlobal['products']
 
-  // const stateGlobalCarrito = useSelector((state) => state.productsCarrito)
-  // const carrito = stateGlobalCarrito.productsCarrito  
-
   const [currentPage, setCurrentPage] = useState(0)
 
   const dispatch = useDispatch()
-  
-  const carritoJSON = localStorage.getItem("carrito")
-  const carritoLocalStorage = JSON.parse(carritoJSON)
 
-  useEffect(() => {    
-    console.log('------------------------ Carrito Local Storage ------------------------')
-    console.log(carritoLocalStorage)
-    const syncronized = async() => {
-      const consultaDB = await dispatch(getProducts())
-      await dispatch(addProduct(consultaDB.payload))
-    }
-    syncronized()
-  }, [carritoLocalStorage, dispatch])
-
-  const tamaño = 10;
-  const sections = [];
-  
-  if (content.length <= tamaño) {
-    sections.push(content);
-  } else {
-    for (let i = 0; i < content.length; i += tamaño) {
-      sections.push(content.slice(i, i + tamaño));
-    }
+  const syncronized = async() => {
+    const consultaDB = await dispatch(getProducts())
+    dispatch(addProduct(consultaDB.payload))
   }
-  console.log("Contenido de productos:", content);
+  
+  useEffect(() => {
+    syncronized()
+  }, [])
 
+  const tamaño = 10
+  let inicio = 0
+  let fin = tamaño
 
+  const sections = []
+
+  while (inicio < content.length) {
+    let aux1 = content.slice(inicio, fin)
+    sections.push(aux1)
+    inicio += tamaño
+    fin += tamaño
+  }
+  
   const handleClick = (pageNumber) => {
     setCurrentPage(pageNumber)
   }
