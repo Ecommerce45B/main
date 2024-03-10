@@ -148,3 +148,16 @@
 .deleteButton:hover {
   color: rgba(255, 120, 117, 0.8);
 }
+
+#upload-image {
+  display: none;
+}
+.hiddenInput {
+  display: none;
+}
+.cameraIcon {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  font-size: 25px;
+}

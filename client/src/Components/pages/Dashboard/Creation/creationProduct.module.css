@@ -34,7 +34,8 @@
 .marca,
 .fabricante,
 .minimo,
-.preferencia {
+.preferencia,
+.image {
   font-size: 17px;
 }
 

@@ -30,43 +30,37 @@
   {
     "id": 5,
     "idUsuario": 5,
-    "idProducto": 7,
+    "idProducto": 3,
     "voto": 4,
     "comentario": "Buen rendimiento, pero el diseño podría ser mejor."
   },
   {
     "id": 6,
     "idUsuario": 6,
-    "idProducto": 6,
+    "idProducto": 4,
     "voto": 3,
     "comentario": "Esperaba más por el precio, no lo recomendaría."
   },
   {
     "id": 7,
     "idUsuario": 7,
-    "idProducto": 9,
+    "idProducto": 5,
     "voto": 5,
     "comentario": "¡Maravilloso! Superó mis expectativas, excelente compra."
   },
   {
     "id": 8,
     "idUsuario": 8,
-    "idProducto": 4,
+    "idProducto": 6,
     "voto": 4,
     "comentario": "Buen producto en general, lo uso a diario sin problemas."
   },
   {
     "id": 9,
     "idUsuario": 9,
-    "idProducto": 8,
+    "idProducto": 7,
     "voto": 3,
     "comentario": "Regular, no es malo pero tampoco es excepcional."
-  },
-  {
-    "id": 10,
-    "idUsuario": 10,
-    "idProducto": 6,
-    "voto": 1,
-    "comentario": "Me decepcionó totalmente, no lo recomendaría."
   }
+  
 ]

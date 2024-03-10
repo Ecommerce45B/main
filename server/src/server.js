@@ -2,8 +2,15 @@ const express = require("express");
 const morgan = require("morgan");
 const server = express();
 const routes = require("./routes/index.js");
+const cloudinary = require("cloudinary").v2;
 
 require("./config/bd.js");
+
+// Configurar Cloudinary con las credenciales de tu archivo de configuración
+const config = require("../config.js");
+cloudinary.config(config.cloudinary);
+const fileUpload = require("express-fileupload");
+server.use(fileUpload());
 
 //MIDDLEWARE
 server.use(express.json());

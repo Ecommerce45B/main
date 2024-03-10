@@ -63,9 +63,24 @@ const postNewVoto = async (idProducto, idUsuario, voto, comentario) => {
     throw error;
   }
 };
+
+const deleteVote = async (id) => {
+  try {
+    const voto = await Votos.findByPk(id);
+    if (!voto) {
+      throw new Error(`El voto con el ID ${id} no existe`);
+    }
+
+    await voto.destroy();
+    return { message: "Voto eliminado correctamente" };
+  } catch (error) {
+    throw new Error(`No se pudo eliminar el voto: ${error.message}`);
+  }
+};
 module.exports = {
   getVotosIdUsuario,
   getVotos,
   getVotoProductosById,
   postNewVoto,
+  deleteVote,
 };

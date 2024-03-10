@@ -3,6 +3,7 @@ const {
   getVotoProductosById,
   postNewVoto,
   getVotosIdUsuario,
+  deleteVote,
 } = require("../controllers/votosController");
 
 const getVotoHandler = async (req, res) => {
@@ -53,10 +54,21 @@ const postNewVotosHandler = async (req, res) => {
     res.status(400).send(`No se pudo crear el registro del voto`);
   }
 };
-
+const deleteVoteHandler = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const response = await deleteVote(id);
+    res.status(200).json(response);
+  } catch (error) {
+    res
+      .status(400)
+      .send(`No se pudo borrar la información del Voto con id--> ${id}`);
+  }
+};
 module.exports = {
   getVotoHandler,
   getVotoProductosHandler,
   postNewVotosHandler,
   getVotosIdUsuarioHandler,
+  deleteVoteHandler,
 };

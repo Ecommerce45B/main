@@ -1,4 +1,5 @@
 const { Imagenes } = require("../config/bd");
+const cloudinary = require("cloudinary").v2;
 
 // VER IMAGENES POR PRODUCTO
 const viewImagenes = async (id) => {
@@ -41,8 +42,25 @@ const deleteImagen = async (id) => {
     throw error;
   }
 };
+
+const uploadImage = async (file) => {
+  try {
+    const cloudinaryUploadResult = await cloudinary.uploader.upload(file.path, {
+      folder: "ecommerce PF",
+    });
+    const imageUrl = cloudinaryUploadResult.secure_url;
+
+    console.log("Imagen subida a Cloudinary exitosamente:", imageUrl);
+
+    return imageUrl;
+  } catch (error) {
+    console.error("Error al subir la imagen a Cloudinary:", error);
+    throw new Error("Error interno del servidor al subir la imagen");
+  }
+};
 module.exports = {
   viewImagenes,
   createImagen,
   deleteImagen,
+  uploadImage,
 };
