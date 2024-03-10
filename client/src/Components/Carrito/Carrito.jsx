@@ -6,11 +6,16 @@ import styles from './Carrito.module.css'
 const Carrito = ()=>{
 
   const dispatch = useDispatch()
-  
-  const stateGlobalCarrito = useSelector((state) => state.productsCarrito)
-  const carrito = stateGlobalCarrito.productsCarrito
 
+  const stateGlobalCarrito = useSelector((state) => state.productsCarrito)
+  const globalCarrito = stateGlobalCarrito
+
+  const carritoJSON = localStorage.getItem("carrito")
+  const carritoLocalStorage = JSON.parse(carritoJSON)
+  const carrito = carritoLocalStorage
+  
   const handlerDelete = (idCarrito)=>{
+    console.log(globalCarrito)
     dispatch(removeProducto(idCarrito))
   }
 

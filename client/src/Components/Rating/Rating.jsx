@@ -1,13 +1,19 @@
-import React, { useState, useEffect } from "react";
+import { useAuth0 } from "@auth0/auth0-react"
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { getVotos, postVotos } from '../../Redux/VotosSlice';
-import { FaStar } from 'react-icons/fa';
+import axios from 'axios';
+//import { FaStar } from 'react-icons/fa';
 import './Rating.module.css'
 
-const Rating = ({idProducto, idUsuario, onRatingComplete}) => {
+const Rating = ({idProducto}) => {
+  console.log('idProducto---->',idProducto);
   const stateGlobal = useSelector((state) => state.votos);
   const datosVotos = stateGlobal['datosVotos'];
   const [isLoading, setIsLoading] = useState(true);
+
+  const { user, isAuthenticated } = useAuth0();
+  const [userId, setUserId] = useState(0);
 
   const dispatch = useDispatch();
 
@@ -22,10 +28,30 @@ const Rating = ({idProducto, idUsuario, onRatingComplete}) => {
       setIsLoading(false);
     };
     fetchData();
-    setTimeout(() => {
-      onRatingComplete(); // Llamar a la función de devolución de llamada cuando el proceso ha concluido
-    }, 1000);
   }, []);
+
+  //recuperando el id del usuario
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const response = await axios.get(`http://localhost:3001/usuarios/email/${user.email}`);
+        if (response.data.length > 0) {
+          const userData = response.data[0];
+          console.log('user.data--->', userData);
+          setUserId(userData.id);
+          console.log('userId--->', userId);
+        } else {
+          console.error('No se encontraron usuarios con ese email.');
+        }
+      } catch (error) {
+        console.error('Error fetching user data:', error);
+      }
+    };
+
+    if (isAuthenticated) {
+      fetchUserData();
+    }
+  });
 
   let sw=0;
   let promedio=0;
@@ -41,7 +67,7 @@ const Rating = ({idProducto, idUsuario, onRatingComplete}) => {
     }
     comentarios = listacomentarios.join("<br/>");
     console.log('comentarios->',comentarios);
-    if(idUsuario>0){
+    if(userId>0){
       //useEffect(()=>{dispatch(getvotosUser(idUser));},[dispatch, idUser])
       if(datosVotos && datosVotos.length > 0) sw=0;
     }
@@ -52,7 +78,7 @@ const Rating = ({idProducto, idUsuario, onRatingComplete}) => {
     const voto = document.getElementById('voto').value;
     const comentario = document.getElementById('comentario').value;
     const newVote={
-      idUsuario  : idUsuario,
+      idUsuario  : userId,
       idProducto : idProducto,
       voto       : voto,
       comentario : comentario
@@ -62,7 +88,7 @@ const Rating = ({idProducto, idUsuario, onRatingComplete}) => {
   }
   //Configurando el área para voto y comentario del usuario
   let datosRatingUser=null;
-  if(idUsuario>0 && sw===0) {
+  if(userId>0 && sw===0) {
     datosRatingUser=(
         <div id="datosRatingUser" className="rating-Conteiner">
           <form onSubmit={handleSubmit}>
@@ -93,7 +119,7 @@ const Rating = ({idProducto, idUsuario, onRatingComplete}) => {
   const datosRating=(
   <div>
     <hr/>
-    <h4 className="rating-text">⭐ rating:{promedio}&nbsp;&nbsp;🗳 Votos:{totalVotos}</h4>
+    <h4 className="rating-text">⭐{promedio}&nbsp;&nbsp;🗳 Votos:{totalVotos}</h4>
   </div>)
   console.log('isLoading--->', isLoading);
   return (

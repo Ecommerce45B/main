@@ -14,7 +14,7 @@ import axios from "axios"
 import Products from '../Products/Products';
 // import productData from '../../../src/Components/content';
 
-function Navbar({ setFilterTerm }) {
+function Navbar() {
   const navRef = useRef();
   const { isAuthenticated ,user} = useAuth0();
   const [isAdmin,setIsAdmin] = useState(false)
@@ -60,9 +60,7 @@ function Navbar({ setFilterTerm }) {
 				keys.some(key => item[key].toLowerCase().includes(query)))
 		);
 	}
-  const stateGlobalCarrito = useSelector((state) => state.productsCarrito)
-  const globalCarrito = stateGlobalCarrito
-  const cantidadProducts = globalCarrito.productsCarrito.length
+
   return (
     <header className="fixed-header">
       <Link to="/">
@@ -133,7 +131,6 @@ function Navbar({ setFilterTerm }) {
       </nav>
       <a>
         <NavLink to="/Carrito">
-          <p className="cantidadProducts">{cantidadProducts}</p>
           <FaShoppingCart className="productCard-cartTwo" />
         </NavLink>
       </a>

@@ -56,7 +56,7 @@ const ProductsSlice = createSlice({
         }
         const existingProduct = state.products.find(
           (element) => element.id === format.id
-          )
+        )
         if (!existingProduct) state.products.push(format)
       })
     },
