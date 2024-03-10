@@ -1,7 +1,10 @@
 import { useSelector, useDispatch  } from 'react-redux'
-import { removeProducto } from '../../Redux/CarritoSlice'
+import { removeProducto, addProductCart } from '../../Redux/CarritoSlice'
+
+import axios from 'axios'
 
 import styles from './Carrito.module.css'
+import { useEffect } from 'react'
 
 const Carrito = ()=>{
 
@@ -10,15 +13,58 @@ const Carrito = ()=>{
   const stateGlobalCarrito = useSelector((state) => state.productsCarrito)
   const globalCarrito = stateGlobalCarrito
 
+  const stateGlobal = useSelector((state) => state.products)
+  const content = stateGlobal['products']
+
   const carritoJSON = localStorage.getItem("carrito")
   const carritoLocalStorage = JSON.parse(carritoJSON)
   const carrito = carritoLocalStorage
   
-  const handlerDelete = (idCarrito)=>{
-    console.log(globalCarrito)
-    
-    dispatch(removeProducto(idCarrito))
+  const dropData = (idProduct) => {
+    const url = `http://localhost:3001/cartproduct/delete/${idProduct}`
+    axios.delete(url)
+      .then((response) => {
+        console.log("Producto eliminado exitosamente:", response.data)
+      })
+      .catch((error) => {
+        console.error("Error al eliminar el producto:", error.response.data)
+      })
   }
+
+  const handlerDelete = async (idProduct)=>{
+    dropData(idProduct)
+    console.log(globalCarrito)
+    dispatch(removeProducto(idProduct))
+  }
+
+  useEffect(() => {
+    const baseDatosCart = async() =>{
+      try {
+        const respuestaGet = await axios.get(`http://localhost:3001/cartproduct/get/${1}`)
+        console.log('------------ Products cart Axios ------------')
+        console.log(respuestaGet.data)
+        for (let i = 0; i < respuestaGet.data.length; i++) {
+          for (let j = 0; j < content.length; j++) {
+            if(respuestaGet.data[i].id === content[j].id){
+              const refactor = {
+                cantidad: respuestaGet.data[i].cantidad,
+                ...content[j]
+              }
+              console.log('Log x2 ------------------ Consulta de productos Carrito ------------------')
+              console.log(respuestaGet.data[i].cantidad)
+              console.log(refactor)
+              dispatch(addProductCart(refactor))
+            }       
+          }
+        }
+      }
+      catch (error) {
+        console.log('------------ Global Carrito ------------')
+        console.error(globalCarrito)
+      }
+    }    
+    baseDatosCart()
+  }, [content, dispatch, globalCarrito])
 
   const totales = []
 
@@ -27,7 +73,6 @@ const Carrito = ()=>{
       <h1 className={styles.titulo}>Carrito de productos</h1>
       <table className={styles.table}>
         <tr>
-          <th>Id</th>
           <th>Nombre</th>
           <th>Cantidad</th>
           <th>Precio Unitario</th>
@@ -37,7 +82,6 @@ const Carrito = ()=>{
         { 
           carrito && carrito.map(product=>(
             <tr key={product.id}>
-              <td>{product.id}</td>
               <td>{product.nombre}</td>
               <td>{product.cantidad}</td>
               <td>{product.precio}</td> 

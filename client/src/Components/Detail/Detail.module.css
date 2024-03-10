@@ -75,3 +75,11 @@
   margin-right: 5px;
   font-size: 20px;
 }
+
+.carrito{
+  position: absolute;
+  right: 25vw;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+}

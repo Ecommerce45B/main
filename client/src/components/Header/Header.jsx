@@ -9,6 +9,7 @@ import Logout from "../../Components/Logout/Logout";
 import { FaMagnifyingGlass } from "react-icons/fa6";
 import { FaShoppingCart } from 'react-icons/fa';
 import axios from "axios"
+import { useSelector  } from 'react-redux'
 
 function Navbar() {
   const navRef = useRef();
@@ -44,6 +45,9 @@ function Navbar() {
     navRef.current.classList.remove("responsive_nav");
   };
 
+  const stateGlobalCarrito = useSelector((state) => state.productsCarrito)
+  const globalCarrito = stateGlobalCarrito
+  const cantidadProducts = globalCarrito.productsCarrito.length
   return (
     <header className="fixed-header">
       <Link to="/">
@@ -115,6 +119,7 @@ function Navbar() {
       </nav>
       <a>
         <NavLink to="/Carrito">
+          <p className="cantidadProducts">{cantidadProducts}</p>
           <FaShoppingCart className="productCard-cartTwo" />
         </NavLink>
       </a>

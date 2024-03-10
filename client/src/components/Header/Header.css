@@ -167,3 +167,11 @@ nav {
 		font-size: 1.5rem;
 	}
 }
+
+.cantidadProducts{
+	float: right;
+	background: white;
+	padding: 5px;
+	border-radius: 5px;
+	text-align: center;
+}

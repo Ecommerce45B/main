@@ -6,7 +6,8 @@ import './Home.css'
 import { useState, useEffect } from 'react'
 import { useSelector, useDispatch  } from 'react-redux'
 import { getProducts, addProduct } from '../../Redux/ProductsSlice'
-
+import { addProductCart } from '../../Redux/CarritoSlice'
+import axios from 'axios'
 
 import Banner from '../Banner/Banner';
 import HomeCategory from '../HomeCategory';
@@ -28,14 +29,40 @@ function Home() {
   const carritoLocalStorage = JSON.parse(carritoJSON)
 
   useEffect(() => {    
-    console.log('------------------------ Carrito Local Storage ------------------------')
-    console.log(carritoLocalStorage)
     const syncronized = async() => {
       const consultaDB = await dispatch(getProducts())
       await dispatch(addProduct(consultaDB.payload))
     }
     syncronized()
-  }, [carritoLocalStorage, dispatch])
+    console.log('------------------------ Carrito Local Storage ------------------------')
+    console.log(carritoLocalStorage)
+
+    const baseDatosCart = async() =>{
+      try {
+        const respuestaGet = await axios.get(`http://localhost:3001/cartproduct/get/${1}`)
+        console.log('------------ Products cart Axios ------------')
+        console.log(respuestaGet.data)
+        for (let i = 0; i < respuestaGet.data.length; i++) {
+          for (let j = 0; j < content.length; j++) {
+            if(respuestaGet.data[i].id === content[j].id){
+              const refactor = {
+                cantidad: respuestaGet.data[i].cantidad,
+                ...content[j]
+              }
+              console.log('Log x2 ------------------ Consulta de productos Carrito ------------------')
+              console.log(respuestaGet.data[i].cantidad)
+              console.log(refactor)
+              dispatch(addProductCart(refactor))
+            }       
+          }
+        }
+      }
+      catch (error) {
+        console.error(error)
+      }
+    }    
+    baseDatosCart()
+  }, [carritoLocalStorage, dispatch, content])
 
   const tamaño = 10;
   const sections = [];

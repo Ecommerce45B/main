@@ -6,7 +6,7 @@ const CarritoSlice = createSlice({
     productsCarrito: []
   },
   reducers: {
-    addProduct(state, action) {
+    addProductCart(state, action) {
 
       const existingProductIndex = state.productsCarrito.findIndex((product) => product.id === action.payload.id)
       const idCarritoUser = localStorage.getItem("idCarritoUser")
@@ -17,7 +17,7 @@ const CarritoSlice = createSlice({
       else {
         const usuarioAlmacenado = localStorage.getItem("user")
         const usuario = JSON.parse(usuarioAlmacenado)
-        state.productsCarrito.push({ id_user: usuario.id, id_carrito: idCarritoUser, ...action.payload})
+        state.productsCarrito.push({ id_user: usuario.id, id_carrito: idCarritoUser, ...action.payload, cantidad: 1})
       }
       localStorage.setItem("carrito", JSON.stringify(state.productsCarrito))  
     },
@@ -30,10 +30,10 @@ const CarritoSlice = createSlice({
         const index = state.productsCarrito.indexOf(productToRemove)
         state.productsCarrito.splice(index, 1)          
       }
-      localStorage.setItem("carrito", JSON.stringify(state.productsCarrito))   
+      localStorage.setItem("carrito", JSON.stringify(state.productsCarrito))
     }
   }
 })
 
-export const { addProduct, removeProducto } = CarritoSlice.actions
+export const { addProductCart, removeProducto } = CarritoSlice.actions
 export default CarritoSlice.reducer

@@ -24,8 +24,9 @@ const GetProductCart = async (req, res) => {
 // DELETE
 const DeleteProductsCart = async (req, res) => {
   try {
-    const eliminar = await DropCartProducts
-    req.status(200).json()
+    const idProduct = parseInt(req.params.idProduct)
+    const eliminar = await DropCartProducts(idProduct)
+    res.status(200).json(`Response: ${eliminar}`)
   }
   catch (error) {
     res.status(400).json(`Error: ${error.message}`)

@@ -2,7 +2,7 @@ import { FaShoppingCart, FaRegBookmark, FaStar, FaFireAlt } from 'react-icons/fa
 import './Products.css'
 import { Link } from 'react-router-dom'
 
-import { addProduct } from '../../Redux/CarritoSlice'
+import { addProductCart } from '../../Redux/CarritoSlice'
 import { useSelector, useDispatch  } from 'react-redux'
 import axios from 'axios'
 
@@ -17,6 +17,17 @@ function Products(props) {
   const usuario = JSON.parse(usuarioAlmacenado)
   const carData = { idUser: usuario.id }
 
+  const stateGlobalCarrito = useSelector((state) => state.productsCarrito)
+  
+  const producto = stateGlobalCarrito.productsCarrito
+  const resultadoProducto = producto.find((produc) => produc.id === props.id)
+
+  const carritoId = resultadoProducto ? resultadoProducto.id_carrito : null
+  const cantidad = resultadoProducto ? resultadoProducto.cantidad : null
+  const idUser = resultadoProducto ? resultadoProducto.id_user : null
+  const idProduct = resultadoProducto ? resultadoProducto.id : null
+  const precio = resultadoProducto ? resultadoProducto.precio : null
+
   const idCarrito = async () => {
     const response = await axios.post('http://localhost:3001/car/new', carData)
     return response.data
@@ -28,66 +39,24 @@ function Products(props) {
     localStorage.setItem("idCarritoUser", idCarrito)
   })
 
-  const stateGlobalCarrito = useSelector((state) => state.productsCarrito)
-
-  const producto = stateGlobalCarrito.productsCarrito
-  const resultadoProducto = producto.find((produc) => produc.id === props.id)
-  // if(resultadoProducto){
-  //   console.log('--------------------- Linea 63 ---------------------')
-  //   console.log(resultadoProducto)
-  // }
-
-  const carritoId = resultadoProducto ? resultadoProducto.id_carrito : null
-  const cantidad = resultadoProducto ? resultadoProducto.cantidad : null
-  const idUser = resultadoProducto ? resultadoProducto.id_user : null
-  const idProduct = resultadoProducto ? resultadoProducto.id : null
-  const precio = resultadoProducto ? resultadoProducto.precio : null
-
   const handlerCarritoAdd = async (cartNewProduct) => {
 
-    dispatch(addProduct(cartNewProduct)) 
+    dispatch(addProductCart(cartNewProduct)) 
 
     // Agregar productos al carrito
-
-    console.log('------------ Linea 49 ------------')
-    console.log(props)
-    
     const productData = {
       idCar: carritoId,
       idUser: idUser,
       idProduct: idProduct,
+      id: idProduct,
       cantidad: cantidad,
       monto: cantidad*precio,
       estado: false
     }
 
     const responseCartProducts = await axios.post('http://localhost:3001/cartproduct/new', productData)
-    console.log('Producto agregado al carrito:', responseCartProducts)
- 
-    try {
-      const respuestaGet = await axios.get(`http://localhost:3001/cartproduct/get/${1}`)
-      console.log('------------ Products cart Axios ------------')
-      console.log(respuestaGet.data)
-
-      for (let i = 0; i < respuestaGet.data.length; i++) {
-        for (let j = 0; j < content.length; j++) {
-          if(respuestaGet.data[i].id === content[j].id){
-            const refactor = {
-              cantidad: respuestaGet.data[i].cantidad,
-              ...content[j]
-            }
-            console.log(respuestaGet.data[i].cantidad)
-            console.log(refactor)
-            dispatch(addProduct(refactor))
-          }       
-        }
-      }
-    } 
-    catch (error) {
-      console.log('------------ Error cart Axios ------------')
-      console.error(error)
-    }
-
+    console.log('Producto agregado al carrito de la base de datos:', responseCartProducts)
+    
   }
 
   return (
