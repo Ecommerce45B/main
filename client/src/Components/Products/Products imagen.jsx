@@ -2,13 +2,10 @@ import { FaShoppingCart, FaRegBookmark, FaStar, FaFireAlt } from 'react-icons/fa
 import './Products.css'
 import { Link } from 'react-router-dom'
 
-import { addProductCart } from '../../Redux/CarritoSlice'
+import { addProduct } from '../../Redux/CarritoSlice'
 import { useSelector, useDispatch  } from 'react-redux'
 import axios from 'axios'
-<<<<<<< HEAD
-=======
 
->>>>>>> origin/Valcar
 
 function Products(props) {    
   
@@ -16,13 +13,8 @@ function Products(props) {
   const stateGlobalCarrito = useSelector((state) => state.productsCarrito)
 
   const handlerCarritoAdd = async (cartNewProduct) => {
-<<<<<<< HEAD
-    console.log('stateGlobalCarrito--->',stateGlobalCarrito)
-    dispatch(addProductCart(cartNewProduct)) 
-=======
     console.log(stateGlobalCarrito)
     dispatch(addProduct(cartNewProduct)) 
->>>>>>> origin/Valcar
     
     const usuarioAlmacenado = localStorage.getItem("user")
     const usuario = JSON.parse(usuarioAlmacenado)
@@ -59,7 +51,11 @@ function Products(props) {
     <div className='productList'>
         <div key={props.id} className='productCard'>
             <Link to={`/detail/${props.id}`}>
-                <img src={props.imagen} alt='product-img' className='productImage' height={'100px'}></img>
+                {/* <img src={props.imagen} alt='product-img' className='productImage'></img> */}
+                {/* <img src={props.imagen} alt='' className='productImage'></img> */}
+                {/* <img src={props.imagen} alt='product-img' className='productImage' /> */}
+                <img src={props.imagen.imagen} alt='product-img' className='productImage' />
+
             </Link>
     
             <FaShoppingCart className={"productCard__cart"} onClick={() => handlerCarritoAdd(props)} />

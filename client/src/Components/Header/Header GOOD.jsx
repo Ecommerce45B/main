@@ -74,7 +74,6 @@ function Navbar() {
 					className='input-search'
 					onChange={e => setQuery(e.target.value)} />
 				{/* <Products data={Search(content)} /> */}
-        <FaMagnifyingGlass  className="glass"/>
 			</div>
 
       <nav ref={navRef}>
@@ -131,7 +130,6 @@ function Navbar() {
       </nav>
       <a>
         <NavLink to="/Carrito">
-          <p className="cantidadProducts">{cantidadProducts}</p>
           <FaShoppingCart className="productCard-cartTwo" />
         </NavLink>
       </a>

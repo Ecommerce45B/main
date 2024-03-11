@@ -2,13 +2,10 @@ import { FaShoppingCart, FaRegBookmark, FaStar, FaFireAlt } from 'react-icons/fa
 import './Products.css'
 import { Link } from 'react-router-dom'
 
-import { addProductCart } from '../../Redux/CarritoSlice'
+import { addProduct } from '../../Redux/CarritoSlice'
 import { useSelector, useDispatch  } from 'react-redux'
 import axios from 'axios'
-<<<<<<< HEAD
-=======
 
->>>>>>> origin/Valcar
 
 function Products(props) {    
   
@@ -16,13 +13,8 @@ function Products(props) {
   const stateGlobalCarrito = useSelector((state) => state.productsCarrito)
 
   const handlerCarritoAdd = async (cartNewProduct) => {
-<<<<<<< HEAD
-    console.log('stateGlobalCarrito--->',stateGlobalCarrito)
-    dispatch(addProductCart(cartNewProduct)) 
-=======
     console.log(stateGlobalCarrito)
     dispatch(addProduct(cartNewProduct)) 
->>>>>>> origin/Valcar
     
     const usuarioAlmacenado = localStorage.getItem("user")
     const usuario = JSON.parse(usuarioAlmacenado)

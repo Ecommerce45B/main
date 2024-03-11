@@ -9,8 +9,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: teal;
-  height: 10vh;
+  background-color: #204E4C;
+  height: 8vh;
   color: white;
 }
 
@@ -26,9 +26,9 @@
 }
 
 .search {
-  max-width: 25px;
+  max-width: 22px;
   float: left;
-  margin: 1em;
+  margin: .3em;
 }
 
 .inputSearch {

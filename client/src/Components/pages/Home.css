@@ -24,9 +24,12 @@
 }
 
 .page.active {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  /* display: grid; */
+  flex-wrap: wrap;
+  display: flex;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr 1fr 1fr 1fr ));
   align-items: center;
+  justify-content: center;
   gap: 15px;
 }
 

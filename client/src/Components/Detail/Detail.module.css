@@ -12,10 +12,15 @@
   text-align: center;
 }
 
+.productCard__cart {
+  font-size: 40px;
+  color: orangered;
+}
+
 .title {
-  font-size: 28px;
-  font-weight: bold;
-  margin-bottom: 20px;
+  font-size: 30px;
+  font-weight: 800;
+  margin-bottom: 18px;
   color: #333;
 }
 
@@ -28,20 +33,80 @@
 }
 
 .price {
-  font-size: 24px;
-  color: #007bff;
+  font-size: 28px;
+  color: orangered;
 }
 
 .productType {
+  font-size: 18px;
   font-style: italic;
+  font-weight: 500;
   color: #888;
+  font-size: 24px;
 }
 
-.description {
-  margin-top: 20px;
-  font-size: 16px;
-  line-height: 1.5;
-  color: #555;
+.descripcion {
+  margin-top: 12px;
+  font-size: 24px;
+  color: #222;
+}
+
+.especificaciones {
+  margin-top: 12px;
+  font-size: 15px;
+  color: black;
+}
+
+.nroserie {
+  font-size: 15px;
+  font-weight: 200;
+  color: #222;
+}
+
+.nromac {
+  font-size: 15px;
+  font-weight: 200;
+  color: #222;
+}
+
+.stock {
+  font-size: 12px;
+  font-weight: 200;
+  color: #222;
+}
+
+.minimo {
+  font-size: 12px;
+  font-weight: 200;
+  color: #222;
+}
+
+.preferencia {
+  font-size: 24px;
+  font-weight: 200;
+  color: orangered;
+}
+
+.estado {
+  color: transparent;
+}
+
+.categoria {
+  font-size: 21px;
+  font-weight: 200;
+  color: #111;
+}
+
+.marca {
+  font-size: 24px;
+  font-weight: 500;
+  color: #111;
+}
+
+.fabricante {
+  font-size: 24px;
+  font-weight: 500;
+  color: orangered;
 }
 
 .totalSales {
@@ -58,6 +123,7 @@
 
 .rating {
   margin-top: 20px;
+  font-size: 18px;
 }
 
 .textRating {
@@ -70,10 +136,11 @@
   align-items: center;
 }
 
-.star {
-  color: #ffd700;
+.stars {
+  color: #ffdf2a;
   margin-right: 5px;
-  font-size: 20px;
+  font-size: 30px;
+  gap: 1rem;
 }
 
 .carrito{

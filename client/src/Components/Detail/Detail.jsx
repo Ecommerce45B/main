@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom'
 import { FaStar, FaShoppingCart } from 'react-icons/fa'
 import { useSelector, useDispatch } from 'react-redux'
-import { addProductCart } from '../../Redux/CarritoSlice'
+import { addProduct } from '../../Redux/CarritoSlice'
 import  Rating  from '../Rating/Rating'
 import styles from './Detail.module.css'
 
@@ -28,7 +28,7 @@ const Detail = () =>  {
     // console.log(stateGlobalCarrito.productsCarrito)
     // console.log('product')
     // console.log(product)
-    dispatch(addProductCart(product))
+    dispatch(addProduct(product))
   }
 
   
@@ -42,7 +42,7 @@ const Detail = () =>  {
 
   return (
     <div className={styles.container}>
-      <FaShoppingCart className={styles.carrito} onClick={() => handlerCarritoAdd()} />
+      <FaShoppingCart className={"productCard__cart"} onClick={handlerCarritoAdd} />
       <h2 className={styles.title}>{product.nombre}</h2>
       <img className={styles.image} src={product.imagen} alt={product.nombre} width={'60%'}/>
       <p className={styles.price}>Precio: ${product.precio}</p>

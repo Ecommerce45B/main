@@ -10,44 +10,25 @@ html{
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* .App{
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr 1fr 1fr));
-  justify-content: space-around;
-} */
-
 .App{
-  display: flex;
-  grid-template-columns:(auto-fit, minmax(500px));
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  justify-content: space-around;
 }
 
 .productList{
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
   justify-content: space-evenly;
 }
 
-/* .productCard{
+.productCard{
   position: relative;
   background-color: var(--color-grey-primary);
   margin: 1rem;
   max-width: 30rem;
   max-height: 50rem;
   transition: 0.2s;
-} */
-
-.productCard{
-  position: relative;
-  flex-wrap: wrap;
-  background-color: var(--color-grey-primary);
-  margin: 3rem;
-  padding: 2rem;
-  width: 30rem;
-  height: 40rem;
-  transition: 0.2s;
 }
-
 
 .productCard:hover{
   transform: translateY(-0.5rem);
@@ -58,16 +39,14 @@ html{
   margin-top: 1rem;
   padding: 1em;
   width: 100%;
-  height: 15rem; /* Ajusta el valor de altura según tus necesidades */
-  object-fit: cover; /* Ajusta el ajuste del objeto según tus necesidades */
+  height: auto;
 }
 
 .productCard__cart{
   position: absolute;
   right: 0;
   margin: 1rem;
-  font-size: 2.5rem;
-  color: orangered;
+  font-size: 2rem;
   transition: 0.2s;
   cursor: pointer;
 }
@@ -91,30 +70,19 @@ html{
 
 .productCard__content {
   margin: 1rem;
-  text-align: left;
-  font-size: 15px;
-  color: black;
+  text-align: center;
 }
 
 .productName{
   font-size: 1.5rem;
-  margin-top: 2.5rem;
-  margin-bottom: 1rem;
 }
-
 .productDescription{
-  font-size: 1.2rem; /* Tamaño del texto */
-  font-weight: 100; /* Grosor del texto */
-  width: 240px; /* Ancho del contenedor */
-  height: 160px; /* Altura del contenedor */
-  overflow-y: scroll; /* Aplicar scroll solo en el eje vertical */
-  scrollbar-width: thin; /* Establecer el grosor de la barra de desplazamiento */
-  scrollbar-color: #333 #ffffff; /* Establecer el color de la barra de desplazamiento */
+  font-size: 1.2rem;
 }
 
 .displayStack__1,
 .displayStack__2{
-  margin: 1rem 0;
+  margin: 1.5rem 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -123,9 +91,9 @@ html{
 .productNroserie,
 .productPrice{
   font-size: 1.5rem;
-  font-weight: 700;
+  font-weight: bold;
 }
 
 .productTime{
-  font-size: 1rem;
+  font-size: 1.1rem;
 }

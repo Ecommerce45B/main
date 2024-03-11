@@ -8,13 +8,16 @@
 }
 
 :root {
-	--mainColor: #D93D04;
+	/* --mainColor: #D93D04; */
+	--mainColor: #D76A29;
 	--mainColorLight: #5767aa;
 	--secondaryColor: #0a0a0a;
 	--textColor: #eee;
 }
 
 header {
+	/* position: fixed; */
+	width: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -22,6 +25,7 @@ header {
 	padding: 0 2rem;
 	background-color: var(--mainColor);
 	color: var(--textColor);
+	z-index: 999;
 }
 
 .search-input {
@@ -40,17 +44,19 @@ header {
 	background-color: transparent;
 	border: none;
 	cursor: pointer;
-	width: 40px;
+	padding: .2rem;
+	gap: .3rem;
+	width: 32px;
 	height: 40px;
-	margin-top: 6px;
+	margin-top: 3px;
 	color: whitesmoke;
-	font-size: 25px;
+	font-size: 18px;
 	transition: font-size 0.1s ease-in-out;
   }
   
   .glass:hover {
 	font-size: 28px;
-	color: yellow;
+	color: black;
   }
   
 
@@ -60,13 +66,25 @@ header {
 }
 
 .title-name {
-	font-size: 15px;
+	font-size: 18px;
+	font-weight: 600;
 	color: wheat;
+	/* background-color: #872812; */
+	/* margin: 1rem; */
+	/* padding: 1rem; */
+	border-radius: 6px;
+	opacity: 75%;
 }
 
 .title-name2 {
-	font-size: 9px;
+	font-size: 18px;
+	font-weight: 600;
 	color: wheat;
+	/* background-color: #872812; */
+	/* margin: 1rem; */
+	/* padding: 1rem; */
+	border-radius: 6px;
+	opacity: 75%;
 }
 
 .title-image {
@@ -93,6 +111,7 @@ nav a {
 
 nav a:hover {
 	color: var(--secondaryColor);
+	font-weight: 900;
 }
 
 header .nav-btn {
