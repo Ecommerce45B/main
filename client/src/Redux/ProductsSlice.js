@@ -27,7 +27,7 @@ const ProductsSlice = createSlice({
           nombre: product.nombre,
           descripcion: product.descripcion,
           especificaciones: product.especificaciones,
-          imagen: product.Imagenes.length > 0 ? product.Imagenes[0].url : "",
+          imagen: product.imagen,
           nroserie: product.nroserie,
           nromac: product.nromac,
           precio: product.precio,
