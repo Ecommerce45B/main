@@ -12,7 +12,7 @@ function Products(props) {
   const stateGlobalCarrito = useSelector((state) => state.productsCarrito)
 
   const handlerCarritoAdd = async (cartNewProduct) => {
-    console.log(stateGlobalCarrito)
+    console.log('stateGlobalCarrito--->',stateGlobalCarrito)
     dispatch(addProductCart(cartNewProduct)) 
     
     const usuarioAlmacenado = localStorage.getItem("user")
