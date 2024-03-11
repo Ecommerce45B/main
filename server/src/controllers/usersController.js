@@ -1,10 +1,8 @@
-const { createDataFromJSON } = require("../config/usuariosServices");
 const { Usuarios, Votos, Roles } = require("../config/bd");
 const { Sequelize } = require("sequelize");
 
 const getUsuarios = async () => {
   try {
-    await createDataFromJSON();
 
     const usuarios = await Usuarios.findAll({
       include: [{ model: Roles }, { model: Votos }],
@@ -62,7 +60,7 @@ const getUsuariosByEmail = async (email) => {
 const postNewUsuarios = async (
   email,
   password,
-  avatar,
+  picture,
   nombre,
   dirFacturacion = "",
   dirEnvio = "",
@@ -83,7 +81,7 @@ const postNewUsuarios = async (
       id: newUserId,
       email,
       password,
-      avatar,
+      picture,
       nombre,
       dirFacturacion,
       dirEnvio,

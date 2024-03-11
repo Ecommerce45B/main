@@ -9,53 +9,40 @@ import axios from 'axios'
 function Products(props) {    
   
   const dispatch = useDispatch()
-
-  const stateGlobal = useSelector((state) => state.products)
-  const content = stateGlobal['products']
-  
-  const usuarioAlmacenado = localStorage.getItem("user")
-  const usuario = JSON.parse(usuarioAlmacenado)
-  const carData = { idUser: usuario.id }
-
   const stateGlobalCarrito = useSelector((state) => state.productsCarrito)
-  
-  const producto = stateGlobalCarrito.productsCarrito
-  const resultadoProducto = producto.find((produc) => produc.id === props.id)
-
-  const carritoId = resultadoProducto ? resultadoProducto.id_carrito : null
-  const cantidad = resultadoProducto ? resultadoProducto.cantidad : null
-  const idUser = resultadoProducto ? resultadoProducto.id_user : null
-  const idProduct = resultadoProducto ? resultadoProducto.id : null
-  const precio = resultadoProducto ? resultadoProducto.precio : null
-
-  const idCarrito = async () => {
-    const response = await axios.post('http://localhost:3001/car/new', carData)
-    return response.data
-  }
-
-  const idCarritoUser = idCarrito()
-
-  idCarritoUser.then((idCarrito) => {
-    localStorage.setItem("idCarritoUser", idCarrito)
-  })
 
   const handlerCarritoAdd = async (cartNewProduct) => {
-
+    console.log(stateGlobalCarrito)
     dispatch(addProductCart(cartNewProduct)) 
+    
+    const usuarioAlmacenado = localStorage.getItem("user")
+    const usuario = JSON.parse(usuarioAlmacenado)
+    const carData = { idUser: usuario.id }
+    const response = await axios.post('http://localhost:3001/car/new', carData)
+    console.log('----------------------------------------');
+    console.log('Car creation successful:', response.data)
 
     // Agregar productos al carrito
+    const producto = stateGlobalCarrito.productsCarrito[0]
+    const cantidad = producto.cantidad
+    const idUser = producto.id_user
+    const idProduct = producto.id
+    const precio = props.precio
+    const idCarrito = response.data
+
     const productData = {
-      idCar: carritoId,
-      idUser: idUser,
-      idProduct: idProduct,
-      id: idProduct,
-      cantidad: cantidad,
-      monto: cantidad*precio,
-      estado: false
+      "idCar": idCarrito,
+      "idUser": idUser,
+      "idProduct": idProduct,
+      "cantidad": cantidad,
+      "monto": cantidad*precio,
+      "estado": false
     }
 
+    console.log(productData)
     const responseCartProducts = await axios.post('http://localhost:3001/cartproduct/new', productData)
-    console.log('Producto agregado al carrito de la base de datos:', responseCartProducts)
+    console.log('Producto agregado al carrito:', responseCartProducts)
+
     
   }
 

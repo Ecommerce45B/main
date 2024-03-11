@@ -33,7 +33,7 @@ const getUsuariosByNombre = async (email) => {
 const postNewUsuarios = async (
     email,
     password,
-    avatar,
+    picture,
     nombre,
     dirFacturacion,
     dirEnvio,
@@ -50,7 +50,7 @@ const postNewUsuarios = async (
             {
                 email,
                 password,
-                avatar,
+                picture,
                 nombre,
                 dirFacturacion,
                 dirEnvio,
@@ -62,14 +62,14 @@ const postNewUsuarios = async (
     }
 }
 
-const changeUsuarios = async ({email, password, avatar, nombre, dirFacturacion, dirEnvio, telefono, estado, idRol}) => {    console.log(id);
+const changeUsuarios = async ({email, password, picture, nombre, dirFacturacion, dirEnvio, telefono, estado, idRol}) => {    console.log(id);
     try {
         const usuario = await Usuarios.findByPk(id);
         if (!usuario) {
             throw new Error(`No existe usuario con ese id: ${id}`);
         }
         const updatedUsuario = await Usuarios.update({
-            email, password, avatar, nombre, dirFacturacion, dirEnvio, telefono, estado, idRol
+            email, password, picture, nombre, dirFacturacion, dirEnvio, telefono, estado, idRol
         });
         return updatedUsuario;
     } catch (error) {

@@ -13,7 +13,7 @@ const getUsuariosHandler = async (req, res) => {
     const response = await getUsuarios();
     res.status(200).json(response);
   } catch (error) {
-    res.status(400).send(`No se pudo recuperar información de los Usuarios`);
+    res.status(400).send(`No se pudo recuperar información de los Usuarios`+error.message);
   }
 };
 
@@ -49,7 +49,7 @@ const postNewUsuarioHandler = async (req, res) => {
   const {
     email,
     password,
-    avatar,
+    picture,
     nombre,
     dirFacturacion,
     dirEnvio,
@@ -62,7 +62,7 @@ const postNewUsuarioHandler = async (req, res) => {
     const newUsuario = await postNewUsuarios(
       email,
       password,
-      avatar,
+      picture,
       nombre,
       dirFacturacion,
       dirEnvio,

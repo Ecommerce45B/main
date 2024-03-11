@@ -14,7 +14,7 @@ const Logout = () => {
           await axios.post("http://localhost:3001/usuarios/new",{
             email:user.email,
             nombre:user.name,
-            avatar:user.picture,
+            picture:user.picture,
           });
          
         }catch(error){
@@ -30,7 +30,7 @@ const Logout = () => {
     <div className={styles.logoutContainer}>
       <div className={styles.userInfo}>
         <Link to="/profile" className={styles.link}>
-          <img className={styles.avatar} src={user.picture} alt={user.name} />
+          <img className={styles.picture} src={user.picture} alt={user.name} />
           
         </Link>
       </div>

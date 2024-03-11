@@ -1,4 +1,3 @@
-const { createProductsFromJSON } = require("../config/productServices");
 const {
   Productos,
   Imagenes,
@@ -11,8 +10,6 @@ const { Sequelize } = require("sequelize");
 
 const getAllProducts = async () => {
   try {
-    //await createProductsFromJSON();
-
     const products = await Productos.findAll({
       include: [
         { model: Imagenes },
