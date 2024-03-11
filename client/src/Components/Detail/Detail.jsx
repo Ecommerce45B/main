@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom'
 import { FaStar, FaShoppingCart } from 'react-icons/fa'
 import { useSelector, useDispatch } from 'react-redux'
-import { addProduct } from '../../Redux/CarritoSlice'
+import { addProductCart } from '../../Redux/CarritoSlice'
 import  Rating  from '../Rating/Rating'
 import styles from './Detail.module.css'
 
@@ -28,7 +28,7 @@ const Detail = () =>  {
     // console.log(stateGlobalCarrito.productsCarrito)
     // console.log('product')
     // console.log(product)
-    dispatch(addProduct(product))
+    dispatch(addProductCart(product))
   }
 
   

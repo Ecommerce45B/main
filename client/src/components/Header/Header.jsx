@@ -131,7 +131,6 @@ function Navbar() {
       </nav>
       <a>
         <NavLink to="/Carrito">
-          <p className="cantidadProducts">{cantidadProducts}</p>
           <FaShoppingCart className="productCard-cartTwo" />
         </NavLink>
       </a>

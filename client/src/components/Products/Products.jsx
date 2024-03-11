@@ -4,26 +4,19 @@ import { Link } from 'react-router-dom'
 
 import { addProductCart } from '../../Redux/CarritoSlice'
 import { useSelector, useDispatch  } from 'react-redux'
+import { useAuth0 } from '@auth0/auth0-react';
 import axios from 'axios'
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/Valcar
 
 function Products(props) {    
   
   const dispatch = useDispatch()
+  
   const stateGlobalCarrito = useSelector((state) => state.productsCarrito)
 
   const handlerCarritoAdd = async (cartNewProduct) => {
-<<<<<<< HEAD
     console.log('stateGlobalCarrito--->',stateGlobalCarrito)
     dispatch(addProductCart(cartNewProduct)) 
-=======
-    console.log(stateGlobalCarrito)
-    dispatch(addProduct(cartNewProduct)) 
->>>>>>> origin/Valcar
-    
+    console.log('Auth0--->', useAuth0);
     const usuarioAlmacenado = localStorage.getItem("user")
     const usuario = JSON.parse(usuarioAlmacenado)
     const carData = { idUser: usuario.id }

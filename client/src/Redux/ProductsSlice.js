@@ -1,21 +1,9 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 import axios from "axios"
 // import InitialContent from "./InitialContent"
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
-import axios from "axios"
-// import InitialContent from "./InitialContent"
 
 const LinkGetProductos = "http://localhost:3001/productos"
-const LinkGetProductos = "http://localhost:3001/productos"
 
-export const getProducts = createAsyncThunk("carrito/obtener", async () => {
-  try {
-    const response = await axios.get(LinkGetProductos)
-    return response.data
-  } catch (error) {
-    return { error: error.message }
-  }
-})
 export const getProducts = createAsyncThunk("carrito/obtener", async () => {
   try {
     const response = await axios.get(LinkGetProductos)
@@ -27,10 +15,7 @@ export const getProducts = createAsyncThunk("carrito/obtener", async () => {
 
 const ProductsSlice = createSlice({
   name: "products",
-  name: "products",
   initialState: {
-    //products: [...InitialContent]
-    products: []
     //products: [...InitialContent]
     products: []
   },

@@ -55,7 +55,7 @@ html{
 }
 
 .productImage{
-  margin-top: 1rem;
+  margin-top: 3rem;
   padding: 1em;
   width: 100%;
   height: 15rem; /* Ajusta el valor de altura según tus necesidades */
@@ -97,8 +97,8 @@ html{
 }
 
 .productName{
-  font-size: 1.5rem;
-  margin-top: 2.5rem;
+  font-size: 1.3rem;
+  margin-top: 1rem;
   margin-bottom: 1rem;
 }
 
@@ -106,7 +106,7 @@ html{
   font-size: 1.2rem; /* Tamaño del texto */
   font-weight: 100; /* Grosor del texto */
   width: 240px; /* Ancho del contenedor */
-  height: 160px; /* Altura del contenedor */
+  height: 50px; /* Altura del contenedor */
   overflow-y: scroll; /* Aplicar scroll solo en el eje vertical */
   scrollbar-width: thin; /* Establecer el grosor de la barra de desplazamiento */
   scrollbar-color: #333 #ffffff; /* Establecer el color de la barra de desplazamiento */
@@ -122,8 +122,8 @@ html{
 
 .productNroserie,
 .productPrice{
-  font-size: 1.5rem;
-  font-weight: 700;
+  font-size: 1.2rem;
+  font-weight: 400;
 }
 
 .productTime{

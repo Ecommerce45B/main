@@ -1,18 +1,20 @@
-.container{
+.container {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  min-width: 100vw;
+  min-width: 120vw;
+  min-height: auto;
   border-radius: 5px;
-  border: solid 2px black;
   padding: 5px;
 }
 
 .img {
   width: 100%;
-  height: auto;
-  border-radius: 5px;
+  height: 100vh;
+  object-fit: cover;
+  justify-content: center;
+  align-items: center;
 }
 
 .center {
@@ -21,33 +23,39 @@
   left: 50%;
   transform: translate(-50%, -50%);
   width: 30%;
-  /* background: orangered; */
-  background-color: orangered;
+  background-color: #D76A29;
   border-radius: 12px 12px 0 0;
   color: white;
   padding: 25px;
   text-align: center;
 }
 
-.button{
+.button {
   background: black;
   padding: 8px 15px;
   border: transparent;
   border-radius: 5px;
-  cursor: pointer;  
+  cursor: pointer;
   color: white;
 }
 
-.button:hover{
+.button:hover {
   background: white;
   color: black;
 }
 
 hr {
-  color: gray;
-  font-size: .5;
+  color: wheat;
+  font-size: 0.5;
 }
 
-.logo{
+.logo {
   width: 50%;
 }
+
+@media only screen and (max-width: 800px) {
+  .center {
+    width: 70vh; /* Cambiamos el ancho a 100% para dispositivos móviles */
+  }
+}
+
