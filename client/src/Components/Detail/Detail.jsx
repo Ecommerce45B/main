@@ -42,9 +42,10 @@ const Detail = () =>  {
 
   return (
     <div className={styles.container}>
-      <FaShoppingCart className={"productCard__cart"} onClick={handlerCarritoAdd} />
-      <h2 className={styles.title}>{product.nombre}</h2>
-      <img className={styles.image} src={product.imagen} alt={product.nombre} width={'60%'}/>
+      <h2 className={styles.title}>{product.nombre}
+      <FaShoppingCart onClick={handlerCarritoAdd} className={styles.carrito}/>
+      </h2>
+      <img className={styles.image} src={product.imagen} alt={product.nombre} width={'70%'}/>
       <p className={styles.price}>Precio: ${product.precio}</p>
       <p className={styles.descripcion}>Descripción: {product.descripcion}</p>
       <p className={styles.especificaciones}>Especificaciones: {product.especificaciones}</p>

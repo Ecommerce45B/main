@@ -6,7 +6,7 @@
   border-radius: 8px;
   background-color: #fff;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   align-items: center;
   text-align: center;
@@ -15,6 +15,12 @@
 .productCard__cart {
   font-size: 40px;
   color: orangered;
+}
+
+.carrito {
+  color: #D76A29;
+  font-size: 24px;
+  gap: 1rem;
 }
 
 .title {
