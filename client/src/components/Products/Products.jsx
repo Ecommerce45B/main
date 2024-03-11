@@ -12,11 +12,13 @@ function Products(props) {
   const dispatch = useDispatch()
   
   const stateGlobalCarrito = useSelector((state) => state.productsCarrito)
-
+  console.log('Auth0--->', {useAuth0});
+  const { isAuthenticated ,user} = useAuth0();
+  console.log('isAuthenticated', isAuthenticated);
+  console.log('user', user);
   const handlerCarritoAdd = async (cartNewProduct) => {
     console.log('stateGlobalCarrito--->',stateGlobalCarrito)
     dispatch(addProductCart(cartNewProduct)) 
-    console.log('Auth0--->', useAuth0);
     const usuarioAlmacenado = localStorage.getItem("user")
     const usuario = JSON.parse(usuarioAlmacenado)
     const carData = { idUser: usuario.id }
