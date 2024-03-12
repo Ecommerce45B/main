@@ -4,7 +4,6 @@ import { removeProducto, addProductCart } from '../../Redux/CarritoSlice'
 import axios from 'axios'
 
 import styles from './Carrito.module.css'
-import { useEffect } from 'react'
 
 const Carrito = ()=>{
 
@@ -17,9 +16,21 @@ const Carrito = ()=>{
   const carritoLocalStorage = JSON.parse(carritoJSON)
   const carrito = carritoLocalStorage
   
-  const handlerDelete = (idCarrito)=>{
+  const dropData = (idProduct) => {
+    const url = `http://localhost:3001/cartproduct/delete/${idProduct}`
+    axios.delete(url)
+      .then((response) => {
+        console.log("Producto eliminado exitosamente:", response.data)
+      })
+      .catch((error) => {
+        console.error("Error al eliminar el producto:", error.response.data)
+      })
+  }
+
+  const handlerDelete = (idProduct)=>{
+    dropData(idProduct)
     console.log(globalCarrito)
-    dispatch(removeProducto(idCarrito))
+    dispatch(removeProducto(idProduct))
   }
 
   const totales = []

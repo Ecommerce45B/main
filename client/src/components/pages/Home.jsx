@@ -57,9 +57,9 @@ function Home() {
     setCurrentPage(pageNumber)
   }
 
-  console.log('----------------------------- Section -----------------------------')
-  console.log(sections)
-  console.log(content)
+  // console.log('----------------------------- Section -----------------------------')
+  // console.log(sections)
+  // console.log(content)
 
   return (
     <div className='content'>
