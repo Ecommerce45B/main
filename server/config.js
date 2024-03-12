@@ -1,7 +1,7 @@
 module.exports = {
   cloudinary: {
-    cloud_name: "dly7hyjpg",
-    api_key: "716417868186475",
-    api_secret: "UuwrdB4yDbMpmEoR6tcmnYuRI20",
+    cloud_name: 'dcimgd0ne', 
+    api_key: '196475742268226', 
+    api_secret: 'FmBsgvwnXb7AIHogJJ2TXoxrsNs' 
   },
 };
