@@ -14,12 +14,15 @@ function Products(props) {
   const stateGlobalCarrito = useSelector((state) => state.productsCarrito)
   console.log('Auth0--->', {useAuth0});
   const { isAuthenticated ,user} = useAuth0();
+  const datauser = {user};
   console.log('isAuthenticated', isAuthenticated);
-  console.log('user', user);
+  console.log('email user--->', datauser.user.email);
   const handlerCarritoAdd = async (cartNewProduct) => {
     console.log('stateGlobalCarrito--->',stateGlobalCarrito)
+    console.log('cartNewProduct--->',cartNewProduct)
     dispatch(addProductCart(cartNewProduct)) 
     const usuarioAlmacenado = localStorage.getItem("user")
+    console.log('usuarioAlmacenado---->', {usuarioAlmacenado});
     const usuario = JSON.parse(usuarioAlmacenado)
     const carData = { idUser: usuario.id }
     const response = await axios.post('http://localhost:3001/car/new', carData)

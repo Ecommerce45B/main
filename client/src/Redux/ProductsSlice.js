@@ -1,6 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 import axios from "axios"
-// import InitialContent from "./InitialContent"
 
 const LinkGetProductos = "http://localhost:3001/productos"
 
