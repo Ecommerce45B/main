@@ -5,7 +5,7 @@ import axios from "axios";
 import styles from "./creationProduct.module.css"
 
 const CreateProduct = () => {
-    const URL = 'http://localhost:3001';
+    const baseURL = 'http://localhost:3001';
 
     const [formData, setFormData] = useState({
         nombre: '',
@@ -19,7 +19,8 @@ const CreateProduct = () => {
         idMarca: '',
         idFabricante: '',
         minimo:'',
-        preferencia:''
+        preferencia:'',
+        image: null,
     });
 
     const [formErrors, setFormErrors] = useState({});
@@ -28,11 +29,12 @@ const CreateProduct = () => {
     const [fabricantes, setFabricantes] = useState([]);
     const [categorias, setCategorias] = useState([]);
     const [marcas, setMarcas] = useState([]);
+    const [previewImage, setPreviewImage] = useState("");
 
     useEffect(() => {
         const fetchCategorias = async () => {
             try {
-                const response = await axios.get(`${URL}/categorias`);
+                const response = await axios.get(`${baseURL}/categorias`);
                 setCategorias(response.data);
             } catch (error) {
                 console.error("Error al obtener las categorias:", error);
@@ -44,7 +46,7 @@ const CreateProduct = () => {
     useEffect(() => {
         const fetchFabricantes = async () => {
             try {
-                const response = await axios.get(`${URL}/fabricantes`);
+                const response = await axios.get(`${baseURL}/fabricantes`);
                 setFabricantes(response.data);
             } catch (error) {
                 console.error("Error al obtener los fabricantes:", error);
@@ -56,7 +58,7 @@ const CreateProduct = () => {
     useEffect(() => {
         const fetchMarcas = async () => {
             try {
-                const response = await axios.get(`${URL}/marcas`);
+                const response = await axios.get(`${baseURL}/marcas`);
                 setMarcas(response.data);
             } catch (error) {
                 console.error("Error al obtener las marcas:", error);
@@ -67,8 +69,7 @@ const CreateProduct = () => {
 
     useEffect(() => {
         const errors = validation(formData);
-        
-        setFormErrors(errors);
+     setFormErrors(errors);
     }, [formData]);
 
     const handleChange = (event) => {
@@ -79,6 +80,41 @@ const CreateProduct = () => {
         setFormHasErrors(false); 
         
     }
+
+    const handleImage = async (event) => {
+        const selectedImage = event.target.files [0];
+  
+        if(selectedImage){
+          setPreviewImage(URL.createObjectURL(selectedImage))
+        
+         try{
+             const formData = new FormData();
+             formData.append("image",selectedImage);
+  
+             const cloudinaryResponse = await axios.post(`${baseURL}/imagenes/uploadImage`,formData,{
+              headers: {
+                  "Content-Type": "multipart/form-data",
+              }
+             })
+  
+             if(cloudinaryResponse.status === 200 ){
+              const cloudinaryData = cloudinaryResponse.data;
+              console.log("Imagen subida a Cloudinary exitosamente:", cloudinaryData.imageUrl);
+              setFormData((prevData) => ({
+                  ...prevData,
+                  image:cloudinaryData.imageUrl
+              }))
+             }else{
+              console.error("Error al subir la imagen a Cloudinary")
+             }
+  
+         }catch(error){
+          console.error("Error al enviar la imagen a Cloudinary:", error);
+      }
+    } else {
+      setPreviewImage("");
+    }
+  };
 
     const onSubmit = async (event) => {
         event.preventDefault();
@@ -93,7 +129,7 @@ const CreateProduct = () => {
         }
 
         try {
-            await axios.post(`${URL}/productos/new`, formData);
+            await axios.post(`${baseURL}/productos/new`, formData);
             setSuccessMessage("Producto creado exitosamente.");
             setFormData({
                 nombre: "",
@@ -219,6 +255,29 @@ const CreateProduct = () => {
                 />
                 {formErrors.preferencia && <p className={styles.errors}>{formErrors.preferencia}</p>}
             </div>
+
+            <div>
+                <label className={styles.image} htmlFor="image">
+                    Image:
+                </label>
+                <input 
+                type="file"
+                accept="image/*"
+                onChange={handleImage}
+                name="image"
+                />
+                {previewImage && (
+                    <img 
+                    src={previewImage} 
+                    alt="Vista Previa"
+                     />
+                )}
+                {formErrors.image && (
+                    <p className={styles.errors}>{formErrors.image}</p>
+                )}
+            </div>
+
+
 
             <div className={styles.formControl}>
                 <label className={styles.categoria}>Categoria: </label>

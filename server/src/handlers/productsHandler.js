@@ -6,7 +6,7 @@ const {
   changeProducts,
   deleteProducts,
   changeProductStock,
-  changeProductRating
+  changeProductRating,
 } = require("../controllers/productsController");
 
 const getProductsHandler = async (req, res) => {
@@ -39,69 +39,20 @@ const getProductsDetailHandler = async (req, res) => {
 };
 
 const postNewProductHandler = async (req, res) => {
-  const {
-    nombre,
-    descripcion,
-    especificaciones,
-    // imagen,
-    nroserie,
-    nromac,
-    precio,
-    stock,
-    minimo,
-    preferencia,
-    estado,
-    idCategoria,
-    idMarca,
-    idFabricante,
-    //imagenes,
-  } = req.body;
-
-  //req.body:{
-  //"nombre": "Logitech G Pro Wireless",
-  //"descripcion": "Mouse gaming inalámbrico de alta precisión y bajo peso.",
-  //"especificaciones": "Sensor HERO 25K, DPI: 100 - 25.600, Peso: 80g, Duración de batería: 60 horas.",
-  //"nroserie": "987654321",
-  //"nromac": "DEF456",
-  //"precio": 129,
-  //"stock": 40,
-  //"minimo": 5,
-  //"preferencia": 1,
-  //"estado": true,
-  //"idCategoria": 1,
-  //"idMarca": 6,
-  //"idFabricante": 6,
-  //"imagenes": [
-  // {
-  //   "url": "https://example.com/imagen1.jpg"
-  // },
-  // {
-  //   "url": "https://example.com/imagen2.jpg"
-  // }
-  // ]
-  //}
-
+  const data = req.body;
+  console.log("Datos recibidos en la solicitud:", data);
   try {
-    const newProduct = await postNewProducts(
-      nombre,
-      descripcion,
-      especificaciones,
-      // imagen,
-      nroserie,
-      nromac,
-      precio,
-      stock,
-      minimo,
-      preferencia,
-      estado,
-      idCategoria,
-      idMarca,
-      idFabricante
-      //imagenes
-    );
-    res.status(200).json(newProduct);
+    const result = await postNewProducts(data);
+    if (result.error) {
+      console.error("Error al crear un nuevo producto:", result.error);
+      return res.status(400).json({ error: result.error });
+    }
+
+    console.log("Producto creado exitosamente:", result);
+    res.status(201).json(result);
   } catch (error) {
-    res.status(400).json({ error: "Error interno del servidor" });
+    console.error("Error interno del servidor:", error);
+    res.status(500).json({ error: "Error interno del servidor" });
   }
 };
 
@@ -196,5 +147,5 @@ module.exports = {
   getProductsByNameHandler,
   changeProductHandler,
   changeProductStockHandler,
-  changeProductRatingHandler
+  changeProductRatingHandler,
 };

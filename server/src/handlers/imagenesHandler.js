@@ -2,7 +2,10 @@ const {
   viewImagenes,
   createImagen,
   deleteImagen,
+  uploadImage,
 } = require("../controllers/imagenesController");
+const fs = require("fs").promises;
+const path = require("path");
 
 // GET
 const getImagenesHandler = async (req, res) => {
@@ -49,8 +52,36 @@ const deleteImagenHandler = async (req, res) => {
   }
 };
 
+const uploadImageH = async (req, res) => {
+  try {
+    const file = req.files.image;
+
+    if (!file) {
+      return res.status(400).json({ error: "Archivo imagen no especificado" });
+    }
+
+    const tempDir = path.join(__dirname, "../temp");
+    await fs.mkdir(tempDir, { recursive: true });
+
+    tempFilePath = path.join(tempDir, file.name);
+    await file.mv(tempFilePath);
+
+    console.log("Imagen guardada temporalmente en:", tempFilePath);
+
+    const imageUrl = await uploadImage({ path: tempFilePath });
+    await fs.unlink(tempFilePath);
+
+    console.log("Imagen eliminada del directorio temporal:", tempFilePath);
+
+    return res.status(200).json({ imageUrl });
+  } catch (error) {
+    console.error("Error al procesar la solicitud:", error);
+    return res.status(500).json({ error: error.message });
+  }
+};
 module.exports = {
   getImagenesHandler,
   newImagenHandler,
   deleteImagenHandler,
+  uploadImageH,
 };

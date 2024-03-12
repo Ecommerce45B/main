@@ -34,24 +34,25 @@ const Rating = ({idProducto}) => {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await axios.get(`http://localhost:3001/usuarios/email/${user.email}`);
-        if (response.data.length > 0) {
-          const userData = response.data[0];
-          console.log('user.data--->', userData);
-          setUserId(userData.id);
-          console.log('userId--->', userId);
-        } else {
-          console.error('No se encontraron usuarios con ese email.');
+        if (isAuthenticated) {
+          const response = await axios.get(`http://localhost:3001/usuarios/email/${user.email}`);
+          if (response.data.length > 0) {
+            const userData = response.data[0];
+            console.log('user.data--->', userData);
+            setUserId(userData.id);
+            console.log('userId--->', userData.id);
+          } else {
+            console.error('No se encontraron usuarios con ese email.');
+          }
         }
       } catch (error) {
         console.error('Error fetching user data:', error);
       }
     };
-
-    if (isAuthenticated) {
-      fetchUserData();
-    }
-  });
+  
+    fetchUserData();
+  }, [isAuthenticated, user.email]);
+  
 
   let sw=0;
   let promedio=0;

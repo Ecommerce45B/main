@@ -36,7 +36,13 @@ const getUsuariosByNombre = async (nombre) => {
       attributes: { exclude: ["idRol"] },
     });
 
-    return dbUsuarios;
+    // Filtrar usuarios únicos por ID
+    const uniqueUsuarios = dbUsuarios.filter(
+      (usuario, index, self) =>
+        index === self.findIndex((u) => u.id === usuario.id)
+    );
+
+    return uniqueUsuarios;
   } catch (error) {
     console.error("Error al buscar usuarios por nombre:", error);
     throw error;

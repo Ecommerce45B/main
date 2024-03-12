@@ -93,7 +93,7 @@ const CreateMarca =() => {
             </button>
           </form>
 
-            <Link to="/dashboard/HomeDashboard" className={styles.link}>
+            <Link to="/dashboard/adminCatFabMarc" className={styles.link}>
               Volver a HomeDashboard
             </Link>
         </div>
