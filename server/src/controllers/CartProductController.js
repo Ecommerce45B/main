@@ -16,7 +16,7 @@ const CreateCartProduct = async (idCar, idUser, idProduct, cantidad, monto, esta
     }
     else{
       // Si el producto ya está en el carrito, sumar la cantidad
-      existingProduct.cantidad += cantidad
+      existingProduct.cantidad = cantidad
       await existingProduct.save()
       return existingProduct
     }
