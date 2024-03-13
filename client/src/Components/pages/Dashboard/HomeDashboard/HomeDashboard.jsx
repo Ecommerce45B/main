@@ -201,19 +201,19 @@ const HomeDashboard = () => {
     <div className={styles.productsContainer}>
       <div className={styles.buttonContainer}>
         <div>
-          <Link to="/dashboard" className={styles.buttonDashboard}>Admin Users</Link>
+          <Link to="/dashboard" className={styles.buttonDashboard}>Admin Usuarios</Link>
         </div>
         <div>
-          <Link to="/dashboard/creationProduct" className={styles.buttonCreation}>Creation Product</Link>
+          <Link to="/dashboard/creationProduct" className={styles.buttonCreation}>Crear Producto</Link>
         </div>
         <div>
-          <Link to="/dashboard/creationCategory" className={styles.buttonCreation}>Creation Category</Link>
+          <Link to="/dashboard/creationCategory" className={styles.buttonCreation}>Crar Categoría</Link>
         </div>
         <div>
-          <Link to="/dashboard/creationFabricante" className={styles.buttonCreation}>Creation Fabricantes</Link>
+          <Link to="/dashboard/creationFabricante" className={styles.buttonCreation}>Crear Fabricante</Link>
         </div>
         <div>
-          <Link to="/dashboard/creationMarca" className={styles.buttonCreation}>Creation Marcas</Link>
+          <Link to="/dashboard/creationMarca" className={styles.buttonCreation}>Crear Marca</Link>
         </div>
       </div>
       <h1 className={styles.title}>Lista de productos</h1>
