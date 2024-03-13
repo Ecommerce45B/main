@@ -1,6 +1,10 @@
 const { createDataFromJSON } = require("../config/usuariosServices");
 const { Usuarios, Votos, Roles } = require("../config/bd");
 const { Sequelize } = require("sequelize");
+const mailTo = require("../mailer/mailTo");
+const mailToContact = require("../mailer/mailToContact");
+const message = require("../mailer/message");
+const mailtoNoti = require("../mailer/mailToNoti");
 
 const getUsuarios = async () => {
   try {
@@ -97,6 +101,24 @@ const postNewUsuarios = async (
       estado,
       idRol,
     });
+    const emailInfo = {
+      name: nuevoUsuario.nombre,
+      email: nuevoUsuario.email,
+      subject: "Registro Exitoso",
+      html: `¡Bienvenido! Te has registrado exitosamente en TechStore. ¡Esperamos que disfrutes de tu experiencia!`,
+      link: "http://localhost:5173/Home",
+    };
+
+    console.log("Sending email to:", emailInfo.email); // Agregamos un log para verificar a qué dirección de correo se está enviando
+    console.log("Sending nombre to:", emailInfo.name); // Agregamos un log para verificar a qué dirección de correo se está enviando
+
+    const emailResponse = await mailTo(emailInfo);
+
+    if (!emailResponse.messageId) {
+      console.error("Error al enviar correo electrónico de notificación");
+    } else {
+      console.log("Email sent successfully");
+    }
 
     const usuarioConRol = await Usuarios.findByPk(nuevoUsuario.id, {
       include: [{ model: Roles }, { model: Votos }],
@@ -163,6 +185,40 @@ const deleteUsuario = async (id, sw) => {
   }
 };
 
+const enviarMensaje = async (nombre, email) => {
+  const emailInfo = {
+    nombre: nombre,
+    email: email,
+    subject: "Mensaje enviado exitosamente",
+    html: `¡Gracias por tu mensaje! Hemos recibido tu consulta y te responderemos lo antes posible. Tu opinión es muy importante para nosotros. ¡Gracias por contactarnos! <3`,
+    link: "http://localhost:5173/Home",
+  };
+
+  const emailResponse = await mailToContact(emailInfo);
+
+  if (!emailResponse.messageId) {
+    console.error("Error al enviar correo electrónico de notificación");
+  } else {
+    console.log("Email sent successfully");
+  }
+};
+
+const enviarNotificacion = async (nombre, email, mensaje) => {
+  const emailInfo = {
+    to: "ecommerce.ft45b@gmail.com",
+    subject: "Nuevo mensaje recibido",
+    html: `Has recibido un nuevo mensaje de ${nombre} (${email}): <br><br>${mensaje}`,
+  };
+
+  const emailResponse = await mailtoNoti(emailInfo);
+
+  if (!emailResponse.messageId) {
+    console.error("Error al enviar correo electrónico de notificación");
+  } else {
+    console.log("Email de notificación enviado correctamente");
+  }
+};
+
 module.exports = {
   getUsuarios,
   getUsuariosById,
@@ -171,4 +227,6 @@ module.exports = {
   postNewUsuarios,
   changeUsuarios,
   deleteUsuario,
+  enviarMensaje,
+  enviarNotificacion,
 };

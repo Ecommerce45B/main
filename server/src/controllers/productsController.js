@@ -126,7 +126,7 @@ const postNewProducts = async (data) => {
       console.error(
         `Error: Ya existe un producto con el nro. Serie: ${nroserie}`
       );
-      throw new Error(`Ya existe un producto con el nro. Serie: ${nroserie}`);
+      return { error: `Ya existe un producto con el nro. Serie: ${nroserie}` };
     }
 
     console.log("Creando un nuevo producto en la base de datos...");

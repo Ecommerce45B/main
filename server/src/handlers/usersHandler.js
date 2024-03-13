@@ -6,6 +6,8 @@ const {
   postNewUsuarios,
   changeUsuarios,
   deleteUsuario,
+  enviarMensaje,
+  enviarNotificacion,
 } = require("../controllers/usersController");
 
 const getUsuariosHandler = async (req, res) => {
@@ -121,6 +123,38 @@ const getUsuariosByNombreHandler = async (req, res) => {
     res.status(404).json({ error: error.message });
   }
 };
+
+const enviarMensajeHandler = async (req, res) => {
+  try {
+    const { nombre, email } = req.body;
+
+    await enviarMensaje(nombre, email);
+    res.status(200).json({
+      message: "Correo electrónico de confirmación enviado correctamente.",
+    });
+  } catch (error) {
+    console.error("Error en el Handler:", error);
+    res.status(500).json({
+      error: "Hubo un error en el servidor al procesar la solicitud.",
+    });
+  }
+};
+
+const enviarNotificacionHandler = async (req, res) => {
+  try {
+    const { nombre, email, mensaje } = req.body;
+    await enviarNotificacion(nombre, email, mensaje);
+    res
+      .status(200)
+      .json({ message: "Correo de notificacion enviado correctamente" });
+  } catch (error) {
+    console.error("Error en el Handler:", error);
+    res.status(500).json({
+      error: "Hubo un error en el servidor al procesar la solicitud.",
+    });
+  }
+};
+
 module.exports = {
   getUsuariosHandler,
   getUsuariosByIdHandler,
@@ -129,4 +163,6 @@ module.exports = {
   changeUsuarioHandler,
   deleteUsuarioHandler,
   getUsuariosByNombreHandler,
+  enviarMensajeHandler,
+  enviarNotificacionHandler,
 };

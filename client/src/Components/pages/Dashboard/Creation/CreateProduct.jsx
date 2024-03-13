@@ -30,6 +30,7 @@ const CreateProduct = () => {
     const [categorias, setCategorias] = useState([]);
     const [marcas, setMarcas] = useState([]);
     const [previewImage, setPreviewImage] = useState("");
+    const [ errorMessage,setErrorMessage] = useState("")
 
     useEffect(() => {
         const fetchCategorias = async () => {
@@ -130,31 +131,38 @@ const CreateProduct = () => {
 
         try {
             await axios.post(`${baseURL}/productos/new`, formData);
-            setSuccessMessage("Producto creado exitosamente.");
-            setFormData({
-                nombre: "",
-                descripcion: "",
-                especificaciones: "",
-                nroserie: "",
-                nromac: "",
-                precio: "",
-                stock: "",
-                idCategoria: "",
-                idMarca: "",
-                idFabricante: "",
-                minimo:'',
-                preferencia:''
-            });
-            setTimeout(() => {
-                setSuccessMessage("");
-            }, 3000);
+                setSuccessMessage("Producto creado exitosamente.");
+                setFormData({
+                    nombre: "",
+                    descripcion: "",
+                    especificaciones: "",
+                    nroserie: "",
+                    nromac: "",
+                    precio: "",
+                    stock: "",
+                    idCategoria: "",
+                    idMarca: "",
+                    idFabricante: "",
+                    minimo:'',
+                    preferencia:''
+                });
+                setTimeout(() => {
+                    setSuccessMessage("");
+                }, 3000);
+            
         } catch (error) {
-            console.error("Error al enviar la solicitud al backend:", error);
+           
+            setErrorMessage(error.response.data.error); 
+            setTimeout(() => {
+                setErrorMessage("");
+            }, 3000);
         }
     };
+
  return(
     <div className={styles.container}>
          <h2 className={styles.titulo}>Crear Nuevo Producto</h2>
+         {errorMessage && <p className={styles.errorMessage}> {errorMessage}</p>}
          {successMessage && <p className={styles.successMessage}>{successMessage}</p> }
          <form onSubmit={onSubmit}>
             <div className={styles.formControl}>
