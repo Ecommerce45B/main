@@ -102,21 +102,19 @@ const postNewProducts = async (data) => {
       idCategoria,
       idMarca,
       idFabricante,
-      image,
+      imagen
     } = data;
 
-    console.log("Datos recibidos para crear un nuevo producto:", data);
+    //console.log("Datos recibidos para crear un nuevo producto:", data);
 
     if (!idCategoria || !idMarca || !idFabricante) {
-      console.error(
-        "Error: la categoría, marca o fabricante no están especificados"
-      );
+      //console.error("Error: la categoría, marca o fabricante no están especificados");
       return {
         error: "La categoría, marca o fabricante no están especificados",
       };
     }
-    if (!image) {
-      console.error("Error: la URL de la imagen no está especificada");
+    if (!imagen) {
+      //console.error("Error: la URL de la imagen no está especificada");
       return { error: "La URL de la imagen no está especificada" };
     }
 
@@ -124,14 +122,9 @@ const postNewProducts = async (data) => {
       where: { nroserie: nroserie },
     });
     if (existingProduct) {
-      console.error(
-        `Error: Ya existe un producto con el nro. Serie: ${nroserie}`
-      );
-      console.error(
-        `Error: Ya existe un producto con el nro. Serie: ${nroserie}`
-      );
-      throw new Error(`Ya existe un producto con el nro. Serie: ${nroserie}`);
-    }
+      //console.error(`Error: Ya existe un producto con el nro. Serie: ${nroserie}`);
+      return { error: `Ya existe un producto con el nro. Serie: ${nroserie}`};
+    }
 
     console.log("Creando un nuevo producto en la base de datos...");
     const newProductId = (await Productos.max("id")) + 1 || 1;
@@ -150,22 +143,21 @@ const postNewProducts = async (data) => {
       idCategoria,
       idMarca,
       idFabricante,
+      imagen
     });
 
-    console.log("Producto creado exitosamente:", newProduct);
+    //console.log("Producto creado exitosamente:", newProduct);
 
-    console.log("Producto creado exitosamente:", newProduct);
-
-    console.log("Creando una nueva imagen asociada al producto...");
-
+    //console.log("Creando una nueva imagen asociada al producto...");
+    
     const uploadedImage = await Imagenes.create({
-      url: image,
-      idProducto: newProduct.id,
+      url: imagen,
+      idProducto: newProductId,
     });
 
-    console.log("Imagen asociada creada exitosamente:", uploadedImage);
+    //console.log("Imagen asociada creada exitosamente:", uploadedImage);
 
-    console.log("Obteniendo el producto recién creado con sus asociaciones...");
+    //console.log("Obteniendo el producto recién creado con sus asociaciones...");
 
     const productWithAssociations = await Productos.findByPk(newProduct.id, {
       include: [
@@ -177,11 +169,11 @@ const postNewProducts = async (data) => {
       attributes: { exclude: ["idCategoria", "idMarca", "idFabricante"] },
     });
 
-    console.log("Producto con asociaciones:", productWithAssociations);
+    //console.log("Producto con asociaciones:", productWithAssociations);
 
     return productWithAssociations;
   } catch (error) {
-    console.error("Error al crear un nuevo producto:", error);
+    //console.error("Error al crear un nuevo producto:", error);
     throw error;
   }
 };
