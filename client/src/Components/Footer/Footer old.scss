@@ -5,26 +5,6 @@
     display: flex;
     gap: 50px;
 
-.link {
-	font-size: 18px;
-	font-weight: 600;
-	color: black;
-	border-radius: 6px;
-	opacity: 75%;
-
-}
-
-nav a {
-	margin: 0 1rem;
-	color: var(--textColor);
-	text-decoration: none;
-}
-
-nav a:hover {
-	color: var(--secondaryColor);
-	font-weight: 900;
-}
-
     .item {
       flex: 1;
       display: flex;

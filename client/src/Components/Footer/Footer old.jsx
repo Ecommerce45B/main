@@ -1,5 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
-
+import React from 'react'
 import { FaFacebookSquare } from "react-icons/fa";
 import { FaInstagramSquare } from "react-icons/fa";
 import { BsTwitterX } from "react-icons/bs";
@@ -14,41 +13,16 @@ function Footer() {
           <h1>Social Media</h1>
           <span>Facebook <FaFacebookSquare className='socilaMedia' /></span>
           <span>Instagram <FaInstagramSquare className='socilaMedia' /></span>
-          <span>Twitter <BsTwitterX className='socilaMedia' /></span>
+          <span>X <BsTwitterX className='socilaMedia' /></span>
           <span>Pinterest <FaPinterest className='socilaMedia' /></span>
         </div>
         <div className="item">
           <h1>Links</h1>
-          <a className="link">
-          <NavLink to="/home">
-            Home
-          </NavLink>
-        </a>
-        <a className="link">
-          <NavLink to="/brands">
-            Marcas
-          </NavLink>
-        </a>
-        <a className="link">
-          <NavLink to="/services">
-            Servicios
-          </NavLink>
-        </a>
-        <a className="link">
-          <NavLink to="/contact">
-            Contact
-          </NavLink>
-        </a>
-        <a className="link">
-          <NavLink to="/about">
-            About
-          </NavLink>
-        </a>
-        <a className="link">
-          <NavLink to="/faq" >
-            Preguntas Frecuentes
-          </NavLink>
-        </a>
+          <span>FAQ</span>
+          <span>Pages</span>
+          <span>Stores</span>
+          <span>Compare</span>
+          <span>Cookies</span>
         </div>
         <div className="item">
           <h1>About</h1>

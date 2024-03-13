@@ -93,7 +93,7 @@ const CreateFabricante =() => {
             </button>
           </form>
 
-            <Link to="/dashboard/adminCatFabMarc" className={styles.link}>
+            <Link to="/dashboard/HomeDashboard" className={styles.link}>
               Volver a HomeDashboard
             </Link>
         </div>

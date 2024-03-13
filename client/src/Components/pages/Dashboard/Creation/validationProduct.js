@@ -81,9 +81,7 @@ const validation = (formData) => {
   if (!formData.idFabricante) {
     errors.idFabricante = "Seleccione un fabricante";
   }
-  if (!formData.image) {
-    errors.image = "Debe seleccionar una imagen";
-  }
+
   return errors;
 };
 export default validation;

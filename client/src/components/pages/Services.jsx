@@ -1,8 +1,11 @@
 import React from 'react'
+import Slider from '../Slider/Slider'
 
 function Services() {
   return (
-    <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro laboriosam quas incidunt dolor, atque, aliquam nostrum perspiciatis quam, quo libero obcaecati facere ratione debitis neque numquam nesciunt? Maxime, facere exercitationem!</div>
+    <div>
+      <Slider />
+    </div>
   )
 }
 

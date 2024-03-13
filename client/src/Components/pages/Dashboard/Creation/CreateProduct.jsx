@@ -6,6 +6,8 @@ import styles from "./creationProduct.module.css"
 
 const CreateProduct = () => {
     const baseURL = 'http://localhost:3001';
+    const [ errorMessage,setErrorMessage] = useState("")
+    const [popupOpen, setPopupOpen] = useState(false);
 
     const [formData, setFormData] = useState({
         nombre: '',
@@ -20,7 +22,6 @@ const CreateProduct = () => {
         idFabricante: '',
         minimo:'',
         preferencia:'',
-        image: null,
     });
 
     const [formErrors, setFormErrors] = useState({});
@@ -30,6 +31,11 @@ const CreateProduct = () => {
     const [categorias, setCategorias] = useState([]);
     const [marcas, setMarcas] = useState([]);
     const [previewImage, setPreviewImage] = useState("");
+
+    const openPopup = () => {
+        window.open('', 'popup', 'width=400,height=200');
+        setPopupOpen(true);
+    }
 
     useEffect(() => {
         const fetchCategorias = async () => {
@@ -102,8 +108,9 @@ const CreateProduct = () => {
               console.log("Imagen subida a Cloudinary exitosamente:", cloudinaryData.imageUrl);
               setFormData((prevData) => ({
                   ...prevData,
-                  image:cloudinaryData.imageUrl
+                  imagen:cloudinaryData.imageUrl
               }))
+              console.log("formData--->", formData);
              }else{
               console.error("Error al subir la imagen a Cloudinary")
              }
@@ -116,20 +123,20 @@ const CreateProduct = () => {
     }
   };
 
-    const onSubmit = async (event) => {
-        event.preventDefault();
+  const onSubmit = async (event) => {
+    event.preventDefault();
 
-        const errors = validation(formData);
-        
+    const errors = validation(formData);
+    
 
-        if (Object.values(errors).some((error) => error !== "")) {
-            setFormErrors(errors);
-            setFormHasErrors(true);
-            return;
-        }
+    if (Object.values(errors).some((error) => error !== "")) {
+        setFormErrors(errors);
+        setFormHasErrors(true);
+        return;
+    }
 
-        try {
-            await axios.post(`${baseURL}/productos/new`, formData);
+    try {
+        await axios.post(`${baseURL}/productos/new`, formData);
             setSuccessMessage("Producto creado exitosamente.");
             setFormData({
                 nombre: "",
@@ -148,14 +155,20 @@ const CreateProduct = () => {
             setTimeout(() => {
                 setSuccessMessage("");
             }, 3000);
-        } catch (error) {
-            console.error("Error al enviar la solicitud al backend:", error);
-        }
-    };
+        
+    } catch (error) {
+       
+        setErrorMessage(error.response.data.error); 
+        setTimeout(() => {
+            setErrorMessage("");
+        }, 3000);
+    }
+}; 
+
  return(
     <div className={styles.container}>
          <h2 className={styles.titulo}>Crear Nuevo Producto</h2>
-         {successMessage && <p className={styles.successMessage}>{successMessage}</p> }
+
          <form onSubmit={onSubmit}>
             <div className={styles.formControl}>
                 <label className={styles.nombre}>Nombre: </label>
@@ -270,6 +283,7 @@ const CreateProduct = () => {
                     <img 
                     src={previewImage} 
                     alt="Vista Previa"
+                    width={"200px"}
                      />
                 )}
                 {formErrors.image && (
@@ -347,7 +361,8 @@ const CreateProduct = () => {
 
             <button type="sumbit"  className={styles.button}>Crear Producto</button>
          </form>
-
+        {errorMessage && (alert(errorMessage))}
+        {successMessage && (alert(successMessage))}  
          <Link to="/dashboard/HomeDashboard"className={styles.link}>Volver a HomeDashboard</Link>
     </div>
  )

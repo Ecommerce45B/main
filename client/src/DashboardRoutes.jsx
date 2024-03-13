@@ -1,5 +1,6 @@
 import { Routes,Route } from "react-router-dom"
 import AdminUsers from "./Components/pages/Dashboard/AdminUser/AdminUsers"
+import HomeDashboard from "./Components/pages/Dashboard/HomeDashboard/HomeDashboard"
 import CreateCategory from "./Components/pages/Dashboard/Creation/CreateCategory"
 import CreateProduct from "./Components/pages/Dashboard/Creation/CreateProduct"
 import AdminProducts from "./Components/pages/Dashboard/AdminProducts/AdminProducts"
@@ -13,6 +14,7 @@ const DashboardRoutes = () => {
     return (
       <Routes>
         <Route path="/" element={<AdminUsers />} />
+        <Route path="/HomeDashboard" element={<HomeDashboard />} />
         <Route path="/creationCategory" element={<CreateCategory />} />
         <Route path="/creationProduct" element={<CreateProduct />} />
         <Route path="/modifications/products/:id" element={<ModificationProduct />} />

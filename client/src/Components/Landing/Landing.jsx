@@ -8,6 +8,7 @@ const Landing = () => {
   return (
     <>
       <div className={styles.container}>
+      <div className={styles.background}></div>
         <img src={wallpaper} className={styles.img} alt="Error 404"/>
         <div className={styles.center}>
           <img src={logo} alt="Error 404" className={styles.logo} />          

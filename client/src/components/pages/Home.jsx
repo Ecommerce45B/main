@@ -15,6 +15,7 @@ import Announcement from '../Announcement/Announcement.jsx';
 import Banner from '../Banner/Banner';
 import HomeCategory from '../HomeCategory';
 import Sponsor from '../../Components/Sponsor.jsx';
+import Newsletters from '../Newsletters/Newsletters.jsx';
 
 function Home() {
 
@@ -57,9 +58,9 @@ function Home() {
     setCurrentPage(pageNumber)
   }
 
-  // console.log('----------------------------- Section -----------------------------')
-  // console.log(sections)
-  // console.log(content)
+  console.log('----------------------------- Section -----------------------------')
+  console.log(sections)
+  console.log(content)
 
   return (
     <div className='content'>
@@ -108,6 +109,7 @@ function Home() {
         <h1>Patrocidado por:</h1>
         <Sponsor />
       </div> 
+      <Newsletters />
     </div>
   )
 }
