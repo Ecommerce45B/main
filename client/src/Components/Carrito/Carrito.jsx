@@ -67,6 +67,7 @@ const Carrito = ()=>{
           <td></td>
         </tr>
       </table>
+      <button>Hola que mas</button>
     </div>
   )
 }
