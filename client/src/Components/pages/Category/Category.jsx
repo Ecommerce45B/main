@@ -1,73 +1,70 @@
-import { useEffect} from 'react'
-import { useSelector, useDispatch  } from 'react-redux'
-import { getCategorias } from '../../../Redux/CategoriasSlice';
-import { getMarcas } from '../../../Redux/MarcasSlice';
 
+import React from 'react';
 import './Category.css';
-import searchIcon from "../../../../../client/public/icons/search.png"
+import { FaMagnifyingGlass } from "react-icons/fa6";
 
-const SearchBar = ({ setFilterTerm }) => {
-  const handleSearchChange = (e) => {
-    const searchTerm = e.target.value.trim();
-    setFilterTerm(searchTerm);
+function Category({ searchTerm, setSearchTerm, handleCategoryChange, handleMarcaChange, handlePriceChange, handleSearch, categories, marcas }) {
+
+  const handleCategory = (e) => {
+    handleCategoryChange(e.target.value);
   };
 
-  const categoriaGlobal = useSelector((state) => state.categorias)
-  const categorias      = categoriaGlobal['categorias'];
+  const handleMarca = (e) => {
+    handleMarcaChange(e.target.value);
+  };
 
-  const marcaGlobal = useSelector((state) => state.marcas)
-  const marcas      = marcaGlobal['marcas'];
-
-  const dispatch = useDispatch()
-
-  useEffect(()=>{
-    const syncronized = async() => {
-      await dispatch(getCategorias());
-    }
-    syncronized()
-  }, [dispatch])
-  console.log('categorias--->',categorias)
-
-  useEffect(()=>{
-    const syncronized = async() => {
-      await dispatch(getMarcas());
-    }
-    syncronized()
-  }, [dispatch])
-  console.log('marcas--->',marcas)
-  
+  const handlePrice = (e) => {
+    const priceRange = e.target.value;
+    handlePriceChange(priceRange);
+  };
 
   return (
     <div className="category-header">
       <label htmlFor="category">Categoría:</label>
-      <select id="category">
-      <option value="">Selecciona una categoria</option>
-      {categorias.map(categoria => (
-        <option key={categoria.id} value={categoria.id}>{categoria.nombre}</option>
-      ))} 
-      </select>
-      <label htmlFor="price">Precio:</label>
-      <select id="price">
-        <option value="">Selecciona un rango de precios</option>
-        <option value="0-50">$0 - $50</option>
-        <option value="50-100">$50 - $100</option>
-        <option value="100+">$100+</option>
+      <select id="category" onChange={handleCategory}>
+        <option value="">Selecciona una categoría</option>
+        {categories.map((category) => (
+          <option key={category.id} value={category.id}>
+            {category.nombre}
+          </option>
+        ))}
       </select>
 
-      <label htmlFor="marca">Marca:</label>
-      <select id="marca">
-      <option value="">Selecciona una Marca</option>
-      {marcas.map(marca=> (
-        <option key={marca.id} value={marca.id}>{marca.nombre}</option>
-      ))} 
+      <label htmlFor="price">Precio:</label>
+      <select id="price" onChange={handlePrice}>
+        <option value="">Selecciona un rango de precios</option>
+        <option value="0-199">$0 - $199</option>
+        <option value="200-399">$200 - $399</option>
+        <option value="400-799">$400 - $799</option>
+        <option value="800-1199">$800 - $1199</option>
+        <option value="1200+">$1200+</option>
       </select>
-      <div className='containerSearchBar'>
-      <button>
-      <img src={searchIcon} alt="search" className='search' />
-      </button> 
+
+      <label htmlFor="brand">Marca:</label>
+      <select id="brand" onChange={handleMarca}>
+  <option value="">Selecciona una marca</option>
+  {marcas.map((marca) => (
+    <option key={marca.id} value={marca.id}>
+      {marca.nombre}
+    </option>
+  ))}
+</select>
+
+
+      <div className="search-bar">
+        <input
+          className="search-input"
+          type="text"
+          placeholder="Busca lo que necesites..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+        <button className="search-btn" onClick={handleSearch}>
+          <FaMagnifyingGlass />
+        </button>
       </div>
     </div>
   );
 }
 
-export default SearchBar;
+export default Category;

@@ -6,7 +6,6 @@ import "./Header.css";
 import logo from "../../assets/Union.png";
 import Login from "../../Components/Login/Login";
 import Logout from "../../Components/Logout/Logout";
-import { FaMagnifyingGlass } from "react-icons/fa6";
 import { FaShoppingCart } from 'react-icons/fa';
 import axios from "axios"
 
@@ -51,14 +50,7 @@ function Navbar() {
       </Link>
 
       <div>
-  <input
-    className="search-input"
-    type="text"
-    placeholder="Busca lo que necesites..."
-  />
-  <button className="glass" >
-    <FaMagnifyingGlass />
-  </button>
+  
 </div>
 
       <nav ref={navRef}>

@@ -104,9 +104,7 @@ const getProductsByNameHandler = async (req, res) => {
     const productsByName = await getProductsByName(nombre);
 
     if (productsByName.length === 0) {
-      res.status(404).json({
-        error: "No se encontraron productos con el nombre proporcionado",
-      });
+      res.status(200).json([]);
     } else {
       res.status(200).json(productsByName);
     }
