@@ -1,10 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;700&display=swap");
 
 * {
 	padding: 0;
 	margin: 0;
 	box-sizing: border-box;
-	font-family: "Titillium Web", sans-serif;
+	font-family: "Urbanist", sans-serif;
 }
 
 :root {
@@ -36,7 +35,7 @@ header {
 	margin-right: 20px;
 	border-radius: 5px;
 	position: relative;
-	width: 20rem;
+	width: 25rem;
 	margin: 0rem 1rem 0rem 1rem;
 }
 
@@ -66,8 +65,8 @@ header {
 }
 
 .title-name {
-	font-size: 18px;
-	font-weight: 600;
+	font-size: 15px;
+	font-weight: 500;
 	color: wheat;
 	/* background-color: #872812; */
 	/* margin: 1rem; */
@@ -77,8 +76,8 @@ header {
 }
 
 .title-name2 {
-	font-size: 18px;
-	font-weight: 600;
+	font-size: 15px;
+	font-weight: 500;
 	color: wheat;
 	/* background-color: #872812; */
 	/* margin: 1rem; */
@@ -109,9 +108,27 @@ nav a {
 	text-decoration: none;
 }
 
+.admin-btn {
+	font-size: 18px;
+	font-weight: 400;
+	color: white;
+	background-color: #204E4C;
+	padding: .5rem;
+	border-radius: 3px;
+}
+
+.admin-btn:hover {
+	font-size: 18px;
+	font-weight: 400;
+	color: white;
+	background-color: #3D2B29;
+	padding: .5rem;
+	border-radius: 3px;
+}
+
 nav a:hover {
 	color: var(--secondaryColor);
-	font-weight: 900;
+	font-weight: 600;
 }
 
 header .nav-btn {

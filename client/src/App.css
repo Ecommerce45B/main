@@ -1,3 +1,7 @@
+* {
+    font-family: "Urbanist", sans-serif;
+}
+
 .nav-profile{
     width: 40px;
     height: 40px;
@@ -5,7 +9,6 @@
     background: indigo;
     cursor: pointer;
 }
-
 
 .page-item{
     width: 46px;

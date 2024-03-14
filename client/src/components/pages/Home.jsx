@@ -9,8 +9,7 @@ import { getProducts, addProduct } from '../../Redux/ProductsSlice'
 import { addProductCart } from '../../Redux/CarritoSlice'
 import axios from 'axios'
 
-
-
+import { useAuth0 } from '@auth0/auth0-react';
 import Announcement from '../Announcement/Announcement.jsx';
 import Banner from '../Banner/Banner';
 import HomeCategory from '../HomeCategory';
@@ -32,11 +31,18 @@ function Home() {
   const carritoJSON = localStorage.getItem("carrito")
   const carritoLocalStorage = JSON.parse(carritoJSON)
 
-  useEffect(() => {    
+  console.log('Auth0--->', {useAuth0})
+  const { isAuthenticated, user} = useAuth0()
+  console.log('isAuthenticated', isAuthenticated)
+  console.log('user:', user)
+
+  useEffect(() => { 
+    localStorage.setItem("user", JSON.stringify(user))   
     console.log('------------------------ Carrito Local Storage ------------------------')
     console.log(carritoLocalStorage)
     const syncronized = async() => {
       const consultaDB = await dispatch(getProducts())
+      console.log('--->',consultaDB);
       await dispatch(addProduct(consultaDB.payload))
     }
     syncronized()

@@ -1,4 +1,5 @@
 import { useRef,useState,useEffect } from "react";
+import { addProduct, removeProducts } from '../../Redux/ProductsSlice'
 import { useSelector, useDispatch  } from 'react-redux'
 import { Link, NavLink } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
@@ -49,17 +50,25 @@ function Navbar() {
     navRef.current.classList.remove("responsive_nav");
   };
 
-  const [query, setQuery] = useState('');
-	const keys = ['nombre', 'descripcion', 'precio', 'nroserie'];
-
-	function Search(data) {
-  const [datos] = data; 
-    console.log('datos', datos)
-		return (
-			data.filter((item) =>
-				keys.some(key => item[key].toLowerCase().includes(query)))
-		);
-	}
+    const [query, setQuery] = useState('');
+  
+    const keys = ['nombre', 'descripcion', 'precio', 'nroserie'];
+  
+    // console.log(Users[2]['email']);
+  
+    const Search = (data) => {
+      return (
+        data.filter((item) =>
+          keys.some(key => {
+            const value = item[key];
+            if (typeof value === 'string') {
+              return value.toLowerCase().includes(query);
+            }
+            return false;
+          })
+        )
+      )
+    }
 
   return (
     <header className="fixed-header">
@@ -69,12 +78,13 @@ function Navbar() {
 
       <div className=''>
 				<input
+          // value={query}
 					type="text"
 					placeholder='buscar...'
 					className='input-search'
 					onChange={e => setQuery(e.target.value)} />
 				{/* <Products data={Search(content)} /> */}
-        <FaMagnifyingGlass  className="glass"/>
+        <FaMagnifyingGlass onClick={() =>{ handleButton() }} className="glass"/>
 			</div>
 
       <nav ref={navRef}>
@@ -89,11 +99,6 @@ function Navbar() {
             Marcas
           </NavLink>
         </a>
-        {/* <a className="title-name">
-          <NavLink to="/budget" onClick={closeNavbar}>
-            Presupuesto
-          </NavLink>
-        </a> */}
         <a className="title-name">
           <NavLink to="/services" onClick={closeNavbar}>
             Servicios
@@ -104,11 +109,11 @@ function Navbar() {
             Contact
           </NavLink>
         </a>
-        {/* <a className="title-name">
+        <a className="title-name">
           <NavLink to="/about" onClick={closeNavbar}>
             About
           </NavLink>
-        </a> */}
+        </a>
         <a className="title-name2">
           <NavLink to="/faq" onClick={closeNavbar}>
             Preguntas Frecuentes
@@ -116,7 +121,7 @@ function Navbar() {
         </a>
         {isAdmin && (
            <Link to="/dashboard" onClick={closeNavbar} className="admin-btn">
-            Dashboard
+            ADMIN
            </Link>
         )}
 

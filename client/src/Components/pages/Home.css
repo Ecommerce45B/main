@@ -32,7 +32,6 @@
 
 .content{
   background-color: #0f0f0f33;
-  padding-bottom: 25px;
 }
 
 .cards{
@@ -63,4 +62,6 @@
   background-color: #204E4C;
 }
 
-
+div {
+  margin: 0;
+}

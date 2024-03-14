@@ -5,6 +5,20 @@ import logo from "../../../src/img/storelogo.png"
 import { NavLink } from "react-router-dom";
 
 const Landing = () => {
+  const user = {
+    id:0,
+    email:'',
+    password:'',
+    picture:'',
+    nombre:'',
+    dirFacturacion:'',
+    dirEnvio:'',
+    telefono:'',
+    estado:'',
+    idRol:'',
+  }
+  localStorage.setItem("user", user);
+  
   return (
     <>
       <div className={styles.container}>
