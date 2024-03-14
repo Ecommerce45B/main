@@ -50,26 +50,20 @@ function Navbar() {
     navRef.current.classList.remove("responsive_nav");
   };
 
-    const [query, setQuery] = useState('');
-  
-    const keys = ['nombre', 'descripcion', 'precio', 'nroserie'];
-  
-    // console.log(Users[2]['email']);
-  
-    const Search = (data) => {
-      return (
-        data.filter((item) =>
-          keys.some(key => {
-            const value = item[key];
-            if (typeof value === 'string') {
-              return value.toLowerCase().includes(query);
-            }
-            return false;
-          })
-        )
-      )
-    }
+  const [query, setQuery] = useState('');
+	const keys = ['nombre', 'descripcion', 'precio', 'nroserie'];
 
+	function Search(data) {
+  const [datos] = data; 
+    console.log('datos', datos)
+		return (
+			data.filter((item) =>
+				keys.some(key => item[key].toLowerCase().includes(query)))
+		);
+	}
+  const stateGlobalCarrito = useSelector((state) => state.productsCarrito)
+  const globalCarrito = stateGlobalCarrito
+  const cantidadProducts = globalCarrito.productsCarrito.length
   return (
     <header className="fixed-header">
       <Link to="/">
@@ -136,6 +130,7 @@ function Navbar() {
       </nav>
       <a>
         <NavLink to="/Carrito">
+          <p className="cantidadProducts">{cantidadProducts}</p>
           <FaShoppingCart className="productCard-cartTwo" />
         </NavLink>
       </a>

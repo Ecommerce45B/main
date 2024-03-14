@@ -1,5 +1,5 @@
 import { useSelector, useDispatch  } from 'react-redux'
-import { removeProducto, addProductCart } from '../../Redux/CarritoSlice'
+import { removeProducto } from '../../Redux/CarritoSlice'
 
 import axios from 'axios'
 

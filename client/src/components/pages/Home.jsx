@@ -36,8 +36,8 @@ function Home() {
   console.log('isAuthenticated', isAuthenticated)
   console.log('user:', user)
 
-  useEffect(() => { 
-    localStorage.setItem("user", JSON.stringify(user))   
+  useEffect(() => {    
+    localStorage.setItem("user", JSON.stringify(user))
     console.log('------------------------ Carrito Local Storage ------------------------')
     console.log(carritoLocalStorage)
     const syncronized = async() => {
@@ -46,6 +46,7 @@ function Home() {
       await dispatch(addProduct(consultaDB.payload))
     }
     syncronized()
+
   }, [carritoLocalStorage, dispatch])
 
   const tamaño = 10;
