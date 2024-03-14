@@ -60,7 +60,9 @@ function Navbar() {
 				keys.some(key => item[key].toLowerCase().includes(query)))
 		);
 	}
-
+  const stateGlobalCarrito = useSelector((state) => state.productsCarrito)
+  const globalCarrito = stateGlobalCarrito
+  const cantidadProducts = globalCarrito.productsCarrito.length
   return (
     <header className="fixed-header">
       <Link to="/">
@@ -131,6 +133,7 @@ function Navbar() {
       </nav>
       <a>
         <NavLink to="/Carrito">
+          <p className="cantidadProducts">{cantidadProducts}</p>
           <FaShoppingCart className="productCard-cartTwo" />
         </NavLink>
       </a>
