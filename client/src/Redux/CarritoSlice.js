@@ -13,11 +13,10 @@ const CarritoSlice = createSlice({
         state.productsCarrito[existingProductIndex].cantidad += 1
       }
       else {
-        const usuarioAlmacenado = localStorage.getItem("user")
-        console.log('usuario Almacenado--->', usuarioAlmacenado);
-        const usuario = JSON.parse(usuarioAlmacenado)
-        console.log('usuario--->', usuario);
+        const usuario = localStorage.getItem("user")
+        console.log('usuario--->', usuario)
         state.productsCarrito.push({ id_user: usuario.id, id_carrito: idCarritoUser, ...action.payload, cantidad: 1})
+
       }
       localStorage.setItem("carrito", JSON.stringify(state.productsCarrito))  
     },

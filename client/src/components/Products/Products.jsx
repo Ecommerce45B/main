@@ -13,12 +13,13 @@ function Products(props) {
 
   const stateGlobal = useSelector((state) => state.products)
   const content = stateGlobal['products']
-  
-  const stateGlobalCarrito = useSelector((state) => state.productsCarrito)
+
   console.log('Auth0--->', {useAuth0})
-  const { isAuthenticated ,user} = useAuth0()
+  const { isAuthenticated, user} = useAuth0()
   console.log('isAuthenticated', isAuthenticated)
   console.log('user:', user)
+  
+  const stateGlobalCarrito = useSelector((state) => state.productsCarrito)
 
   const getIdUser = async () => {
     const emailUser = user.email
