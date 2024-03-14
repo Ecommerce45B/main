@@ -72,10 +72,6 @@ html{
   cursor: pointer;
 }
 
-.productCard__cart:hover{
-  color: black;
-}
-
 .productCard__wishlist{
   position: absolute;
   right: 3rem;
